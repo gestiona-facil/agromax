@@ -1,6 +1,10 @@
-import './assets/main.css'
-
-import { createApp } from 'vue'
+import { createApp } from 'vue/dist/vue.esm-bundler'
 import App from './App.vue'
 
-createApp(App).mount('#app')
+let app = createApp({
+    components:{
+        'my-app':{
+            template: '<div>Hola mundo Wonderfull</div>'
+        }
+    }
+}).mount('#app')
