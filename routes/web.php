@@ -30,6 +30,15 @@ Route::controller(App\Http\Controllers\AuthController::class)->group(function ()
     //--- registrar
     Route::get('/registrar', 'showRegistroForm')->name('registrar');
     Route::post('/auth-guardar', 'registrar')->name('auth-guardar');
-
-
 });
+
+
+//---- Solo Usuario Autenticados
+
+// Route::middleware()->group(function (){
+    
+    //---- Rutas para Ganando Bovino
+    Route::prefix('/ganados/bovinos')->group(function (){
+        
+    });
+// });

@@ -2,8 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\InformacionGeneral;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
+use App\Models\User;
+use App\Models\PreguntaRespuesta;
 
 class AuthController extends Controller
 {
@@ -33,6 +37,28 @@ class AuthController extends Controller
 
     //procesar registro
     public function registrar(Request $request){
-        
+        $usuario = new User();
+        $info = new InformacionGeneral();
+
+        $usuario->email = $request->email;
+        $usuario->password = Hash::make($request->password);
+        $usuario->pregunta_seguridad = $request->pregunta;
+        $usuario->respuestas_seguridad = $request->seguridad;
+
+        if(!$usuario->save()){
+            return back()->withErrors([
+                'status' => 'No fue posible realizar el registro'
+            ]);
+        }
+
+        //-- en este punto, usuario ya guardado
+        $info->nombre_empresa = $request->empresa;
+        $info->codigo_hierro = $request->hierro;
+        $info->cant_hectareas = $request->hectareas;
+        $info->save();
+
+        return redirect()->route('login')->withInput([
+            'registro' => '¡Datos registrados exitosamente!' 
+        ]);
     }
 }

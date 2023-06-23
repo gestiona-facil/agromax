@@ -10,7 +10,7 @@ class Ganado extends Model
     protected $tableName = 'ganados';
     use HasFactory;
 
-    public function engordes(): hasMany
+    public function engordes()
 {
     return $this->hasMany(Engorde::class);
 }
