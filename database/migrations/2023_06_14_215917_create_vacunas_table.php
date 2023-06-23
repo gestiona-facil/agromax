@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('vacunas', function (Blueprint $table) {
             $table->id();
-            $table->text('nombre');
-            $table->text('lote');
+            $table->string('nombre');
+            $table->string('lote');
             $table->date('fecha');
             $table->timestamps();
         });

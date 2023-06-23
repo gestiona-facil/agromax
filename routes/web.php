@@ -20,3 +20,16 @@ Route::get('/', function () {
 Route::get('/welcome', function (){
     return view('testing');
 });
+
+
+//---- Autenticación
+Route::controller(App\Http\Controllers\AuthController::class)->group(function (){
+    //--- login
+    Route::get('/ingresar', 'showLoginForm')->name('login');
+    Route::post('/auth-inspeccion', 'login')->name('auth-inspeccion');
+    //--- registrar
+    Route::get('/registrar', 'showRegistroForm')->name('registrar');
+    Route::post('/auth-guardar', 'registrar')->name('auth-guardar');
+
+
+});

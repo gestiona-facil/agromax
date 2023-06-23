@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('reproductores', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('ganado_id');
-            $table->text('tipo_alimentacion');
+            $table->string('tipo_alimentacion');
             $table->float('tiempo_madurez');
             $table->timestamps();
         });

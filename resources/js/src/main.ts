@@ -3,6 +3,6 @@ import App from './App.vue'
 
 let app = createApp({
     components:{
-        'my-app':App
+        'my-app':App,
     }
 }).mount('#app')

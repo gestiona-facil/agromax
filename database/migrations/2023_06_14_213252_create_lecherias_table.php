@@ -14,10 +14,10 @@ return new class extends Migration
         Schema::create('lecherias', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('madre_id');
-            $table->text('alias');
-            $table->text('tipo_alimento');
+            $table->string('alias');
+            $table->string('tipo_alimento');
             $table->float('cant_meta');
-            $table->text('observaciones');
+            $table->text('observaciones')->nullable();
             $table->timestamps();
         });
     }
