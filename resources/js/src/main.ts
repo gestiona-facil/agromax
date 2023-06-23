@@ -3,8 +3,6 @@ import App from './App.vue'
 
 let app = createApp({
     components:{
-        'my-app':{
-            template: '<div>Hola mundo Wonderfull</div>'
-        }
+        'my-app':App
     }
 }).mount('#app')

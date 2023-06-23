@@ -3,16 +3,20 @@
     <head>
         <title>@yield('titulo', config('app.name'))</title>
         <!-- estilos bases -->
+        @yield('pre-links')
+        <link rel="stylesheet" href="{{asset('css/styles.css')}}" />
         <!-- ejecuciones bases -->
-        {{-- <script src="{{asset('build/assets/main-b7100ee5.js')}}"></script> --}}
+        @yield('pre-scripts')
     </head>
     <body>
         @yield('pre-contenido')
         <div id="app">
-            @yield('app', 'hello word')
+            @yield('app')
         </div>
         @yield('post-contenido')
     </body>
+
     @yield('post-script')
-    <script src="{{asset('build/assets/main-ac434f61.js')}}"></script>
+    <script src="{{asset('build/assets/main-05d8303c.js')}}"></script>
+    
 </html>
