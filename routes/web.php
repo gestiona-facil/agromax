@@ -40,5 +40,10 @@ Route::controller(App\Http\Controllers\AuthController::class)->group(function ()
     //---- Rutas para Ganando Bovino
     Route::prefix('/ganados/bovinos')->group(function (){
         
+        Route::resources([
+            'vaca' => App\Http\Controllers\Bovino\MadreController::class,
+            'cria' => App\Http\Controllers\Bovino\CriaController::class
+        ]);
+        
     });
 // });
