@@ -20,9 +20,10 @@ class Madre extends Model
     {
         return $this->belongsTo(ControlLecheria::class);
     }
-    public function ganados()
+    
+    public function ganado()
     {
-        return $this->belongsTo(Ganado::class, );
+        return $this->belongsTo(Ganado::class, 'ganado_id');
     }
     
 }

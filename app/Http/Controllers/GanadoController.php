@@ -3,57 +3,48 @@
 namespace App\Http\Controllers;
 
 use App\Models\Ganado;
-use App\Http\Requests\StoreGanadoRequest;
-use App\Http\Requests\UpdateGanadoRequest;
+use Illuminate\Foundation\Http\FormRequest as Request;
 
+/**
+ * Esta clase es "especial" debe servir de base (por composición) a otros controladores.
+ * Por lo tanto, no debe ser usando en rutas, sino más bien, debe ser heredada
+ * por otros controladores
+ */
 class GanadoController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
-    {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreGanadoRequest $request)
+    public function store(Request $request, Ganado $ganado)
     {
-        //
-    }
+        //validacion local
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(Ganado $ganado)
-    {
-        //
-    }
+        if($request->has('madre')){
+            $ganado->madre_id = $request->madre;
+        }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Ganado $ganado)
-    {
-        //
+        if(!$request->has('padre')){
+            $ganado->padre_id = $request->padre;
+        }
+
+        $ganado->identificacion = $request->identificacion;
+        $ganado->tipo = $request->tipo;
+        $ganado->raza = $request->raza;
+        $ganado->fecha_nacimiento = $request->fecha_nacimiento;
+        $ganado->sexo = $request->sexo;
+        $ganado->save();
+
+        return $ganado;
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateGanadoRequest $request, Ganado $ganado)
+    public function update(Request $request, Ganado $ganado)
     {
         //
+        return $this->store($request, $ganado);
     }
 
     /**
@@ -62,5 +53,6 @@ class GanadoController extends Controller
     public function destroy(Ganado $ganado)
     {
         //
+        return $ganado->delete();
     }
 }
