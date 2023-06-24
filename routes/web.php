@@ -46,7 +46,10 @@ Route::controller(App\Http\Controllers\AuthController::class)->group(function ()
             'engorde' => App\Http\Controllers\Bovino\EngordeController::class,
             'reproductor' => App\Http\Controllers\Bovino\ReproductorController::class,
             //aspectos sanitarios
-            'vacuna' => App\Http\Controllers\VacunaController::class
+            'vacuna' => App\Http\Controllers\VacunaController::class,
+            //produccion lactea
+            'lecheria' => App\Http\Controllers\LecheriaController::class
+
         ]);
         
     });

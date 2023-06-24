@@ -13,7 +13,6 @@ return new class extends Migration
     {
         Schema::create('lecherias', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('madre_id');
             $table->string('alias');
             $table->string('tipo_alimento');
             $table->float('cant_meta');
