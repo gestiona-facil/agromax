@@ -53,11 +53,13 @@ Route::controller(App\Http\Controllers\AuthController::class)->group(function ()
 
     });
 
+    //---- Rutas para Agricultura
     Route::prefix('/agricultura')->group(function (){
 
         Route::resources([
             'terreno' => \App\Http\Controllers\Agricultura\TerrenoController::class,
             'semilla' => \App\Http\Controllers\Agricultura\SemillaController::class,
+            'cosecha' => \App\Http\Controllers\Agricultura\CosechaController::class,
             'planta' => \App\Http\Controllers\Agricultura\PlantaController::class, //vegetal
         ]);
 
