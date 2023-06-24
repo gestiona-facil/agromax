@@ -17,6 +17,6 @@
     </body>
 
     @yield('post-script')
-    <script src="{{asset('build/assets/main-05d8303c.js')}}"></script>
+    <script src="{{asset('build/assets//main-e593f5bf.js')}}"></script>
     
 </html>

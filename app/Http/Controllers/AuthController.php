@@ -14,11 +14,11 @@ class AuthController extends Controller
     //formulario para registro
     public function showLoginForm()
     {
-        return view('auth.login');
+        return view('login');
     }
 
     public function showRegistroForm(){
-        return view('auth.sign');
+        return view('sign');
     }
 
     //procesar autenticación
