@@ -49,8 +49,15 @@ Route::controller(App\Http\Controllers\AuthController::class)->group(function ()
             'vacuna' => App\Http\Controllers\VacunaController::class,
             //produccion lactea
             'lecheria' => App\Http\Controllers\LecheriaController::class
-
         ]);
-        
+
+    });
+
+    Route::prefix('/agricultura')->group(function (){
+
+        Route::resources([
+            'terreno' => \App\Http\Controllers\Agricultura\TerrenoController::class
+        ]);
+
     });
 // });
