@@ -57,7 +57,8 @@ Route::controller(App\Http\Controllers\AuthController::class)->group(function ()
 
         Route::resources([
             'terreno' => \App\Http\Controllers\Agricultura\TerrenoController::class,
-            'semilla' => \App\Http\Controllers\Agricultura\SemillaController::class
+            'semilla' => \App\Http\Controllers\Agricultura\SemillaController::class,
+            'planta' => \App\Http\Controllers\Agricultura\PlantaController::class, //vegetal
         ]);
 
     });
