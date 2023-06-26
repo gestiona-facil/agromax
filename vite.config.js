@@ -11,7 +11,7 @@ export default defineConfig({
         vue(),
         vueJsx(),    
         laravel({
-            input: ['resources/css/app.css', 'resources/js/src/main.ts'],
+            input: ['resources/css/styles.css', 'resources/js/src/main.ts'],
             refresh: true,
         }),
     ],

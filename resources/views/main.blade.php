@@ -14,9 +14,10 @@
             @yield('app')
         </div>
         @yield('post-contenido')
+        
     </body>
 
     @yield('post-script')
-    <script src="{{asset('build/assets/main-05d8303c.js')}}"></script>
+    <script src="{{asset('build//assets/main-41f49559.js')}}"></script>
     
 </html>
