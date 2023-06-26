@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Agricultura;
 
+use App\Http\Controllers\Controller;
 use App\Models\Riego;
 use App\Http\Requests\Agricultura\StoreRiegoRequest;
 use App\Http\Requests\Agricultura\UpdateRiegoRequest;

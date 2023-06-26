@@ -69,4 +69,6 @@ Route::controller(App\Http\Controllers\AuthController::class)->group(function ()
         ]);
 
     });
+
+    Route::resource('finanza', \App\Http\Controllers\FinanzaController::class);
 // });
