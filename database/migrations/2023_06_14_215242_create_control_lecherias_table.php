@@ -14,9 +14,9 @@ return new class extends Migration
         Schema::create('control_lecherias', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('madre_id');
-            $table->text('cant_recolectada');
+            $table->float('cant_recolectada');
             $table->date('fecha');
-            $table->text('observaciones');
+            $table->text('observaciones')->nullable();
             $table->timestamps();
         });
     }

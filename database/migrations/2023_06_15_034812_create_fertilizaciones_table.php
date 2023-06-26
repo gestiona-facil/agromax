@@ -15,10 +15,10 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('siembra_id');
             $table->text('nombre');
-            $table->enum('tipo');
+            $table->string('tipo');
             $table->date('fecha');
             $table->float('cantidad');
-            $table->enum('metodo_aplicacion');
+            $table->string('metodo_aplicacion');
             $table->text('observaciones');
             $table->timestamps();
         });

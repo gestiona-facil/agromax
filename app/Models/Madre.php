@@ -4,8 +4,6 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\HasMany;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Madre extends Model
 {
@@ -13,14 +11,14 @@ class Madre extends Model
     
     use HasFactory;
 
-    public function lecherias(): hasMany
+    public function lecherias()
     {
         return $this->hasMany(Lecheria::class);
     }
     
-    public function control_lecherias(): hasMany
+    public function control_lecherias()
     {
-        return $this->hasMany(Control_Lecheria::class);
+        return $this->belongsTo(ControlLecheria::class);
     }
     public function ganados()
     {

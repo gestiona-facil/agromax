@@ -7,6 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class Vacuna extends Model
 {
-    protected $tableName = 'vacunas';
     use HasFactory;
+
+    protected $tableName = 'vacunas';
+
+    public function control_sanitario(){
+        return $this->belongsTo(ControlSanitarioAnimal::class);
+    }
 }

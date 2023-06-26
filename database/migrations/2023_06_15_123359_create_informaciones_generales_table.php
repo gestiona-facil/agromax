@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('informaciones_generales', function (Blueprint $table) {
             $table->id();
-            $table->text('nombre_empresa_');
-            $table->text('codigo_hierro');
+            $table->string('nombre_empresa_');
+            $table->string('codigo_hierro');
             $table->float('cant_hectareas');
             $table->timestamps();
         });

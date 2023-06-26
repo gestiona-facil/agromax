@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('engordes', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('ganado_id');
-            $table->enum('tipo_alimento');
+            $table->string('tipo_alimento');
             $table->float('cant_total_alimento');
             $table->integer('duracion');
             $table->float('peso_inicial');

@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('semillas', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('vegetal_id');
-            $table->text('marca');
+            $table->string('marca');
             $table->timestamps();
         });
     }

@@ -1,5 +1,4 @@
-import MyInput from 'flowbite/components/MyInput.vue';
-import axios from 'axios';
+
 
 @extends('main')
 

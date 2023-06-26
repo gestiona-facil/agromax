@@ -13,10 +13,11 @@ return new class extends Migration
     {
         Schema::create('finanzas', function (Blueprint $table) {
             $table->id();
-            $table->text('concepto');
+            $table->string('concepto');
             $table->boolean('naturaleza');
             $table->float('monto');
             $table->date('fecha');
+            $table->text('observaciones');
             $table->timestamps();
         });
     }

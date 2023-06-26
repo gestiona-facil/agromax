@@ -16,7 +16,7 @@ return new class extends Migration
             $table->unsignedBigInteger('ganado_id');
             $table->date('fecha');
             $table->date('fecha_control_proximo');
-            $table->enum('estado_salud');
+            $table->text('estado_salud');
             $table->text('observaciones');
             $table->timestamps();
             
