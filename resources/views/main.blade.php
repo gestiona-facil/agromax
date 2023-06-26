@@ -14,6 +14,7 @@
             @yield('app')
         </div>
         @yield('post-contenido')
+        
     </body>
 
     @yield('post-script')
