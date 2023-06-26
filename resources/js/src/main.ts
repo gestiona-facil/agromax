@@ -6,6 +6,6 @@ import App from './App.vue'
 let app = createApp({
     components:{
         'my-app':App,
-        'myinput':Input
+        'my-input':Input
     }
 })

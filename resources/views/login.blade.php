@@ -1,11 +1,9 @@
-
-
 @extends('main')
 
+@section('titulo', 'Iniciar Sesion')
+
 @section('app')
-    <my-input>
-<template>
-  <div class="flex justify-center items-center h-screen">
+    <my-input> <div class="flex justify-center items-center h-screen">
     <form class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
       <div class="mb-4">
         <my-input label="Correo electrónico" type="email" placeholder="Introduce tu correo electrónico" v-model="email" />
@@ -14,15 +12,16 @@
         <my-input label="Contraseña" type="password" placeholder="Introduce tu contraseña" v-model="password" />
       </div>
       <div class="flex items-center justify-between">
-        <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" @click.prevent="submitForm()">Iniciar</button>
+        <button class="bg-blue-500 hover:bg-blue-700 text-black font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" @click.prevent="submitForm()">Iniciar</button>
       </div>
     </form>
   </div>
-</template>
+</body> 
+  
+</my-input>
+@endsection
 
-<script>
-
-export default {
+<!--export default {
   name: 'LoginForm',
   components: {
     MyInput
@@ -49,7 +48,6 @@ export default {
     }
   }
 }
-</script>
 
 <style scoped>
 .login-form {
@@ -62,7 +60,5 @@ export default {
 .form-group {
   margin-bottom: 20px;
 }
-</style>
+</style> -->
 
-</my-input>
-@endsection
