@@ -18,11 +18,13 @@ let app = createApp({
         'flow-input':Input,
         'flow-sidebar':Sidebar,
         'flow-navbar':Navbar,
-        'flow-navLogo':NavbarLogo,
-        'flow-navLink':NavbarLink,
-        'flow-navCol':NavbarCollapse,
+        'flow-nav-logo':NavbarLogo,
+        'flow-nav-link':NavbarLink,
+        'flow-nav-col':NavbarCollapse,
         'flow-accordion':Accordion,
         'flow-footer':Footer,
         'flow-carousel':Carousel
     }
 })
+
+app.mount('#app');

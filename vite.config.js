@@ -7,6 +7,18 @@ import vue from '@vitejs/plugin-vue'
 import vueJsx from '@vitejs/plugin-vue-jsx'
 
 export default defineConfig({
+    build: {
+        assetsDir: "assets",
+        rollupOptions: {
+          output: {
+            assetFileNames: "[name].[hash][extname]",
+            chunkFileNames: "[name].[hash].js",
+            entryFileNames: "[name].js",
+          },
+        },
+        // Change the default file name pattern
+        assetFileNames: "[name].[hash][extname]",
+    },
     plugins: [
         vue(),
         vueJsx(),    
