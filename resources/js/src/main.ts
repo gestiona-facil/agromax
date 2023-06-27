@@ -4,7 +4,11 @@ import App from './App.vue'
 //---- componentes
 import {
     Input,
-    Button
+    Button,
+    Sidebar,
+    Navbar, NavbarLogo, NavbarCollapse, NavbarLink,
+    Accordion, AccordionPanel, AccordionHeader, AccordionContent,
+    Footer, Carousel
 } from "flowbite-vue";
 
 let app = createApp({
@@ -12,6 +16,13 @@ let app = createApp({
         'my-app':App,
         'flow-button':Button,
         'flow-input':Input,
-        'my-input':Input
+        'flow-sidebar':Sidebar,
+        'flow-navbar':Navbar,
+        'flow-navLogo':NavbarLogo,
+        'flow-navLink':NavbarLink,
+        'flow-navCol':NavbarCollapse,
+        'flow-accordion':Accordion,
+        'flow-footer':Footer,
+        'flow-carousel':Carousel
     }
 })
