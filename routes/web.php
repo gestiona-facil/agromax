@@ -64,7 +64,11 @@ Route::controller(App\Http\Controllers\AuthController::class)->group(function ()
             'semilla' => \App\Http\Controllers\Agricultura\SemillaController::class,
             'cosecha' => \App\Http\Controllers\Agricultura\CosechaController::class,
             'planta' => \App\Http\Controllers\Agricultura\PlantaController::class, //vegetal
+            'riego' => \App\Http\Controllers\Agricultura\RiegoController::class,
+            'fertilizacion' => \App\Http\Controllers\Agricultura\FertilizacionController::class
         ]);
 
     });
+
+    Route::resource('finanza', \App\Http\Controllers\FinanzaController::class);
 // });

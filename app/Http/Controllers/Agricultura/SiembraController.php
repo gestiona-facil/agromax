@@ -4,7 +4,8 @@ namespace App\Http\Controllers\Agricultura;
 
 use App\Http\Controllers\Controller;
 use App\Models\Siembra;
-use Illuminate\Http\Request;
+use App\Http\Requests\Agricultura\StoreSiembraRequest;
+use App\Http\Requests\Agricultura\UpdateSiembraRequest;
 
 class SiembraController extends Controller
 {
@@ -27,7 +28,7 @@ class SiembraController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request, Siembra $siembra)
+    public function store(StoreSiembraRequest $request, Siembra $siembra)
     {
         //
         $siembra->semilla_id = $request->semilla;
@@ -64,7 +65,7 @@ class SiembraController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Siembra $siembra)
+    public function update(UpdateSiembraRequest $request, Siembra $siembra)
     {
         //
         $siembra->semilla_id = $request->semilla;
