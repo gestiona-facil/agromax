@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('ganados', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('madre_id');
-            $table->unsignedBigInteger('padre_id');
+            $table->unsignedBigInteger('madre_id')->nullable()->default(0);// 0 -> desconocidos o no especificados
+            $table->unsignedBigInteger('padre_id')->nullable()->default(0);// 0 -> desconocidos o no especificados
             $table->text('identificacion');
             $table->text('tipo');
             $table->text('raza');

@@ -4,7 +4,10 @@
     {{-- Header --}}
     <div>
         {{-- Sidebar --}}
-        @yield('contenido')
+        <div>
+            <h1> @yield('titulo-contenido') </h1>
+            @yield('contenido')
+        </div>
     </div>
     {{-- Footer --}}
 @endsection

@@ -10,7 +10,7 @@
        <flow-input type="text" label="Confirme Clave: *"></flow-input>
 
        <!-- seguridad -->
-       <flow-input type="text" label="Pregunta de Seguridad: *" :class="text-blue-400"></flow-input>
+       <flow-input type="text" label="Pregunta de Seguridad: *"></flow-input>
        <flow-input type="password" label="Respuesta: *"></flow-input>
 
        <flow-button>Registrar</flow-button>

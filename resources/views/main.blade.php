@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>@yield('titulo', config('app.name'))</title>
+        <title>@yield('titulo', 'Bienvenido') - {{ config('app.name') }}</title>
         <!-- estilos bases -->
         @yield('pre-links')
         <link rel="stylesheet" href="{{asset('css/styles.css')}}" />
@@ -17,7 +17,7 @@
         
     </body>
 
-    @yield('post-script')
     <script src="{{asset('build/main.js')}}"></script>
+    @yield('post-script')
     
 </html>

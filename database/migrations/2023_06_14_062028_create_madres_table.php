@@ -14,12 +14,12 @@ return new class extends Migration
         Schema::create('madres', function (Blueprint $table) {
             $table->id('id');
             $table->unsignedBigInteger('ganado_id');
-            $table->unsignedBigInteger('lecheria_id');
+            $table->unsignedBigInteger('lecheria_id')->nullable()->default(0); // 0 -> desconocido o no especificado
             $table->string('alias');
             $table->boolean('gestando');
-            $table->float('cant_leche');
+            // $table->float('cant_leche');
             $table->integer('tiempo_parto');
-            $table->date('fecha_inicio_gestacion');
+            $table->date('fecha_inicio_gestacion')->nullable();
             $table->timestamps();
         });
     }
