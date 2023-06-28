@@ -1,5 +1,9 @@
 @extends('main')
 
+
+@section('sidebar')
+<p>este es mi sidebar</p>
+
 @section('app')
     <form>
        <flow-input type="text" label="Nombre de la Empresa"></flow-input>
