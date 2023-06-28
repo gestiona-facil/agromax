@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use App\Http\Controllers\GanadoController;
 use App\Models\Madre;
 use App\Models\Ganado;
+use App\Models\Reproductor;
+use App\Models\Lecheria;
 use App\Http\Requests\Bovino\StoreMadreRequest;
 use App\Http\Requests\Bovino\UpdateMadreRequest;
 
@@ -31,7 +33,10 @@ class MadreController extends Controller
      */
     public function create()
     {
-        //
+        return view('ganado.bovino.vaca.crear', [
+            'madres' => collect([]),
+            'padres' => collect([])
+        ]);
     }
 
     /**
@@ -70,6 +75,11 @@ class MadreController extends Controller
     public function show(Madre $madre)
     {
         //
+        return view('ganado.bovino.vaca.editar', [
+            'madres' => collect(),
+            'padres' => collect(),
+            'vaca' => $madre
+        ]);
     }
 
     /**
