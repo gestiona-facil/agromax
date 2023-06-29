@@ -1,8 +1,10 @@
 @extends('main')
 
+@section('header')
+
 @section('app')
-    <form method="POST" action="{{ route('larutaporsupuestojaja') }}">
-        @csrf
+
+
         <flow-input type="text" label="Email: *" name="email"></flow-input>
         <flow-input type="password" label="Clave: *" name="password"></flow-input>
         <flow-button>Iniciar sesión</flow-button>
@@ -11,7 +13,7 @@
         <div class="alert alert-danger">{{ session('error') }}</div>
     @endif
 @endsection
-
+<!-- 
 public function login(Request $request)
 {
     $credentials = $request->only('email', 'password');
@@ -21,4 +23,4 @@ public function login(Request $request)
     } else {
         return redirect()->back()->with('error', 'Las credenciales son incorrectas');
     }
-}
+}-->
