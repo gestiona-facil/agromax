@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Controllers\GanadoController;
 use App\Models\Reproductor;
 use App\Models\Ganado;
+use App\Models\Madre;
 use App\Http\Requests\Bovino\StoreReproductorRequest;
 use App\Http\Requests\Bovino\UpdateReproductorRequest;
 use Illuminate\Http\Request;
@@ -33,6 +34,14 @@ class ReproductorController extends Controller
     public function create()
     {
         //
+        return view('ganado.bovino.toro.crear', [
+            'madres' => Madre::join('ganados', 'madres.ganado_id', '=', 'ganados.id')
+                        ->where('ganados.tipo', '=', 'bovino')
+                        ->select('madres.*')
+                        ->get(),
+
+            'padres' => collect([]),//TODO: agregar de forma similar que arriba, pero problema con nombre de tabla es presentado
+        ]);
     }
 
     /**

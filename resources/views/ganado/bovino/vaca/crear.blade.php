@@ -2,10 +2,6 @@
 
 @section('titulo', 'Registrar Vaca')
 
-@php
-$madres = ['vacas']
-@endphp
-
 @section('titulo-contenido', 'Registrar Vaca')
 @section('contenido')
 <div class="p-2">
@@ -30,7 +26,7 @@ $madres = ['vacas']
             </div>
         </div>
         <div v-if="vaca_gestando" class="flex flex-row justify-between pt-2">
-            <flow-input type="date" label="Fecha de inicio de gestacion: *" model-value="{{ $vaca->fecha_inicio_gestacion }}"></flow-input>
+            <flow-input type="date" label="Fecha de inicio de gestacion: *" model-value="{{ old('fecha_inicio_gestacion') }}"></flow-input>
         </div>
 
         <div class="pt-6">

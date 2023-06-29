@@ -23,7 +23,7 @@ class Madre extends Model
     
     public function ganado()
     {
-        return $this->belongsTo(Ganado::class, 'ganado_id');
+        return $this->belongsTo(Ganado::class);
     }
     
 }

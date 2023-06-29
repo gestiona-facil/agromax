@@ -8,11 +8,12 @@ globalThis.ref = ref;
 //---- componentes
 import {
     Input,
-    Button,
+    Badge, Button,
     Sidebar,
     Navbar, NavbarLogo, NavbarCollapse, NavbarLink,
     Accordion, AccordionPanel, AccordionHeader, AccordionContent,
-    Footer, Carousel
+    Footer, Carousel,
+    Table, TableHead, TableBody, TableHeadCell, TableRow, TableCell
 } from "flowbite-vue";
 
 let app = createApp({
@@ -26,19 +27,26 @@ let app = createApp({
     },
     components:{
         'my-app':App,
+        'flow-badge':Badge,
         'flow-button':Button,
         'flow-input':Input,
         'flow-sidebar':Sidebar,
         'flow-navbar':Navbar,
         'flow-nav-logo':NavbarLogo,
         'flow-nav-link':NavbarLink,
-        'flow-nav-col':NavbarCollapse,
+        'flow-nav-collapse':NavbarCollapse,
         'flow-accordion':Accordion,
         'flow-accordion-header':AccordionHeader,
         'flow-accordion-panel':AccordionPanel,
         'flow-accordion-content':AccordionContent,
         'flow-footer':Footer,
-        'flow-carousel':Carousel
+        'flow-carousel':Carousel,
+        'flow-table':Table,
+        'flow-table-head':TableHead,
+        'flow-table-head-cell':TableHeadCell,
+        'flow-table-body':TableBody,
+        'flow-table-cell':TableCell,
+        'flow-table-row':TableRow
     }
 })
 

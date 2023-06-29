@@ -26,6 +26,9 @@ class MadreController extends Controller
     public function index()
     {
         //
+        return view('ganado.bovino.vaca.lista', [
+            'datos' => Madre::paginate(25)
+        ]);
     }
 
     /**
@@ -34,7 +37,10 @@ class MadreController extends Controller
     public function create()
     {
         return view('ganado.bovino.vaca.crear', [
-            'madres' => collect([]),
+            'madres' => Madre::join('ganados', 'madres.ganado_id', '=', 'ganados.id')
+                        ->where('ganados.tipo', '=', 'bovino')
+                        ->select('madres.*')
+                        ->get(),
             'padres' => collect([])
         ]);
     }
@@ -75,10 +81,8 @@ class MadreController extends Controller
     public function show(Madre $madre)
     {
         //
-        return view('ganado.bovino.vaca.editar', [
-            'madres' => collect(),
-            'padres' => collect(),
-            'vaca' => $madre
+        return view('ganado.bovino.vaca.mostrar', [
+            'modelo' => $madre
         ]);
     }
 
@@ -88,6 +92,11 @@ class MadreController extends Controller
     public function edit(Madre $madre)
     {
         //
+        return view('ganado.bovino.vaca.editar', [
+            'madres' => collect(),
+            'padres' => collect(),
+            'vaca' => $madre
+        ]);
     }
 
     /**

@@ -8,9 +8,9 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Reproductor extends Model
 {
-    protected $tableName = 'reproductores';
     use HasFactory;
-
+    
+    protected $tableName = 'reproductores';
     
     public function ganados()
     {

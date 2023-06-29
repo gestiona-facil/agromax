@@ -1,11 +1,11 @@
 @extends('ganado.bovino.main')
 
-@section('titulo', 'Registrar Vaca')
+@section('titulo', 'Editar Vaca')
 
 @section('titulo-contenido', 'Editar Vaca')
 @section('contenido')
 <div class="p-2">
-    <form action="{{route('vaca.update')}}" method="POST">
+    <form action="{{route('vaca.update', ['vaca' => $modelo->id])}}" method="POST">
         @csrf
         @method('put')
         {{-- Valores ocultos --}}

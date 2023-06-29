@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Models\Madre;
 use Illuminate\Cache\RateLimiting\Limit;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
 use Illuminate\Http\Request;
@@ -44,5 +45,8 @@ class RouteServiceProvider extends ServiceProvider
             'index' => 'lista',
             'destroy' => 'eliminar'
         ]);
+
+        //personalizando parametros
+        Route::model('vaca', Madre::class);
     }
 }
