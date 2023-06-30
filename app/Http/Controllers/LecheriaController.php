@@ -14,6 +14,9 @@ class LecheriaController extends Controller
     public function index()
     {
         //
+        return view('ganado.bovino.lecheria.lista', [
+            'datos' => Lecheria::paginate(25)
+        ]);
     }
 
     /**
@@ -22,6 +25,7 @@ class LecheriaController extends Controller
     public function create()
     {
         //
+        return view('ganado.bovino.lecheria.crear');
     }
 
     /**
@@ -30,13 +34,13 @@ class LecheriaController extends Controller
     public function store(StoreLecheriaRequest $request, Lecheria $lecheria)
     {
         //
-        $lecheria = $request->alias;
-        $lecheria = $request->tipo_alimento;
-        $lecheria = $request->cant_meta;
-        $lecheria = $request->observaciones;
+        $lecheria->alias = $request->alias;
+        $lecheria->tipo_alimento = $request->tipo_alimento;
+        $lecheria->cant_meta = $request->cant_meta;
+        $lecheria->observaciones = $request->observaciones;
 
         if($lecheria->save()){
-            return redirect()->route('lecheria.index')->withInput([
+            return redirect()->route('lecheria.show', ['lecherium' => $lecheria->id])->withInput([
                 'status' => 'Registro realizado exitosamente'
             ]);
         }
@@ -53,6 +57,9 @@ class LecheriaController extends Controller
     public function show(Lecheria $lecheria)
     {
         //
+        return view('ganado.bovino.lecheria.mostrar', [
+            'modelo' => $lecheria
+        ]);
     }
 
     /**
@@ -61,6 +68,9 @@ class LecheriaController extends Controller
     public function edit(Lecheria $lecheria)
     {
         //
+        return view('ganado.bovino.lecheria.editar', [
+            'modelo' => $lecheria
+        ]);
     }
 
     /**

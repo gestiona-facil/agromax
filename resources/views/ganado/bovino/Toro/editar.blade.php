@@ -11,10 +11,10 @@
         {{-- Valores ocultos --}}
         @include('ganado.bovino.base.editar')
         <div class="flex flex-row justify-between pt-2">
-            <flow-input type="text" name="tipo_alimentación" label="Tipo de alimento: *" model-value="{{ old('tipo_alimento') }}"></flow-input>
+            <flow-input type="text" name="tipo_alimentacion" label="Tipo de alimentacion: *" model-value="{{ old('tipo_alimentacion') }}"></flow-input>
         </div>
         <div class="flex flex-row justify-between pt-2">
-            <flow-input type="number" name="Tiempo_madurez" label="Tiempo de madurez del padre: *" model-value="{{ old('Tiempo_madurez') }}"></flow-input>
+            {{-- <flow-input type="number" name="tiempo_madurez" label="Tiempo de madurez del padre: *" model-value="{{ old('Tiempo_madurez') }}"></flow-input> --}}
         </div>
 
         <div class="pt-6">

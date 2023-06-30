@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('crias', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('ganado_id');
+            $table->unsignedSmallInteger('tiempo_destete');
             $table->boolean('destetado');
             $table->text('alias');
             $table->timestamps();

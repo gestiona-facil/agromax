@@ -1,14 +1,14 @@
 @extends('ganado.bovino.main')
 
-@section('titulo', 'Vaca')
+@section('titulo', 'Engorde')
 
-@section('titulo-contenido', 'Datos de Vaca: '.$modelo->ganado->identificacion)
+@section('titulo-contenido', 'Datos de Engorde: '.$modelo->ganado->identificacion)
 
 @section('contenido')
 <div>
     <div class="p-b-2 pt-4 px-4">
         {{-- boton editar --}}
-        <flow-button size="xs"><a href="{{ route('vaca.edit', ['vaca' => $modelo->id])}}">Editar</a></flow-button>
+        <flow-button size="xs"><a href="{{ route('engorde.edit', ['engorde' => $modelo->id])}}">Editar</a></flow-button>
         {{-- boton exportar --}}
     </div>
     <div class="flex flex-row">
@@ -33,12 +33,6 @@
                             <span class="px-2">Fecha de nacimiento:</span><flow-badge>{{$modelo->ganado->fecha_nacimiento}}</flow-badge>
                         </p>
                     </div>
-                    @if($modelo->gestando)
-                    <div>
-                        <h3><span>Vaca preñada</span> desde <span>{{$modelo->fecha_inicio_gestacion}}</span></h3>
-                        {{-- TODO: incluir fecha aproximada de parto --}}
-                    </div>
-                    @endif
                 </div>
             </div>
             <h2 class="text-xl border-b py-3 indent-3">Información Secundaria</h2>

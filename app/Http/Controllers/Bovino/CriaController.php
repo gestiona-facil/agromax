@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Bovino;
 
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\GanadoController;
+use App\Models\Madre;
 use App\Models\Cria;
 use App\Models\Ganado;
 use App\Http\Requests\Bovino\StoreCriaRequest;
@@ -25,6 +26,9 @@ class CriaController extends Controller
     public function index()
     {
         //
+        return view('ganado.bovino.levante.lista', [
+            'datos' => Cria::paginate(25)
+        ]);
     }
 
     /**
@@ -33,24 +37,32 @@ class CriaController extends Controller
     public function create()
     {
         //
+        return view('ganado.bovino.levante.crear', [
+            'madres' => Madre::join('ganados', 'madres.ganado_id', '=', 'ganados.id')
+                        ->where('ganados.tipo', '=', 'bovino')
+                        ->select('madres.*')
+                        ->get(),
+            'padres' => collect([])
+        ]);
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreCriaRequest $request, Cria $cria)
+    public function store(StoreCriaRequest $request, Cria $crium)
     {
         //
         $ganado = $this->base->store($request, new Ganado());
 
         if($ganado->id){
-            $cria->ganado_id = $ganado->id;
+            $crium->ganado_id = $ganado->id;
 
-            $cria->alias = $request->alias;
-            $cria->destetado =  $request->destetado;
+            $crium->tiempo_destete = $request->tiempo_destete;
+            $crium->alias = $request->alias;
+            $crium->destetado =  $request->destetado;
 
-            if($cria->save()){
-                return redirect()->route('cria.show', ['cria' => $cria->id]);
+            if($crium->save()){
+                return redirect()->route('cria.show', ['crium' => $crium->id]);
             }
         }
 
@@ -63,32 +75,43 @@ class CriaController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Cria $cria)
+    public function show(Cria $crium)
     {
         //
+        return view('ganado.bovino.levante.mostrar', [
+            'modelo' => $crium
+        ]);
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Cria $cria)
+    public function edit(Cria $crium)
     {
         //
+        return view('ganado.bovino.levante.editar', [
+            'madres' => Madre::join('ganados', 'madres.ganado_id', '=', 'ganados.id')
+                        ->where('ganados.tipo', '=', 'bovino')
+                        ->select('madres.*')
+                        ->get(),
+            'padres' => collect(),
+            'modelo' => $crium
+        ]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateCriaRequest $request, Cria $cria)
+    public function update(UpdateCriaRequest $request, Cria $crium)
     {
         //
-        $ganado = $this->base->update($request, $cria->ganado);
+        $ganado = $this->base->update($request, $crium->ganado);
 
-        $cria->alias = $request->alias;
-        $cria->destetado =  $request->destetado;
+        $crium->alias = $request->alias;
+        $crium->destetado =  $request->destetado;
 
-        if($cria->save()){
-            return redirect()->route('cria.show', ['cria' => $cria->id]);
+        if($crium->save()){
+            return redirect()->route('cria.show', ['cria' => $crium->id]);
         }
 
         //Error presente, si se alcanza este punto
@@ -100,11 +123,11 @@ class CriaController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Cria $cria)
+    public function destroy(Cria $crium)
     {
         //
-        $cria->ganado->delete();
-        $cria->delete();
+        $crium->ganado->delete();
+        $crium->delete();
 
         return redirect()->route('cria.index')->withInput([
             'status' => 'Registro eliminado exitosamente'

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Bovino;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\GanadoController;
 use App\Models\Engorde;
+use App\Models\Madre;
 use App\Models\Ganado;
 use App\Http\Requests\Bovino\StoreEngordeRequest;
 use App\Http\Requests\Bovino\UpdateEngordeRequest;
@@ -25,6 +26,9 @@ class EngordeController extends Controller
     public function index()
     {
         //
+        return view('ganado.bovino.engorde.lista', [
+            'datos' => Engorde::paginate(25)
+        ]);
     }
 
     /**
@@ -33,6 +37,13 @@ class EngordeController extends Controller
     public function create()
     {
         //
+        return view('ganado.bovino.engorde.crear', [
+            'madres' => Madre::join('ganados', 'madres.ganado_id', '=', 'ganados.id')
+                ->where('ganados.tipo', '=', 'bovino')
+                ->select('madres.*')
+                ->get(),
+            'padres' => collect([])
+        ]);
     }
 
     /**
@@ -69,6 +80,9 @@ class EngordeController extends Controller
     public function show(Engorde $engorde)
     {
         //
+        return view('ganado.bovino.engorde.mostrar', [
+            'modelo' => $engorde
+        ]);
     }
 
     /**
@@ -77,6 +91,14 @@ class EngordeController extends Controller
     public function edit(Engorde $engorde)
     {
         //
+        return view('ganado.bovino.engorde.editar', [
+            'madres' => Madre::join('ganados', 'madres.ganado_id', '=', 'ganados.id')
+                ->where('ganados.tipo', '=', 'bovino')
+                ->select('madres.*')
+                ->get(),
+            'padres' => collect([]),
+            'modelo' => $engorde
+        ]);
     }
 
     /**
@@ -93,7 +115,7 @@ class EngordeController extends Controller
         $engorde->peso_final = $request->peso_final;
 
         if($engorde->save()){
-            return redirect()->route('engorde.show', ['engorde' => $engorde->id]);
+            return redirect()->route('engorde.mostrar', ['engorde' => $engorde->id]);
         }
 
         //Error presente, si se alcanza este punto

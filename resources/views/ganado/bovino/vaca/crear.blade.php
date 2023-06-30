@@ -12,7 +12,7 @@
         <input type="hidden" name="sexo" value="0">{{-- 0 -> hembra --}}
         @include('ganado.bovino.base.crear')
 
-        <div class="flex flex-row justify-between pt-2">
+        <div class="flex flex-row justify-between py-3">
             <flow-input type="text" name="alias" label="Alias: *" model-value="{{old('alias')}}"></flow-input>
             <div class="flex flex-row justify-between items-center">
                 <div class="flex">
@@ -25,11 +25,11 @@
                 </div>
             </div>
         </div>
-        <div v-if="vaca_gestando" class="flex flex-row justify-between pt-2">
+        <div v-if="vaca_gestando" class="flex flex-row justify-between py-3">
             <flow-input type="date" label="Fecha de inicio de gestacion: *" model-value="{{ old('fecha_inicio_gestacion') }}"></flow-input>
         </div>
 
-        <div class="pt-6">
+        <div class="my-4">
             <flow-button type="submit">Registrar</flow-button>
         </div>
     </form>
