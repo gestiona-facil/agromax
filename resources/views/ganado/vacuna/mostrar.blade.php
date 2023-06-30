@@ -1,14 +1,14 @@
 @extends('ganado.bovino.main')
 
-@section('titulo', 'Vaca')
+@section('titulo', 'Vacuna')
 
-@section('titulo-contenido', 'Datos de Vaca: '.$modelo->ganado->identificacion)
+@section('titulo-contenido', 'Datos de Vacuna: '.$modelo->nombre)
 
 @section('contenido')
 <div>
     <div class="p-b-2 pt-4 px-4">
         {{-- boton editar --}}
-        <flow-button size="xs"><a href="{{ route('vaca.edit', ['vaca' => $modelo->id])}}">Editar</a></flow-button>
+        <flow-button size="xs"><a href="{{ route('vacuna.edit', ['vacuna' => $modelo->id])}}">Editar</a></flow-button>
         {{-- boton exportar --}}
     </div>
     <div class="flex flex-row">
@@ -18,27 +18,19 @@
                 <div class="flex flex-row items-center py-3 justify-between">
                     <div>
                         <p class="flex text-xl">
-                            <span class="px-2">Identificación: </span><flow-badge>{{$modelo->ganado->identificacion}}</flow-badge>
+                            <span class="px-2">Nombre </span><flow-badge>{{$modelo->nombre}}</flow-badge>
                         </p>
                     </div>
                     <div>
                         <p class="flex text-xl">
-                            <span class="px-2">Alias: </span><flow-badge>{{$modelo->alias}}</flow-badge>
+                            <span class="px-2">Lote: </span><flow-badge>{{$modelo->lote}}</flow-badge>
                         </p>
                     </div>
-                </div>
-                <div class="flex flex-row items-center py-3 justify-between">
                     <div>
                         <p class="flex text-xl">
-                            <span class="px-2">Fecha de nacimiento:</span><flow-badge>{{$modelo->ganado->fecha_nacimiento}}</flow-badge>
+                            <span class="px-2">fecha: </span><flow-badge>{{$modelo->fecha}}</flow-badge>
                         </p>
                     </div>
-                    @if($modelo->gestando)
-                    <div>
-                        <h3><span>Vaca preñada</span> desde <span>{{$modelo->fecha_inicio_gestacion}}</span></h3>
-                        {{-- TODO: incluir fecha aproximada de parto --}}
-                    </div>
-                    @endif
                 </div>
             </div>
             <h2 class="text-xl border-b py-3 indent-3">Información Secundaria</h2>

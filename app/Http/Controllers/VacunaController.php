@@ -14,6 +14,9 @@ class VacunaController extends Controller
     public function index()
     {
         //
+        return view('ganado.vacuna.lista', [
+            'datos' => Vacuna::paginate(25)
+        ]);
     }
 
     /**
@@ -22,6 +25,7 @@ class VacunaController extends Controller
     public function create()
     {
         //
+        return view('ganado.vacuna.crear');
     }
 
     /**
@@ -50,6 +54,9 @@ class VacunaController extends Controller
     public function show(Vacuna $vacuna)
     {
         //
+        return view('ganado.vacuna.mostrar', [
+            'modelo' => $vacuna
+        ]);
     }
 
     /**
@@ -58,6 +65,9 @@ class VacunaController extends Controller
     public function edit(Vacuna $vacuna)
     {
         //
+        return view('ganado.vacuna.editar', [
+            'modelo' => $vacuna
+        ]);
     }
 
     /**

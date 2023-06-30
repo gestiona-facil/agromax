@@ -50,13 +50,17 @@ Route::controller(App\Http\Controllers\AuthController::class)->group(function ()
             'vaca' => App\Http\Controllers\Bovino\MadreController::class,
             'cria' => App\Http\Controllers\Bovino\CriaController::class,
             'engorde' => App\Http\Controllers\Bovino\EngordeController::class,
-            'reproductor' => App\Http\Controllers\Bovino\ReproductorController::class,
-            //aspectos sanitarios
-            'vacuna' => App\Http\Controllers\VacunaController::class,
+            'toro' => App\Http\Controllers\Bovino\ReproductorController::class,
             //produccion lactea
             'lecheria' => App\Http\Controllers\LecheriaController::class
         ]);
 
+    });
+
+    Route::prefix('/ganados')->group(function(){
+        
+        Route::resource('vacuna', App\Http\Controllers\VacunaController::class);
+        
     });
 
     //---- Rutas para Agricultura

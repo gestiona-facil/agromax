@@ -1,4 +1,4 @@
-<div class="flex flex-row justify-between items-center">
+<div class="flex flex-row justify-between items-center py-3">
     {{-- Listado de Madres (Vacas) --}}
     @include('ganado.bovino.base.listado-ganado', [
         'titulo' => 'Seleccionar Madre (vaca)',
@@ -12,7 +12,7 @@
         'name' => 'padre'
     ])
 </div>
-<div class="flex flex-row justify-between pt-2">
+<div class="flex flex-row justify-between py-3">
     <flow-input type="text" name="identificacion" label="Identificación: *" model-value="{{old('identificacion')}}"></flow-input>
     <flow-input type="text" name="raza" label="Raza: *" model-value="{{old('raza')}}"></flow-input>
     <flow-input type="date" name="fecha_nacimiento" label="Fecha de Nacimiento: *" model-value="{{old('fecha_nacimiento')}}"></flow-input>

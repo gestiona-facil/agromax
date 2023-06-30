@@ -35,9 +35,9 @@ class ReproductorController extends Controller
     {
         //
         return view('ganado.bovino.toro.crear', [
-            'madres' => Madre::join('ganados', 'madres.ganado_id', '=', 'ganados.id')
+            'madres' => Madre::join('ganados', 'reproductor.ganado_id', '=', 'ganados.id')
                         ->where('ganados.tipo', '=', 'bovino')
-                        ->select('madres.*')
+                        ->select('reproductor.*')
                         ->get(),
 
             'padres' => collect([]),//TODO: agregar de forma similar que arriba, pero problema con nombre de tabla es presentado
@@ -47,7 +47,7 @@ class ReproductorController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request, Reproductor $reproductor)
+    public function store(StoreReproductorRequest $request, Reproductor $reproductor)
     {
         //
         $ganado = $this->base->store($request, new Ganado());
@@ -59,7 +59,7 @@ class ReproductorController extends Controller
             $reproductor->tiempo_madurez = $request->tiempo_madurez;
 
             if($reproductor->save()){
-                return redirect()->route('reproductor.show', ['reproductor' => $reproductor->id]);
+                return redirect()->route('toro.mostrar', ['reproductor' => $reproductor->id]);
             }
         }
 

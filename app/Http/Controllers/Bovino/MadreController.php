@@ -93,9 +93,12 @@ class MadreController extends Controller
     {
         //
         return view('ganado.bovino.vaca.editar', [
-            'madres' => collect(),
+            'madres' => Madre::join('ganados', 'madres.ganado_id', '=', 'ganados.id')
+                        ->where('ganados.tipo', '=', 'bovino')
+                        ->select('madres.*')
+                        ->get(),
             'padres' => collect(),
-            'vaca' => $madre
+            'modelo' => $madre
         ]);
     }
 

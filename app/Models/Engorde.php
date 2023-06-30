@@ -8,11 +8,11 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Engorde extends Model
 {
-    protected $tableName = 'engordes';
     use HasFactory;
-
-    public function ganados()
+    protected $tableName = 'engordes';
+    
+    public function ganado()
     {
-        return $this->belongsTo(Ganado::class, );
+        return $this->belongsTo(Ganado::class);
     }
 }

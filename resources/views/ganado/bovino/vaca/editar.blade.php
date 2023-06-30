@@ -11,23 +11,26 @@
         {{-- Valores ocultos --}}
         <input type="hidden" name="tiempo_parto" value="270">{{--En DIAS--}}
         <input type="hidden" name="sexo" value="0">{{-- 0 -> hembra --}}
-        @include('ganado.bovino.base.editar')
+        @include('ganado.bovino.base.editar', ['modelo' => $modelo->ganado])
 
-        <div class="flex flex-row justify-between pt-2">
-            <flow-input type="text" name="alias" label="Alias: *" model-value="{{$modelo->alias}}"></flow-input>
+        <div class="flex flex-row justify-between py-3">
+            <flow-input type="text" name="alias" label="Alias: *" model-value="{{ $modelo->alias }}"></flow-input>
             <div class="flex flex-row justify-between items-center">
                 <div class="flex">
-                    <input type="radio" name="gestando" model-value="true" id="gestando.1" @if($modelo->gestando == true) checked @endif>
+                    <input type="radio" name="gestando" model-value="true" id="gestando.1" @if($modelo->gestando == true) checked @endif @change="vaca_gestando = !vaca_gestando">
                     <label for="gestando.1">Esta preñada</label>
                 </div>
                 <div class="flex">
-                    <input type="radio" name="gestando" model-value="false" id="gestando.0" @if($modelo->gestando == false) checked @endif>
+                    <input type="radio" name="gestando" model-value="false" id="gestando.0" @if($modelo->gestando == false) checked @endif @change="vaca_gestando = !vaca_gestando">
                     <label for="gestando.0">No esta preñada</label>
                 </div>
             </div>
         </div>
+        <div v-if="vaca_gestando" class="flex flex-row justify-between py-3">
+            <flow-input type="date" label="Fecha de inicio de gestacion: *" model-value="{{ old('fecha_inicio_gestacion') }}"></flow-input>
+        </div>
 
-        <div class="pt-6">
+        <div class="my-4">
             <flow-button type="submit">Registrar</flow-button>
         </div>
     </form>

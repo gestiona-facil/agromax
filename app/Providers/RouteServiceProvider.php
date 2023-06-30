@@ -2,7 +2,9 @@
 
 namespace App\Providers;
 
+use App\Models\Lecheria;
 use App\Models\Madre;
+use App\Models\Reproductor;
 use Illuminate\Cache\RateLimiting\Limit;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
 use Illuminate\Http\Request;
@@ -48,5 +50,7 @@ class RouteServiceProvider extends ServiceProvider
 
         //personalizando parametros
         Route::model('vaca', Madre::class);
+        Route::model('toro', Reproductor::class);
+        Route::model('lecherium', Lecheria::class);
     }
 }
