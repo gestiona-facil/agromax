@@ -4,9 +4,12 @@
         <title>@yield('titulo', 'Bienvenido') - {{ config('app.name') }}</title>
         <!-- estilos bases -->
         @yield('pre-links')
-        <link rel="stylesheet" href="{{asset('css/styles.css')}}" />
+        <link rel="stylesheet" href="{{asset('vendor/bladewind/css/animate.min.css')}}">
+        <link rel="stylesheet" href="{{asset('vendor/bladewind/css/bladewind-ui.min.css')}}">
+        <link rel="stylesheet" href="{{asset('css/styles.css')}}">
         <!-- ejecuciones bases -->
         @yield('pre-scripts')
+        <script src="{{ asset('vendor/bladewind/js/helpers.js') }}"></script>
     </head>
     <body>
         @yield('pre-contenido')
