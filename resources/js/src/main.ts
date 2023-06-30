@@ -13,7 +13,8 @@ import {
     Navbar, NavbarLogo, NavbarCollapse, NavbarLink,
     Accordion, AccordionPanel, AccordionHeader, AccordionContent,
     Footer, Carousel,
-    Table, TableHead, TableBody, TableHeadCell, TableRow, TableCell
+    Table, TableHead, TableBody, TableHeadCell, TableRow, TableCell,
+    ListGroup, ListGroupItem
 } from "flowbite-vue";
 
 let app = createApp({
@@ -31,7 +32,7 @@ let app = createApp({
         'flow-button':Button,
         'flow-input':Input,
         'flow-sidebar':Sidebar,
-        'flow-navbar':Navbar,
+        'flow-nav-bar':Navbar,
         'flow-nav-logo':NavbarLogo,
         'flow-nav-link':NavbarLink,
         'flow-nav-collapse':NavbarCollapse,
@@ -46,7 +47,9 @@ let app = createApp({
         'flow-table-head-cell':TableHeadCell,
         'flow-table-body':TableBody,
         'flow-table-cell':TableCell,
-        'flow-table-row':TableRow
+        'flow-table-row':TableRow,
+        'flow-listg':ListGroup,
+        'flow-listgi':ListGroupItem
     }
 })
 

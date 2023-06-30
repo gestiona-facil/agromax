@@ -22,7 +22,7 @@ Route::get('/welcome', function (){
 });
 
 Route::get('/prueba', function (){
-    return view('ganado.bovino.vaca.crear');
+    return view('ganado.bovino.layout.sidebar2');
 });
 
 //---- Autenticación
