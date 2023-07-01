@@ -5,19 +5,36 @@
 @section('titulo-contenido', 'Registrar Toro')
 @section('contenido')
 <div class="p-2">
-    <form action="{{route('toro.store')}}" method="POST">
-        {{-- Valores ocultos --}}
+    <form action="{{route('reproductor.store')}}" method="POST">
         @csrf
-        <input type="hidden" name="sexo" value="1">{{-- 1 -> macho --}}
+        
         @include('ganado.bovino.base.crear')
-        <div class="flex flex-row justify-between py-3">
-            <flow-input type="text" name="tipo_alimentacion" label="Tipo de alimentación: *" model-value="{{ old('tipo_alimentacion') }}"></flow-input>
-       
-            <flow-input type="number" name="tiempo_madurez" label="Tiempo de madurez del padre: *" model-value="{{ old('tiempo_madurez') }}"></flow-input>
-        </div>
+
+        <div class="flex flex-row justify-between py-3 items-center">
+            <div class="w-1/4">
+                <x-bladewind.input 
+                    name="tipo_alimentacion" 
+                    label="Tipo de alimentacion: " 
+                    value="{{old('tipo_alimentacion')}}" 
+                    class="border-cyan-700"
+                />
+            </div>
+
+            <div class="flex flex-row justify-between py-3 items-center">
+                <div class="w-1/4">
+                    <x-bladewind.input 
+                        type="numeric"
+                        name="alias" 
+                        label="Tiempo de Madurez: " 
+                        value="{{old('tiempo_madurez')}}" 
+                        class="border-cyan-700"
+                    />
+                </div>
 
         <div class="my-4">
-            <flow-button type="submit">Registrar</flow-button>
+            <x-bladewind.button 
+                can_submit="true"
+                class="bg-cyan-700">Registrar</x-bladewind.button>
         </div>
     </form>
 </div>

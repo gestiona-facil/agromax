@@ -12,7 +12,6 @@
         <x-slot name="header" class="!bg-cyan-700 text-white">
             <th class="!bg-cyan-700 !text-white">Nro</th>
             <th class="!bg-cyan-700 !text-white">Nombre</th>
-            <th class="!bg-cyan-700 !text-white">Tipo</th>
             <th class="!bg-cyan-700 !text-white">Fecha</th>
             <th class="!bg-cyan-700 !text-white">Cantidad</th>
             <th class="!bg-cyan-700 !text-white">Metodo de aplicacion</th>

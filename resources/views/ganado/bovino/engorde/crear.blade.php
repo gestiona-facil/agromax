@@ -1,30 +1,88 @@
 @extends('ganado.bovino.main')
 
-@section('titulo', 'Registrar Engorde')
+@section('titulo', 'Registrar Ordeño')
 
-@section('titulo-contenido', 'Registrar Engorde')
+@section('titulo-contenido', 'Registrar Ordeño')
 @section('contenido')
 <div class="p-2">
-    <form action="{{route('engorde.store')}}" method="POST">
+    <form action="{{route('lecheria.store')}}" method="POST">
         @csrf
-        {{-- Valores ocultos --}}
-        <input type="hidden" name="sexo" value="1">{{-- 1 -> macho --}}
+        
         @include('ganado.bovino.base.crear')
-        <div class="flex flex-row justify-between py-3">
-            <flow-input type="text" name="tipo_alimento" label="Tipo de alimento: *" model-value="{{ old('tipo_alimento') }}"></flow-input>
-       
-            <flow-input type="number" name="cant_total_alimento" label="Cantidad total de alimento: *" model-value="{{ old('cant_total_alimento') }}"></flow-input>
-       
-            <flow-input type="number" name="duracion" label="Duración (en días): *" model-value="{{ old('duracion') }}"></flow-input>
-        </div>
-        <div class="flex flex-row justify-between py-3">
-            <flow-input type="number" min="0" name="peso_inicial" label="Peso inicial: *" model-value="{{ old('peso_inicial') }}"></flow-input>
-       
-            <flow-input type="number" min="0" name="peso_final" label="Peso final: *" model-value="{{ old('peso_final') }}"></flow-input>
-        </div>
+
+        <div class="flex flex-row justify-between py-3 items-center">
+            <div class="w-1/4">
+                <x-bladewind.input 
+                    name="tipo_alimento" 
+                    label="Tipo de alimento: " 
+                    value="{{old('tipo_alimentacion')}}" 
+                    class="border-cyan-700"
+                />
+            </div>
+
+            <div class="flex flex-row justify-between py-3 items-center">
+                <div class="w-1/4">
+                    <x-bladewind.input 
+                        name="cant_total_alimento" 
+                        min="0"
+                        label="Cantidad Total de alimento: "
+                        min="0" 
+                        value="{{old('cant_total_alimento')}}" 
+                        class="border-cyan-700"
+                    />
+                </div>
+
+                <div class="flex flex-row justify-between py-3 items-center">
+                    <div class="w-1/4">
+                        <x-bladewind.input 
+                            type="numeric"
+                            name="duracion (En dias)" 
+                            label="Duracion: " 
+                            value="{{old('duracion')}}" 
+                            class="border-cyan-700"
+                        />
+                    </div>
+                
+                    <div class="flex flex-row justify-between py-3 items-center">
+                        <div class="w-1/4">
+                            <x-bladewind.input 
+                                name="cant_total_alimento" 
+                                min="0"
+                                label="Cantidad meta: "
+                                min="0" 
+                                value="{{old('cant_meta')}}" 
+                                class="border-cyan-700"
+                            />
+                        </div>
+
+                        <div class="flex flex-row justify-between py-3 items-center">
+                            <div class="w-1/4">
+                                <x-bladewind.input 
+                                    name="peso_inicial" 
+                                    min="0"
+                                    label="Peso inicial: "
+                                    min="0" 
+                                    value="{{old('peso_inicial')}}" 
+                                    class="border-cyan-700"
+                                />
+                            </div>
+
+                            <div class="flex flex-row justify-between py-3 items-center">
+                                <div class="w-1/4">
+                                    <x-bladewind.input 
+                                        name="peso_final" 
+                                        min="0"
+                                        label="Peso final: "
+                                        min="0" 
+                                        value="{{old('peso_final')}}" 
+                                        class="border-cyan-700"
+                                    />
+                                </div>
 
         <div class="my-4">
-            <flow-button type="submit">Registrar</flow-button>
+            <x-bladewind.button 
+                can_submit="true"
+                class="bg-cyan-700">Registrar</x-bladewind.button>
         </div>
     </form>
 </div>
