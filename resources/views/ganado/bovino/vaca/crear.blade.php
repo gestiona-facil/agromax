@@ -12,25 +12,35 @@
         <input type="hidden" name="sexo" value="0">{{-- 0 -> hembra --}}
         @include('ganado.bovino.base.crear')
 
-        <div class="flex flex-row justify-between py-3">
-            <flow-input type="text" name="alias" label="Alias: *" model-value="{{old('alias')}}"></flow-input>
-            <div class="flex flex-row justify-between items-center">
-                <div class="flex">
-                    <input type="radio" name="gestando" value="1" id="gestando.1" @change="vaca_gestando = !vaca_gestando">
-                    <label for="gestando.1">Esta preñada</label>
-                </div>
-                <div class="flex">
-                    <input type="radio" name="gestando" value="0" id="gestando.0" checked @change="vaca_gestando = !vaca_gestando">
-                    <label for="gestando.0">No esta preñada</label>
-                </div>
+        <div class="flex flex-row justify-between items-center py-3">
+
+            <div class="w-1/4">
+                <x-bladewind.input 
+                    name="alias" 
+                    label="Alias" 
+                    required="true"
+                    value="{{old('alias')}}"
+                    class="border-cyan-700"
+                />
+            </div>
+
+            <div class="w-1/4 flex items-center" >
+                <x-bladewind.toggle 
+                    name="gestando"
+                    value="0"
+                    vue_attr='@click="vaca_gestando = !vaca_gestando"'
+                />
             </div>
         </div>
-        <div v-if="vaca_gestando" class="flex flex-row justify-between py-3">
-            <flow-input type="date" label="Fecha de inicio de gestacion: *" model-value="{{ old('fecha_inicio_gestacion') }}"></flow-input>
+        <div class="flex flex-row justify-between py-3">
+            @{{ vaca_gestando }}
+            {{-- <x-bladewind.input type="date" label="Fecha de inicio de gestacion: *" model-value="{{ old('fecha_inicio_gestacion') }}"></x-bladewind.input> --}}
         </div>
 
         <div class="my-4">
-            <flow-button type="submit">Registrar</flow-button>
+            <x-bladewind.button 
+                can_submit="true"
+                class="bg-cyan-700">Registrar</x-bladewind.button>
         </div>
     </form>
 </div>
