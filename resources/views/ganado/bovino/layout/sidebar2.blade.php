@@ -1,7 +1,8 @@
 <list-group class="bg-gray-800">
   <list-group-item class="text-cyan-800">
     Vaca
-    <dropdown class="bg-amber-900 rounded-md">
+    <flow-dropdown class="bg-amber-900 rounded-md">
+      {{-- route('vaca.crear') --}}
       <option class="text-cyan-800" value="crear">Crear</option>
       <option class="text-cyan-800" value="editar">Editar</option>
     </dropdown>

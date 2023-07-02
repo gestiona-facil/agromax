@@ -9,7 +9,6 @@
             @yield('contenido')
         </div>
         {{-- Sidebar --}}
-        @include('ganado.bovino.layout.sidebar')
     </div>
     {{-- Footer --}}
 @endsection
