@@ -6,9 +6,11 @@ module.exports = {
     'resources/views/**/*.blade.php'
   ],
   theme: {},
-  safelist: [
-    { pattern:/.+/i }
-  ],
+  // safelist: [
+  //   { 
+  //     pattern:/.+/i,
+  //   }
+  // ],
   plugins: [
     require('flowbite/plugin')
   ],
