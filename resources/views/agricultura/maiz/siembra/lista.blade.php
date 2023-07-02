@@ -1,8 +1,8 @@
 @extends('agricultura.maiz.main')
 
-@section('titulo', 'Lista de Cosechas')
+@section('titulo', 'Lista de Siembras')
 
-@section('titulo-contenido', 'Listado de Cosechas')
+@section('titulo-contenido', 'Listado de Siembras')
 
 @section('contenido')
 <div class="p-4">
@@ -11,25 +11,26 @@
     >
         <x-slot name="header" class="!bg-cyan-700 text-white">
             <th class="!bg-cyan-700 !text-white">Nro</th>
+            <th class="!bg-cyan-700 !text-white">terreno_id</th>
             <th class="!bg-cyan-700 !text-white">Fecha</th>
-            <th class="!bg-cyan-700 !text-white">Cantidad</th>
+            <th class="!bg-cyan-700 !text-white">Cantidad Esperada</th>
             <th class="!bg-cyan-700 !text-white">Acciones</th>
         </x-slot>
         @if($datos->count())
             @foreach($datos->items() as $dato)
                 <tr>
                     <td class="font-bold">{{ $loop->iteration }}</td>
-                    <td><a class="text-amber-700 underline hover:text-cyan-700" href="{{ route('cosecha.show', ['vaca' => $dato->id])}}">{{ $dato->agricultura->identificacion}}</a></td>
+                    <td><a class="text-amber-700 underline hover:text-cyan-700" href="{{ route('siembra.show', ['semilla' => $dato->id])}}">{{ $dato->agricultura->identificacion}}</a></td>
                     <td>{{ $dato->alias}}</td>
                     <td class="flex justify-start">
                         <x-bladewind.button
                             class="bg-cyan-700" 
                             tag="a" 
                             size="tiny"
-                            href="{{ route('cosecha.edit', ['cosecha' => $dato->id])}}">Editar</x-bladewind.button>
+                            href="{{ route('siembra.edit', ['siembra' => $dato->id])}}">Editar</x-bladewind.button>
                         {{-- Eliminar --}}
-                        <form action="{{route('cosecha.destroy', [
-                            'cosecha' => $dato->id
+                        <form action="{{route('siembra.destroy', [
+                            'siembra' => $dato->id
                         ])}}" method="post">
                             @csrf
                             @method('delete')
@@ -42,7 +43,7 @@
             @endforeach
         @else 
             <tr>
-                <td colspan="4">Aún no existen registros de Cosechas</td>
+                <td colspan="4">Aún no existen registros de Siembras</td>
             </tr>
         @endif
     </x-bladewind.table>

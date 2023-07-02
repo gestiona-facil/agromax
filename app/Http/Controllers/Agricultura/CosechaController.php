@@ -14,6 +14,9 @@ class CosechaController extends Controller
     public function index()
     {
         //
+        return view('agricultura.maiz.cosecha.lista', [
+            'datos' => Cosecha::paginate(25)
+        ]);
     }
 
     /**
@@ -22,12 +25,14 @@ class CosechaController extends Controller
     public function create()
     {
         //
+        return view('agricultura.maiz.cosecha.crear');
+    }
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request, Cosecha $cosecha)
+    public function store(StoreCosechaRequest $request, Cosecha $cosecha)
     {
         //
         $cosecha->siembra_id = $request->siembra;
@@ -37,7 +42,7 @@ class CosechaController extends Controller
         $cosecha->observaciones = $request->observaciones;
 
         if($cosecha->save()){
-            return redirect()->route('cosecha.show', ['cosecha' => $cosecha->id]);
+            return redirect()->route('cosecha.show', ['cosechum' => $cosecha->id]);
         }
 
         //Error presente, si se alcanza este punto
@@ -52,14 +57,20 @@ class CosechaController extends Controller
     public function show(Cosecha $cosecha)
     {
         //
+        return view('agricultura.maiz.cosecha.mostrar', [
+            'modelo' => $cosecha
+        ]);
     }
-
     /**
      * Show the form for editing the specified resource.
      */
     public function edit(Cosecha $cosecha)
     {
         //
+        return view('agricultura.maiz.cosecha.editar', [
+            'modelo' => $cosecha
+        ]);
+    }
     }
 
     /**
@@ -75,8 +86,9 @@ class CosechaController extends Controller
         $cosecha->observaciones = $request->observaciones;
 
         if($cosecha->save()){
-            return redirect()->route('cosecha.show', ['cosecha' => $cosecha->id]);
-        }
+            return redirect()->route('cosecha.show', ['cosecha' => $cosecha->id])->withInput([
+                'status' => 'Registro realizado exitosamente'
+            ]);
 
         //Error presente, si se alcanza este punto
         return back()->withErrors([

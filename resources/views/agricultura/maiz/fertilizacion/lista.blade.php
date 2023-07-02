@@ -1,44 +1,58 @@
-@extends('agricultura.cosecha.main')
+@extends('agricultura.maiz.main')
 
-@section('titulo', 'Lista de fertilizaciones')
+@section('titulo', 'Lista de Fertilizaciones')
 
-@section('titulo-contenido', 'Listado de fertilizaciones')
+@section('titulo-contenido', 'Listado de Fertilizaciones')
 
 @section('contenido')
-<div>
-    <flow-table>
-        <flow-table-head>
-            <flow-table-head-cell>Nro</flow-table-head-cell>
-            <flow-table-head-cell>Fecha</flow-table-head-cell>
-            <flow-table-head-cell>Cantidad</flow-table-head-cell>
-            <flow-table-head-cell>Acciones</flow-table-head-cell>
-        </flow-table-head>
-        <flow-table-body>
-            @if($datos->count())
-                @foreach($datos->items() as $dato)
-                    <flow-table-row>
-                        <flow-table-cell>{{ $loop->iteration }}</flow-table-cell>
-                        <flow-table-cell>{{ $dato->nombre}}</flow-table-cell>
-                        <flow-table-cell>{{ $dato->tipo}}</flow-table-cell>
-                        <flow-table-cell>{{ $dato->fecha}}</flow-table-cell>
-                        <flow-table-cell>{{ $dato->cantidad}}</flow-table-cell>
-                        <flow-table-cell>{{ $dato->metodo_aplicacion}}</flow-table-cell>
-                        <flow-table-cell>{{ $dato->observaciones}}</flow-table-cell>
-                        <flow-table-cell>
-                            <flow-button></flow-button>
-                            {{-- Eliminar --}}
-                            <form action="{{route('fertilizacion.destroy', [
-                                'fertilizacium' => $dato->id
-                            ])}}" method="post">
-                                @csrf
-                                @method('delete')
-                                <flow-button type="submit" color="red" size="sm">Eliminar</flow-button>
-                            </form>
-                        </flow-table-cell>
-                    </flow-table-row>
-                @endforeach
-            @else 
-                <flow-table-row>
-                    <flow-table-cell colspan="4">Aún no existen registros de fertilizaciones</flow-table-cell>
-                </flow-table-row>
-            @endif
+<div class="p-4">
+    <x-bladewind.table
+        divider="thin"
+    >
+        <x-slot name="header" class="!bg-cyan-700 text-white">
+            <th class="!bg-cyan-700 !text-white">Nro</th>
+            <th class="!bg-cyan-700 !text-white">Nombre</th>
+            <th class="!bg-cyan-700 !text-white">Tipo</th>
+            <th class="!bg-cyan-700 !text-white">Fecha</th>
+            <th class="!bg-cyan-700 !text-white">Cantidad</th>
+            <th class="!bg-cyan-700 !text-white">Metodo de aplicacion</th>
+            <th class="!bg-cyan-700 !text-white">Observaciones</th>
+            <th class="!bg-cyan-700 !text-white">Acciones</th>
+        </x-slot>
+        @if($datos->count())
+            @foreach($datos->items() as $dato)
+                <tr>
+                    <td class="font-bold">{{ $loop->iteration }}</td>
+                    <td><a class="text-amber-700 underline hover:text-cyan-700" href="{{ route('fertilizacion.show', ['fertilizacion' => $dato->id])}}">{{ $dato->agricultura->identificacion}}</a></td>
+                    <td>{{ $dato->alias}}</td>
+                    <td class="flex justify-start">
+                        <x-bladewind.button
+                            class="bg-cyan-700" 
+                            tag="a" 
+                            size="tiny"
+                            href="{{ route('fertilizacion.edit', ['fertilizacion' => $dato->id])}}">Editar</x-bladewind.button>
+                        {{-- Eliminar --}}
+                        <form action="{{route('fertilizacion.destroy', [
+                            'fertilizacion' => $dato->id
+                        ])}}" method="post">
+                            @csrf
+                            @method('delete')
+                            <x-bladewind.button 
+                                class="bg-red-700"
+                                size="tiny" can_submit="true">Eliminar</x-bladewind.button>
+                        </form>
+                    </td>
+                </tr>
+            @endforeach
+        @else 
+            <tr>
+                <td colspan="4">Aún no existen registros de Fertilizaciones</td>
+            </tr>
+        @endif
+    </x-bladewind.table>
+    {{-- paginación --}}
+    <div class="p-2">
+        {{ $datos->links() }}
+    </div>
+</div>
+@endsection
