@@ -27,7 +27,7 @@ class CosechaController extends Controller
         //
         return view('agricultura.maiz.cosecha.crear');
     }
-    }
+    
 
     /**
      * Store a newly created resource in storage.
@@ -42,7 +42,7 @@ class CosechaController extends Controller
         $cosecha->observaciones = $request->observaciones;
 
         if($cosecha->save()){
-            return redirect()->route('cosecha.show', ['cosechum' => $cosecha->id]);
+            return redirect()->route('cosecha.show', ['cosecha' => $cosecha->id]);
         }
 
         //Error presente, si se alcanza este punto
@@ -71,7 +71,7 @@ class CosechaController extends Controller
             'modelo' => $cosecha
         ]);
     }
-    }
+    
 
     /**
      * Update the specified resource in storage.
@@ -95,11 +95,13 @@ class CosechaController extends Controller
             'status' => 'No fue posible guardar los datos'
         ]);
     }
+}
 
     /**
      * Remove the specified resource from storage.
      */
     public function destroy(Cosecha $cosecha)
+
     {
         //
         $cosecha->delete();

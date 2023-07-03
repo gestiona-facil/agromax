@@ -15,6 +15,9 @@ class RiegoController extends Controller
     public function index()
     {
         //
+        return view('agricultura.maiz.riego.lista', [
+            'datos' => Cosecha::paginate(25)
+        ]);
     }
 
     /**
@@ -23,6 +26,7 @@ class RiegoController extends Controller
     public function create()
     {
         //
+        return view('agricultura.maiz.riego.crear');
     }
 
     /**
@@ -52,6 +56,9 @@ class RiegoController extends Controller
     public function show(Riego $riego)
     {
         //
+        return view('agricultura.maiz.riego.mostrar', [
+            'modelo' => $riego
+        ]);
     }
 
     /**
@@ -60,6 +67,10 @@ class RiegoController extends Controller
     public function edit(Riego $riego)
     {
         //
+        return view('agricultura.maiz.riego.editar', [
+            'modelo' => $riego
+        ]);
+    
     }
 
     /**
@@ -74,7 +85,9 @@ class RiegoController extends Controller
         $riego->metodo = $request->metodo;
 
         if($riego->save()){
-            return redirect()->route('riego.show', ['riego' => $riego->id]);
+            return redirect()->route('riego.show', ['riego' => $riego->id])->withInput([
+                'status' => 'Registro realizado exitosamente'
+            ]);
         }
 
         //Error presente, si se alcanza este punto

@@ -14,6 +14,9 @@ class TerrenoController extends Controller
     public function index()
     {
         //
+        return view('agricultura.maiz.terreno.lista', [
+            'datos' => Terreno::paginate(25)
+        ]);
     }
 
     /**
@@ -22,12 +25,13 @@ class TerrenoController extends Controller
     public function create()
     {
         //
+        return view('agricultura.maiz.terreno.crear');
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request, Terreno $terreno)
+    public function store(StoreTerrenoRequest $request, Terreno $terreno)
     {
 
         $terreno->ubicacion = $request->ubicacion;
@@ -51,6 +55,9 @@ class TerrenoController extends Controller
     public function show(Terreno $terreno)
     {
         //
+        return view('agricultura.maiz.terreno.mostrar', [
+            'modelo' => $terreno
+        ]);
     }
 
     /**
@@ -59,6 +66,9 @@ class TerrenoController extends Controller
     public function edit(Terreno $terreno)
     {
         //
+        return view('agricultura.maiz.terreno.editar', [
+            'modelo' => $cosecha
+        ]);
     }
 
     /**
@@ -73,7 +83,9 @@ class TerrenoController extends Controller
         $terreno->nivel_humedad =  $request->nivel_humedad;
 
         if($terreno->save()){
-            return redirect()->route('terreno.show', ['terreno' => $terreno->id]);
+            return redirect()->route('terreno.show', ['terreno' => $terreno->id])->withInput([
+                'status' => 'Registro realizado exitosamente'
+            ]);
         }
 
         //Error presente, si se alcanza este punto

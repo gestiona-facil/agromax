@@ -15,6 +15,9 @@ class SiembraController extends Controller
     public function index()
     {
         //
+        return view('agricultura.maiz.siembra.lista', [
+            'datos' => Siembra::paginate(25)
+        ]);
     }
 
     /**
@@ -23,6 +26,7 @@ class SiembraController extends Controller
     public function create()
     {
         //
+        return view('agricultura.maiz.siembra.crear');
     }
 
     /**
@@ -52,6 +56,9 @@ class SiembraController extends Controller
     public function show(Siembra $siembra)
     {
         //
+        return view('agricultura.maiz.siembra.mostrar', [
+            'modelo' => $siembra
+        ]);
     }
 
     /**
@@ -60,6 +67,9 @@ class SiembraController extends Controller
     public function edit(Siembra $siembra)
     {
         //
+        return view('agricultura.maiz.siembra.editar', [
+            'modelo' => $siembra
+        ]);
     }
 
     /**
@@ -74,7 +84,9 @@ class SiembraController extends Controller
         $siembra->cant_esperada = $request->cant_esperada;
 
         if($siembra->save()){
-            return redirect()->route('siembra.show', ['siembra' => $siembra->id]);
+            return redirect()->route('siembra.show', ['siembra' => $siembra->id])->withInput([
+                'status' => 'Registro realizado exitosamente'
+            ]);
         }
 
         //Error presente, si se alcanza este punto

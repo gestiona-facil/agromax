@@ -14,6 +14,9 @@ class SemillaController extends Controller
     public function index()
     {
         //
+        return view('agricultura.maiz.semilla.lista', [
+            'datos' => Semilla::paginate(25)
+        ]);
     }
 
     /**
@@ -22,12 +25,13 @@ class SemillaController extends Controller
     public function create()
     {
         //
+        return view('agricultura.maiz.Semilla.crear');
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request, Semilla $semilla)
+    public function store(StoreSemillaRequest $request, Semilla $semilla)
     {
         //
         $semilla->vegetal_id = $request->vegetal;
@@ -51,6 +55,9 @@ class SemillaController extends Controller
     public function show(Semilla $semilla)
     {
         //
+        return view('agricultura.maiz.semilla.mostrar', [
+            'modelo' => $semilla
+        ]);
     }
 
     /**
@@ -59,6 +66,9 @@ class SemillaController extends Controller
     public function edit(Semilla $semilla)
     {
         //
+        return view('agricultura.maiz.semilla.editar', [
+            'modelo' => $semilla
+        ]);
     }
 
     /**
@@ -71,7 +81,9 @@ class SemillaController extends Controller
         $semilla->cantidad =  $request->cantidad;
         
         if($semilla->save()){
-            return redirect()->route('semilla.show', ['semilla' => $semilla->id]);
+            return redirect()->route('semilla.show', ['semilla' => $semilla->id])->withInput([
+                'status' => 'Registro realizado exitosamente'
+            ]);
         }
 
         //Error presente, si se alcanza este punto

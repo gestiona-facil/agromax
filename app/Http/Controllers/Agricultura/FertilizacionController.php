@@ -14,6 +14,9 @@ class FertilizacionController extends Controller
     public function index()
     {
         //
+        return view('agricultura.maiz.fertilizacion.lista', [
+            'datos' => Fertilizacion::paginate(25)
+        ]);
     }
 
     /**
@@ -22,12 +25,13 @@ class FertilizacionController extends Controller
     public function create()
     {
         //
+        return view('agricultura.maiz.fertilizacion.crear');
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request, Fertilizacion $fertilizacion)
+    public function store(StorCosechaRequest $request, Fertilizacion $fertilizacion)
     {
         //
         $fertilizacion->siembra_id = $request->siembra;
@@ -54,6 +58,9 @@ class FertilizacionController extends Controller
     public function show(Fertilizacion $fertilizacion)
     {
         //
+        return view('agricultura.maiz.fertilizacion.mostrar', [
+            'modelo' => $fertilizacion
+        ]);
     }
 
     /**
@@ -62,6 +69,9 @@ class FertilizacionController extends Controller
     public function edit(Fertilizacion $fertilizacion)
     {
         //
+        return view('agricultura.maiz.fertilizacion.editar', [
+            'modelo' => $fertilizacion
+        ]);
     }
 
     /**
@@ -79,7 +89,9 @@ class FertilizacionController extends Controller
         $fertilizacion->observaciones = $request->onservaciones;
 
         if($fertilizacion->save()){
-            return redirect()->route('fertilizacion.show', ['fertilizacion' => $fertilizacion->id]);
+            return redirect()->route('fertilizacion.show', ['fertilizacion' => $fertilizacion->id])->withInput([
+                'status' => 'Registro realizado exitosamente'
+            ]);
         }
 
         //Error presente, si se alcanza este punto
@@ -96,7 +108,7 @@ class FertilizacionController extends Controller
         //
         $fertilizacion->delete();
 
-        return redirect()->route('riego.index')->withInput([
+        return redirect()->route('fertilizacion.index')->withInput([
             'status' => 'Registro eliminado exitosamente'
         ]);
     }
