@@ -12,32 +12,43 @@
         <input type="hidden" name="tiempo_fin_levante" value="912">{{-- 0 -> pasa de levante a toro o vaca --}}
         @include('ganado.bovino.base.crear')
 
-        <div class="flex flex-row justify-between py-3">
-            <flow-input type="text" name="alias" label="Alias: *" model-value="{{old('alias')}}"></flow-input>
-            <div class="flex flex-row justify-between items-center">
-                <div class="flex">
-                    <input type="radio" name="sexo" value="1" id="sexo.1" >
-                    <label for="destetado.1">Macho</label>
-                </div>
-                <div class="flex">
-                    <input type="radio" name="sexo" value="0" id="sexo.0" checked >
-                    <label for="lactando.0">Hembra</label>
-                </div>
+        <div class="flex flex-row justify-between py-3 items-center">
+            <div class="w-1/4">
+                <x-bladewind.input 
+                    name="alias" 
+                    label="Alias: " 
+                    value="{{old('alias')}}" 
+                    class="border-cyan-700"
+                />
             </div>
-            <div class="flex flex-row justify-between items-center">
-                <div class="flex">
-                    <input type="radio" name="destetado" value="1" id="destetado.1" >
-                    <label for="destetado.1">Ha sido destetado</label>
-                </div>
-                <div class="flex">
-                    <input type="radio" name="destetado" value="0" id="lactando.0" checked >
-                    <label for="lactando.0">No esta destetado aún</label>
-                </div>
+
+            <div class="w-1/4">
+                <x-bladewind.toggle 
+                    name="sexo"
+                    {{-- 0 => hembra, 1 => macho --}}
+                    value="0"
+                />
             </div>
+
+            <div class="w-1/4">
+                <x-bladewind.toggle 
+                    name="destetado"
+                    {{-- 0 => destetado, 1 => lactando --}}
+                    value="0" 
+                />
+            </div>
+ 
+        </div>
+
+        <div {!!'@click="vaca_gestando = !vaca_gestando"'!!}>
+            <h1 v-if="vaca_gestando">Si gestando</h1>
+            <h1 v-if="!vaca_gestando">No gestando</h1>
         </div>
 
         <div class="my-4">
-            <flow-button type="submit">Registrar</flow-button>
+            <x-bladewind.button 
+                can_submit="true"
+                class="bg-cyan-700">Registrar</x-bladewind.button>
         </div>
     </form>
 </div>
