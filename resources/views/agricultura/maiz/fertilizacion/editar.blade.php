@@ -5,40 +5,81 @@
 @section('titulo-contenido', 'Editar Fertilizacion')
 @section('contenido')
 <div class="p-2">
-    <form action="{{route('fertilizacion.update')}}" method="POST">
+    <form action="{{route('fertilizacion.update',['fertilizacion' => $modelo->id])}}" method="POST">
         @csrf
         @method('put')
         {{-- Valores ocultos --}}
 
         @include('agricultura.maiz.base.editar')
 
-        <div class="flex flex-row justify-between py-3">
-            <flow-input type="text" label="Nombre: *" model-value="{{ old('nombre') }}"></flow-input>
-            </div>
-
-        <div class="flex flex-row justify-between py-3">
-            <flow-input type="text" label="Tipo: *" model-value="{{ old('tipo') }}"></flow-input>
-            </div>
-
-        <div class="flex flex-row justify-between py-3">
-                <flow-input type="number" label="Cantidad: *" model-value="{{ old('cantidad') }}"></flow-input>
-                </div>
+        @csrf
         
-        <div class="flex flex-row justify-between py-3">
-                <flow-input type="date" label="Fecha: *" model-value="{{ old('fecha') }}"></flow-input>
+            
+        <div class="flex flex-row justify-between py-3 items-center">
+            <div class="w-1/4">
+                <x-bladewind.input 
+                    name="nombre" 
+                    label="Nombre: " 
+                    value="{{ $modelo->nombre }}" 
+                    class="border-cyan-700"
+                />
+            </div>
+
+        <div class="flex flex-row justify-between py-3 items-center">
+            <div class="w-1/4">
+                <x-bladewind.input 
+                    name="tipo" 
+                    label="Tipo : " 
+                    value="{{ $modelo->tipo }}" 
+                    class="border-cyan-700"
+                />
+            </div>
+
+            <div class="flex flex-row justify-between py-3 items-center">
+                <div class="w-1/4">
+                    <x-bladewind.input 
+                        type="numeric"
+                        name="cantidad" 
+                        label="Cantidad: "
+                        min="0" 
+                        value="{{$modelo->cantidad}}" 
+                        class="border-cyan-700"
+                    />
                 </div>
 
-        <div class="flex flex-row justify-between py-3">
-                <flow-input type="text" label="Metodo de aplicacion: *" model-value="{{ old('metodo_aplicacion') }}"></flow-input>
-                </div>
-
-        <div class="flex flex-row justify-between py-3">
-                <flow-input type="text" label=" Observaciones: *" model-value="{{ old('observaciones') }}"></flow-input>
+                <div class="flex flex-row justify-between py-3 items-center">
+                    <div class="w-40">
+                        <x-bladewind.datepicker 
+                            name="fecha"
+                            placeholder="Fecha"
+                            value="{{$modelo->fecha}}" 
+                            class="border-cyan-700"
+                        />
                     </div>
+
+                    <div class="flex flex-row justify-between py-3 items-center">
+                        <div class="w-1/4">
+                            <x-bladewind.input 
+                                name="metodo_aplicacion" 
+                                label="Metodo de aplicacion: "
+                                value="{{$modelo->metodo_aplicacion}}" 
+                                class="border-cyan-700"
+                            />
+                        </div>
+                
+                <div class="flex flex-row justify-between py-3 items-center">
+                    <div class="w-1/4">
+                    <x-bladewind-textarea
+                        label="Observaciones"
+                        name="observaciones: "
+                        value="{{$modelo->observaciones}}"  />
+                        class="border-cyan-700"
 
         <div class="my-4">
-            <flow-button type="submit">Registrar</flow-button>
-                    </div>
-                </form>
-            </div>
-            @endsection
+            <x-bladewind.button 
+                can_submit="true"
+                class="bg-cyan-700">Registrar</x-bladewind.button>
+        </div>
+    </form>
+</div>
+@endsection

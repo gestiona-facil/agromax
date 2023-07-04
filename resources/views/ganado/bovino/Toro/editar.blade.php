@@ -1,25 +1,43 @@
 @extends('ganado.bovino.main')
 
-@section('titulo', 'Registrar Toro')
+@section('titulo', 'Editar Toro')
 
-@section('titulo-contenido', 'Registrar Toro')
+@section('titulo-contenido', 'Editar Toro')
 @section('contenido')
 <div class="p-2">
-    <form action="{{route('reproductor.update')}}" method="POST">
+    <form action="{{route('reproductor.update', ['reproductor' => $modelo->id ])}})}}" method="POST">
         @csrf
-        @method('put')
-        {{-- Valores ocultos --}}
-        @include('ganado.bovino.base.editar')
-        <div class="flex flex-row justify-between pt-2">
-            <flow-input type="text" name="tipo_alimentacion" label="Tipo de alimentacion: *" model-value="{{ old('tipo_alimentacion') }}"></flow-input>
-        </div>
-        <div class="flex flex-row justify-between pt-2">
-            {{-- <flow-input type="number" name="tiempo_madurez" label="Tiempo de madurez del padre: *" model-value="{{ old('Tiempo_madurez') }}"></flow-input> --}}
-        </div>
+        @method('PUT')
 
-        <div class="pt-6">
-            <flow-button type="submit">Registrar</flow-button>
-        </div>
-    </form>
-</div>
+        @include('ganado.bovino.base.crear')
+
+        <div class="flex flex-row justify-between py-3 items-center">
+            <div class="w-1/4">
+                <x-bladewind.input  
+                    name="tipo_alimentacion"  
+                    label="Tipo de alimentacion: "  
+                    value="{{ $modelo->tipo_alimentacion }}"  
+                    class="border-cyan-700" 
+                />
+            </div>
+
+            <div class="flex flex-row justify-between py-3 items-center">
+                <div class="w-1/4">
+                    <x-bladewind.input  
+                        type="numeric" 
+                        name="alias"  
+                        label="Tiempo de Madurez: "  
+                        value="{{ $modelo->tiempo_madurez }}"  
+                        class="border-cyan-700" 
+                    />
+                </div>
+            </div>
+
+            <div class="my-4">
+                <x-bladewind.button  
+                    can_submit="true" 
+                    class="bg-cyan-700">Actualizar</x-bladewind.button>
+            </div>
+        </form>
+    </div>
 @endsection

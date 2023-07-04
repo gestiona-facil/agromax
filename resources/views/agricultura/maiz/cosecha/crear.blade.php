@@ -1,6 +1,6 @@
 @extends('agricultura.maiz.main')
 
-@section('titulo', 'Registrar Cosecha')
+@section('titulo', 'Registrar Cosecha ')
 
 @section('titulo-contenido', 'Registrar Cosecha')
 @section('contenido')
@@ -8,19 +8,34 @@
     <form action="{{route('cosecha.store')}}" method="POST">
         @csrf
         {{-- Valores ocultos --}}
-
+        
         @include('agricultura.maiz.base.crear')
 
-        <div class="flex flex-row justify-between py-3">
-        <flow-input type="date" label="Fecha de cosecha: *" model-value="{{ old('fecha') }}"></flow-input>
-        </div>
-
-        <div class="flex flex-row justify-between py-3">
-        <flow-input type="number" name="cantidad" label="Cantidad: *" model-value="{{ old('cantidad') }}"></flow-input>
-    </div>
+            <div class="flex flex-row justify-between py-3 items-center">
+                <div class="w-40">
+                    <x-bladewind.datepicker 
+                        name="fecha"
+                        placeholder="Fecha de Cosecha"
+                        value="{{old('fecha')}}" 
+                        class="border-cyan-700"
+                    />
+                </div>
+                
+                <div class="flex flex-row justify-between py-3 items-center">
+                    <div class="w-1/4">
+                    <x-bladewind-input
+                        type="numeric"
+                        label="Cantidad"
+                        name="cantidad: "
+                        value="{{old('cantidad')}}"  
+                        class="border-cyan-700"
+                        />
+                    </div>
 
         <div class="my-4">
-            <flow-button type="submit">Registrar</flow-button>
+            <x-bladewind.button 
+                can_submit="true"
+                class="bg-cyan-700">Registrar</x-bladewind.button>
         </div>
     </form>
 </div>

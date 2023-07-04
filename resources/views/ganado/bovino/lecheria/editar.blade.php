@@ -7,22 +7,59 @@
 <div class="p-2">
     <form action="{{route('lecheria.update', ['lecherium' => $modelo->id ])}}" method="POST">
         @csrf
+        @method('PUT')
 
-        <div class="flex flex-row justify-between py-3">
-            <flow-input type="text" name="alias" label="Alias: *" model-value="{{ $modelo->alias }}"></flow-input>
-            
-            <flow-input type="text" name="tipo_alimento" label="Tipo de alimento: *" model-value="{{ $modelo->tipo_alimento }}"></flow-input>
-            
-            <flow-input type="number" name="cant_meta" min="0" label="Cantidad meta: *" model-value="{{ $modelo->cant_meta }}"></flow-input>
-        </div>
+        @include('ganado.bovino.base.crear')
 
-        <div class="flex flex-row justify-between py-3">
-            <flow-input type="text" name="observaciones" label="Observaciones: " model-value="{{ $modelo->observaciones }}"></flow-input>
-        </div>
+        <div class="flex flex-row justify-between py-3 items-center">
+            <div class="w-1/4">
+                <x-bladewind.input  
+                    name="alias"  
+                    label="Alias: "  
+                    value="{{ $modelo->alias }}"  
+                    class="border-cyan-700" 
+                />
+            </div>
 
-        <div class="my-4">
-            <flow-button type="submit">Guardar</flow-button>
-        </div>
-    </form>
-</div>
+            <div class="flex flex-row justify-between py-3 items-center">
+                <div class="w-1/4">
+                    <x-bladewind.input  
+                        name="tipo_alimento"  
+                        label="Tipo de alimento: "  
+                        value="{{ $modelo->tipo_alimento }}"  
+                        class="border-cyan-700" 
+                    />
+                </div>
+            </div>
+
+            <div class="flex flex-row justify-between py-3 items-center">
+                <div class="w-1/4">
+                    <x-bladewind.input  
+                        name="cant_meta"  
+                        label="Cantidad meta: " 
+                        min="0"  
+                        value="{{ $modelo->cant_meta }}"  
+                        class="border-cyan-700" 
+                    />
+                </div>
+            </div>
+
+            <div class="flex flex-row justify-between py-3 items-center">
+                <div class="w-1/4">
+                    <x-bladewind-textarea 
+                        label="Observaciones" 
+                        name="observaciones" 
+                        value="{{ $modelo->observaciones }}"  
+                        class="border-cyan-700"
+                    />
+                </div>
+            </div>
+
+            <div class="my-4">
+                <x-bladewind.button  
+                    can_submit="true" 
+                    class="bg-cyan-700">Actualizar</x-bladewind.button>
+            </div>
+        </form>
+    </div>
 @endsection
