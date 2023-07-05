@@ -9,7 +9,7 @@
 @csrf
         
 @include('agricultura.maiz.base.crear')
- 
+
 <div class="flex flex-row justify-between py-3 items-center">
     <div class="w-1/4">
         <x-bladewind.input 

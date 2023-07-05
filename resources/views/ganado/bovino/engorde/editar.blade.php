@@ -23,8 +23,8 @@
 
             <div class="w-1/4">
                 <x-bladewind.input  
+                    numeric="true"
                     name="cant_total_alimento"  
-                    min="0" 
                     label="Cantidad Total de alimento: " 
                     min="0"  
                     value="{{ $modelo->cant_total_alimento }}"  
@@ -34,7 +34,7 @@
 
             <div class="w-1/4">
                 <x-bladewind.input  
-                    type="numeric" 
+                    numeric="true"
                     name="duracion (En dias)"  
                     label="Duracion: "  
                     value="{{ $modelo->duracion }}"  
@@ -44,6 +44,7 @@
 
             <div class="w-1/4">
                 <x-bladewind.input  
+                    numeric="true"
                     name="cant_meta"  
                     min="0" 
                     label="Cantidad meta: " 
@@ -54,7 +55,8 @@
             </div>
 
             <div class="w-1/4">
-                <x-bladewind.input  
+                <x-bladewind.input 
+                    numeric="true" 
                     name="peso_inicial"  
                     min="0" 
                     label="Peso inicial: " 
@@ -65,7 +67,8 @@
             </div>
 
             <div class="w-1/4">
-                <x-bladewind.input  
+                <x-bladewind.input
+                    numeric="true"  
                     name="peso_final"  
                     min="0" 
                     label="Peso final: " 

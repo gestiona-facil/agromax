@@ -24,7 +24,7 @@
             <div class="flex flex-row justify-between py-3 items-center">
                 <div class="w-1/4">
                     <x-bladewind.input  
-                        type="numeric" 
+                        numeric="true" 
                         name="alias"  
                         label="Tiempo de Madurez: "  
                         value="{{ $modelo->tiempo_madurez }}"  

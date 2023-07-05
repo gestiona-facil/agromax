@@ -4,23 +4,40 @@
 
 @section('app')
 
+<x-bladewind.centered-content size="Tiny">
 
-        <flow-input type="text" label="Email: *" name="email"></flow-input>
-        <flow-input type="password" label="Clave: *" name="password"></flow-input>
-        <flow-button>Iniciar sesión</flow-button>
-    </form>
-    @if(session('error'))
-        <div class="alert alert-danger">{{ session('error') }}</div>
-    @endif
-@endsection
-<!-- 
-public function login(Request $request)
-{
-    $credentials = $request->only('email', 'password');
+    <x-bladewind.card>
+        Iniciar Sesión
+    </x-bladewind.card>
 
-    if (Auth::attempt($credentials)) {
-        return redirect()->route('welcome');
-    } else {
-        return redirect()->back()->with('error', 'Las credenciales son incorrectas');
-    }
-}-->
+
+
+<div class="flex flex-row justify-between py-3 items-center">
+        <x-bladewind.input
+        name="email"
+        label="Email:"
+        required="true" 
+        prefix="envelope"
+        prefix_is_icon="true"
+        class="border-cyan-700" />
+    </x.bladewind-input>
+
+        <div class="flex flex-row justify-between py-3 items-center">
+        <x-bladewind.input
+        type="password"
+        name="contraseña"
+        label="Contraseña"
+        required="true"
+        prefix="key"
+        prefix_is_icon="true"
+        class="border-cyan-700"/>
+    </x.bladewind-input>
+        </div>
+
+        <x-bladewind.button color="cyan" hover="blue">
+            Iniciar
+        </x-bladewind.button>
+
+    </x-bladewind.centered-content>
+    @endsection
+

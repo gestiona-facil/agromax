@@ -1,19 +1,55 @@
 @extends('main')
 
-
 @section('app')
-    <form>
-       <flow-input type="text" label="Nombre de la Empresa"></flow-input>
 
-       <!-- credenciales -->
-       <flow-input type="text" label="Email: *" name="email"></flow-input>
-       <flow-input type="text" label="Clave: *"></flow-input>
-       <flow-input type="text" label="Confirme Clave: *"></flow-input>
+<x-bladewind.centered-content size="Tiny">
 
-       <!-- seguridad -->
-       <flow-input type="text" label="Pregunta de Seguridad: *"></flow-input>
-       <flow-input type="password" label="Respuesta: *"></flow-input>
+    <x-bladewind.card>
+        Registrate
+    </x-bladewind.card>
 
-       <flow-button>Registrar</flow-button>
-    </form>
-@endsection
+
+
+<div class="flex flex-row justify-between py-3 items-center">
+        <x-bladewind.input
+        name="email"
+        label="Email:"
+        required="true" 
+        prefix="envelope"
+        prefix_is_icon="true"
+        class="border-cyan-700" />
+    </x.bladewind-input>
+
+        <div class="flex flex-row justify-between py-3 items-center">
+        <x-bladewind.input
+        type="password"
+        name="contraseña"
+        label="Contraseña"
+        required="true"
+        prefix="key"
+        prefix_is_icon="true"
+        class="border-cyan-700"/>
+    </x.bladewind-input>
+        </div>
+
+        <div class="flex flex-row justify-between py-3 items-center">
+            <x-bladewind.input
+            type="password"
+            name=" confirmar contraseña"
+            label="Confirmar Contraseña"
+            required="true"
+            prefix="key"
+            prefix_is_icon="true"
+            class="border-cyan-700"/>
+        </x.bladewind-input>
+            </div>
+
+        <x-bladewind.button
+        has_spinner="true"
+        name="registrarse"
+        onclick="unhide('.registrarse .bw-spinner')"  >
+        Registrar
+    </x-bladewind.button>
+
+    </x-bladewind.centered-content>
+    @endsection
