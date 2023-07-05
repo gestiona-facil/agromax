@@ -45,6 +45,16 @@ Route::controller(App\Http\Controllers\AuthController::class)->group(function ()
     
     //---- Rutas para Ganando Bovino
     Route::prefix('/ganados/bovinos')->group(function (){
+
+        Route::prefix('control-lecheria')->group(function (){
+
+            Route::controller(App\Http\Controllers\Bovino\ControlLecheriaController::class)->group(function (){
+
+                Route::get('{madre}/agregar', 'create')->name('bovino.control-lecheria.create');
+                Route::post('control-lecheria', 'store')->name('bovino.control-lecheria.store');
+            });
+
+        });
         
         Route::resources([
             'vaca' => App\Http\Controllers\Bovino\MadreController::class,
