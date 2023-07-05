@@ -51,7 +51,20 @@ Route::controller(App\Http\Controllers\AuthController::class)->group(function ()
             Route::controller(App\Http\Controllers\Bovino\ControlLecheriaController::class)->group(function (){
 
                 Route::get('{madre}/agregar', 'create')->name('bovino.control-lecheria.create');
+                Route::get('{controlLecheria}/editar', 'edit')->name('bovino.control-lecheria.edit');
+
                 Route::post('control-lecheria', 'store')->name('bovino.control-lecheria.store');
+                Route::put('control-lecheria/{controlLecheria}', 'update')->name('bovino.control-lecheria.update');
+            });
+
+        });
+
+        Route::prefix('control-sanitario')->group(function (){
+
+            Route::controller(App\Http\Controllers\Bovino\ControlSanitarioAnimalController::class)->group(function (){
+
+                Route::get('{madre}/agregar', 'create')->name('bovino.control-sanitario.create');
+                Route::post('control-lecheria', 'store')->name('bovino.control-sanitario.store');
             });
 
         });

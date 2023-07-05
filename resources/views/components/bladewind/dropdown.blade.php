@@ -121,10 +121,12 @@
     $onselect = str_replace('&#039;', "'", $onselect);
     $input_name = preg_replace('/[\s-]/', '_', $name);
 
-    if(! isset($data[0]->{$label_key}) ) {
-        echo '<p style="color:red">
-            &lt;x-bladewind.dropdown /&gt;: ensure the value you set as label_key
-            exists in your array data</p>';exit;
+    if(count($data)){
+        if(! isset($data[0]->{$label_key}) ) {
+            echo '<p style="color:red">
+                &lt;x-bladewind.dropdown /&gt;: ensure the value you set as label_key
+                exists in your array data</p>';exit;
+        }
     }
     if( $url_key !== '' && ! isset($data[0]->{$url_key}) ) {
         echo '<p style="color:red">

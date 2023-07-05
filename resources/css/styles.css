@@ -1,3 +1,14 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/** Resetear estilos por defecto de bladewind-ui **/
+.bw-input, .bw-textarea {
+    outline: none !important;
+    outline-offset: 0 !important;
+}
+
+select.bw-input{
+    border-width: 1px;
+    padding: .5rem .75rem;
+}

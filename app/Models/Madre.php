@@ -11,14 +11,14 @@ class Madre extends Model
     
     use HasFactory;
 
-    public function lecherias()
+    public function lecheria()
     {
-        return $this->hasMany(Lecheria::class);
+        return $this->belongsTo(Lecheria::class);
     }
     
-    public function control_lecherias()
+    public function controles_lecheria()
     {
-        return $this->belongsTo(ControlLecheria::class);
+        return $this->hasMany(ControlLecheria::class, 'madre_id');
     }
     
     public function ganado()

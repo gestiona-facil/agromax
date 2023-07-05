@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Madre;
 use App\Models\Lecheria;
 use App\Http\Requests\StoreLecheriaRequest;
 use App\Http\Requests\UpdateLecheriaRequest;
@@ -25,7 +26,21 @@ class LecheriaController extends Controller
     public function create()
     {
         //
-        return view('ganado.bovino.lecheria.crear');
+        $madres = Madre::with('ganado')->join('ganados', 'madres.ganado_id', '=', 'ganados.id')
+            ->where('ganados.tipo', '=', 'bovino')
+            ->select('madres.*')
+            ->get()
+            ->map(function ($item){
+                return [
+                    'label' => $item->ganado->identificacion,
+                    'value' => $item->id
+                ];
+            });
+
+        return view('ganado.bovino.lecheria.crear', [
+            'madres' => $madres,
+            'padres' => collect([])
+        ]);
     }
 
     /**
@@ -57,8 +72,14 @@ class LecheriaController extends Controller
     public function show(Lecheria $lecheria)
     {
         //
+        $madre = Madre::first();
+
+        // dd($madre->controles_lecheria);
         return view('ganado.bovino.lecheria.mostrar', [
-            'modelo' => $lecheria
+            'modelo' => $lecheria,
+            'vacas' => $lecheria->madres->filter(function ($item){
+                return $item->ganado->tipo == 'bovino';
+            })
         ]);
     }
 

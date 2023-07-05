@@ -1,21 +1,39 @@
 <div class="flex flex-row justify-between items-center py-3">
-    <x-bladewind.dropdown
-        placeholder="Seleccione Madre (vaca)"
-        name="madre"
-        data=" {{ json_encode($madres->toArray()) }} "
-    />
     {{-- Listado de Madres (Vacas) --}}
-    {{-- @include('ganado.bovino.base.listado-ganado', [
-        'titulo' => 'Seleccionar Madre (vaca)',
-        'datos' => $madres,
-        'name' => 'madre'
-    ]) --}}
+    <div class="@isset($lecherias) w-1/4 @else w-1/3 @endif">
+        <x-bladewind.select
+            :data="$madres"
+            name="madre"
+            label="Seleccione Madre (vaca): "
+            empty_label="No hay registros"
+            class="border-cyan-700"
+        />
+    </div>
+
     {{-- Listado de Padres (Toros) --}}
-    @include('ganado.bovino.base.listado-ganado', [
-        'titulo' => 'Seleccionar Padre (toros)',
-        'datos' => $padres,
-        'name' => 'padre'
-    ])
+    <div class="@isset($lecherias) w-1/4 @else w-1/3 @endif">
+        <x-bladewind.select
+            :data="$padres"
+            name="padre"
+            label="Seleccione Padre (toro): "
+            empty_label="No hay registros"
+            class="border-cyan-700"
+        />   
+    </div>
+
+    {{-- Listado de lecherias --}}
+    @isset($lecherias)
+    <div class="w-1/4">
+        <x-bladewind.select
+            :data="$lecherias"
+            name="lecheria"
+            label="Seleccione Lecheria: "
+            empty_label="No hay registros"
+            class="border-cyan-700"
+        />   
+    </div>
+    @endisset
+ 
 </div>
 <div class="flex flex-row justify-between py-3">
     <div class="w-1/4">

@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('lecherias', function (Blueprint $table) {
             $table->id();
             $table->string('alias');
-            $table->string('tipo_alimento');
+            $table->string('tipo_alimento')->nullable();
             $table->float('cant_meta');
             $table->text('observaciones')->nullable();
             $table->timestamps();
