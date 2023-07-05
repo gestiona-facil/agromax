@@ -23,10 +23,10 @@
             <div class="flex flex-row justify-between py-3 items-center">
                 <div class="w-1/4">
                     <x-bladewind.input 
+                        numeric="true"
                         name="cant_total_alimento" 
                         min="0"
                         label="Cantidad Total de alimento: "
-                        min="0" 
                         value="{{old('cant_total_alimento')}}" 
                         class="border-cyan-700"
                     />
@@ -35,7 +35,7 @@
                 <div class="flex flex-row justify-between py-3 items-center">
                     <div class="w-1/4">
                         <x-bladewind.input 
-                            type="numeric"
+                            numeric="true"
                             name="duracion (En dias)" 
                             label="Duracion: " 
                             value="{{old('duracion')}}" 
@@ -49,7 +49,6 @@
                                 name="cant_total_alimento" 
                                 min="0"
                                 label="Cantidad meta: "
-                                min="0" 
                                 value="{{old('cant_meta')}}" 
                                 class="border-cyan-700"
                             />
@@ -58,10 +57,10 @@
                         <div class="flex flex-row justify-between py-3 items-center">
                             <div class="w-1/4">
                                 <x-bladewind.input 
+                                    numeric="true"
                                     name="peso_inicial" 
                                     min="0"
                                     label="Peso inicial: "
-                                    min="0" 
                                     value="{{old('peso_inicial')}}" 
                                     class="border-cyan-700"
                                 />
@@ -70,10 +69,10 @@
                             <div class="flex flex-row justify-between py-3 items-center">
                                 <div class="w-1/4">
                                     <x-bladewind.input 
+                                        numeric="true"
                                         name="peso_final" 
                                         min="0"
                                         label="Peso final: "
-                                        min="0" 
                                         value="{{old('peso_final')}}" 
                                         class="border-cyan-700"
                                     />

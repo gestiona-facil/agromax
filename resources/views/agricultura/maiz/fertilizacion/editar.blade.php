@@ -69,11 +69,13 @@
                 
                 <div class="flex flex-row justify-between py-3 items-center">
                     <div class="w-1/4">
-                    <x-bladewind-textarea
+                    <x-bladewind.textarea
                         label="Observaciones"
                         name="observaciones: "
-                        value="{{$modelo->observaciones}}"  />
                         class="border-cyan-700"
+                        />
+                    </div>
+
 
         <div class="my-4">
             <x-bladewind.button 
