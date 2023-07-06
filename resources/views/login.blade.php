@@ -17,6 +17,7 @@
                 prefix_is_icon="true"
                 class="border-cyan-700"
             />
+            <a href="#" class="underline text-sm text-cyan-700">Recuperar contraseña</a>
         </div>
 
         <div class="mb-4">
