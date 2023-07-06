@@ -67,7 +67,7 @@ class CriaController extends Controller
 
             $crium->tiempo_destete = $request->tiempo_destete;
             $crium->alias = $request->alias;
-            $crium->destetado =  $request->destetado;
+            $crium->destetado =  $request->has('destetado') ? 1 : 0;
 
             if($crium->save()){
                 return redirect()->route('cria.show', ['crium' => $crium->id]);

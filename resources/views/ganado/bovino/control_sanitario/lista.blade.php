@@ -26,8 +26,8 @@
             @foreach($datos->items() as $dato)
                 <tr>
                     <td class="font-bold">{{ $loop->iteration }}</td>
-                    <td><a class="text-amber-700 underline hover:text-cyan-700" href="{{ route('bovino.control-sanitario.show', ['controlSanitarioAnimal' => $ganado->id])}}">{{ $dato->fecha }}</a></td>
-                    <td>{{ $ganado->estado_salud ? 'Enfermo' : 'Sano'}}</td>
+                    <td><a class="text-amber-700 underline hover:text-cyan-700" href="{{ route('bovino.control-sanitario.show', ['controlSanitarioAnimal' => $dato->id])}}">{{ $dato->fecha }}</a></td>
+                    <td>{{ $dato->estado_salud ? 'Enfermo' : 'Sano'}}</td>
                     <td class="flex justify-start">
                         <x-bladewind.button
                             class="bg-cyan-700" 

@@ -11,9 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('reproductores', function (Blueprint $table) {
+        Schema::create('reproductors', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('ganado_id');
+            $table->string('alias')->nullable();
             $table->string('tipo_alimentacion');
             $table->float('tiempo_madurez');
             $table->timestamps();

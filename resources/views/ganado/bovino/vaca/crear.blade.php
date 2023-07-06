@@ -39,7 +39,7 @@
                     <x-bladewind.input 
                         type="date"
                         name="fecha_inicio_gestacion" 
-                        label="Fecha" 
+                        label="Fecha de fecundación" 
                         required="true"
                         value="{{ old('fecha_inicio_gestacion') }}"
                         class="border-cyan-700"

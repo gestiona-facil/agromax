@@ -7,7 +7,8 @@
     // css classes to append to the svg file
     'class' => '',
     // specify directory to load icons from
-    'dir' => ''
+    'dir' => '',
+    'attr' => ''
 ])
 @php 
     $path = 'vendor/bladewind/icons';
@@ -18,6 +19,6 @@
     @if(substr($name, 0,4) === '<svg') {{-- do this for complete svg tags --}}
         {!!$name!!}
     @elseif($svg_file)
-        {!! str_replace('<svg', '<svg class="h-6 w-6 inline-block dark:text-slate-500 '.$class.'"', file_get_contents($svg_file)) !!}
+        {!! str_replace('<svg', '<svg class="h-6 w-6 inline-block dark:text-slate-500 '.$class.'" '.$attr, file_get_contents($svg_file)) !!}
     @endif
 @endif

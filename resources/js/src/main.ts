@@ -20,7 +20,9 @@ let app = createApp({
         //usar snake_case, especificando la ruta a la que pertenece la variable, aunque también es posible usar el mismo
         //nombre de varable si la funcionalidad desea es similar en diferentes secciones del sitio
         return {
-            vaca_gestando:false
+            vaca_gestando:false,
+            levante_sexo:false,
+            levante_destetado:false
         };
     },
     // components:{

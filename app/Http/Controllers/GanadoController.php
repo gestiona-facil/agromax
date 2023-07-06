@@ -32,7 +32,7 @@ class GanadoController extends Controller
         $ganado->tipo = $request->tipo;
         $ganado->raza = $request->raza;
         $ganado->fecha_nacimiento = $request->fecha_nacimiento;
-        $ganado->sexo = $request->sexo;
+        $ganado->sexo = $request->has('sexo') ? 1 : 0;
         $ganado->save();
 
         return $ganado;

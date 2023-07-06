@@ -58,6 +58,7 @@
         <div class="flex flex-row justify-between items-center py-3">
             <x-bladewind.textarea
                 label="Observaciones: " 
+                name="observaciones"
                 value="{{ old('observaciones') }}"
                 class="border-cyan-700"
             />

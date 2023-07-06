@@ -42,6 +42,7 @@ class ControlSanitarioAnimalController extends Controller
         $control->fecha = $request->fecha;
         $control->fecha_control_proximo = $request->fecha_control_proximo;
         $control->estado_salud = $request->has('estado_salud');
+
         if($request->has('observaciones')){
             $control->observaciones = $request->observaciones;
         }
