@@ -1,54 +1,86 @@
 @extends('main')
 
 @section('app')
+    <div class="flex justify-center items-center h-screen bg-gradient-to-r from-green-700 to-cyan-700">
+        <div class="w-2/3 bg-white rounded shadow p-8">
+            
+            <img src="{{ asset('img/logo.png')}}" class="h-14">
+            <h1 class="text-2xl font-bold mb-4 text-center">Registra Tus Credenciales</h1>
 
-    <x-bladewind.card>
-        Registrate en Agromax
-    </x-bladewind.card>
+            <div>
+                <div class="flex items-center justify-between">
+                    <div class="px-2">
+                        <x-bladewind.input
+                            name="nombre_empresa"
+                            label="Nombre de la empresa:"
+                            required="true" 
+                            prefix="envelope"
+                            prefix_is_icon="true"
+                            class="border-cyan-700" />
+                    </div>
+                    <div class="px-2">
+                        <x-bladewind.input
+                            name="email"
+                            label="Email:"
+                            required="true" 
+                            prefix="envelope"
+                            prefix_is_icon="true"
+                            class="border-cyan-700" />
+                    </div>
+                </div>
+                <div class="flex items-center justify-between">
+                    <div class="px-2">
+                        <x-bladewind.input
+                            type="password"
+                            name="password"
+                            label="Contraseña"
+                            required="true"
+                            prefix="key"
+                            prefix_is_icon="true"
+                            class="border-cyan-700"
+                        />
+                    </div>
+                    <div class="px-2">
+                        <x-bladewind.input
+                            type="password"
+                            name="password_confirmation"
+                            label="Confirmar Contraseña"
+                            required="true"
+                            prefix="key"
+                            prefix_is_icon="true"
+                            class="border-cyan-700"
+                        />
+                    </div>
+                </div>
 
+                <div class="flex items-center justify-between">
+                    <div class="px-2">
+                        <x-bladewind.input
+                            name="pregunta_seguridad"
+                            label="Pregunta de Seguridad"
+                            required="true"
+                            prefix="key"
+                            prefix_is_icon="true"
+                            class="border-cyan-700"
+                        />
+                    </div>
+                    <div class="px-2">
+                        <x-bladewind.input
+                            name="respuesta_seguridad"
+                            label="Respuesta de Seguridad"
+                            required="true"
+                            prefix="key"
+                            prefix_is_icon="true"
+                            class="border-cyan-700"
+                        />
+                    </div>
+                </div>
 
-    <div class="flex justify-center items-center h-screen">
-        <div class="w-1/3 bg-white rounded shadow p-8">
-            <h1 class="text-2xl font-bold mb-4">Registra Tus Credenciales</h1>
-
-        <x-bladewind.input
-        name="email"
-        label="Email:"
-        required="true" 
-        prefix="envelope"
-        prefix_is_icon="true"
-        class="border-cyan-700" />
-    </x.bladewind-input>
-
-        <div class="flex flex-row justify-between py-3 items-center">
-        <x-bladewind.input
-        type="password"
-        name="contraseña"
-        label="Contraseña"
-        required="true"
-        prefix="key"
-        prefix_is_icon="true"
-        class="border-cyan-700"/>
-    </x.bladewind-input>
-        </div>
-
-        <div class="flex flex-row justify-between py-3 items-center">
-            <x-bladewind.input
-            type="password"
-            name=" confirmar contraseña"
-            label="Confirmar Contraseña"
-            required="true"
-            prefix="key"
-            prefix_is_icon="true"
-            class="border-cyan-700"/>
-        </x.bladewind-input>
+                <x-bladewind.button
+                    can_submit="true"
+                    class="bg-cyan-500 focus:ring-cyan-500 mt-4"
+                >Registrar</x-bladewind.button>
             </div>
-
-        <x-bladewind.button
-        has_spinner="true"
-        name="registrarse"
-        onclick="unhide('.registrarse .bw-spinner')"  >
-        Registrar
-    </x-bladewind.button>
+        </div>
 
     @endsection

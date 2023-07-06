@@ -43,7 +43,7 @@ class AuthController extends Controller
         $usuario->email = $request->email;
         $usuario->password = Hash::make($request->password);
         $usuario->pregunta_seguridad = $request->pregunta;
-        $usuario->respuestas_seguridad = $request->seguridad;
+        $usuario->respuesta_seguridad = $request->seguridad;
 
         if(!$usuario->save()){
             return back()->withErrors([
@@ -53,8 +53,9 @@ class AuthController extends Controller
 
         //-- en este punto, usuario ya guardado
         $info->nombre_empresa = $request->empresa;
-        $info->codigo_hierro = $request->hierro;
-        $info->cant_hectareas = $request->hectareas;
+        //TODO: el registro de las seguiente se hace en editar perfil
+        // $info->codigo_hierro = $request->hierro;
+        // $info->cant_hectareas = $request->hectareas;
         $info->save();
 
         return redirect()->route('login')->withInput([

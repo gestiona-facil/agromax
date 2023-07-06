@@ -2981,11 +2981,6 @@ input:checked + .toggle-bg {
   background-color: rgb(194 120 3 / var(--tw-bg-opacity));
 }
 
-.bg-amber-700 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(180 83 9 / var(--tw-bg-opacity));
-}
-
 .bg-opacity-50 {
   --tw-bg-opacity: 0.5;
 }
@@ -3041,6 +3036,12 @@ input:checked + .toggle-bg {
 .from-green-500 {
   --tw-gradient-from: #0E9F6E var(--tw-gradient-from-position);
   --tw-gradient-to: rgb(14 159 110 / 0) var(--tw-gradient-to-position);
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+}
+
+.from-green-700 {
+  --tw-gradient-from: #046C4E var(--tw-gradient-from-position);
+  --tw-gradient-to: rgb(4 108 78 / 0) var(--tw-gradient-to-position);
   --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
 }
 
