@@ -63,8 +63,12 @@ Route::controller(App\Http\Controllers\AuthController::class)->group(function ()
 
             Route::controller(App\Http\Controllers\Bovino\ControlSanitarioAnimalController::class)->group(function (){
 
-                Route::get('{madre}/agregar', 'create')->name('bovino.control-sanitario.create');
-                Route::post('control-lecheria', 'store')->name('bovino.control-sanitario.store');
+                Route::get('{ganado}/agregar', 'create')->name('bovino.control-sanitario.create');
+                Route::get('{control}/editar', 'edit')->name('bovino.control-sanitario.edit');
+
+                Route::post('control-sanitario', 'store')->name('bovino.control-sanitario.store');
+                Route::post('control-sanitario/{controlSanitarioAnimal}', 'update')->name('bovino.control-sanitario.update');
+
             });
 
         });
