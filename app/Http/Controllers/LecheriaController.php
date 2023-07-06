@@ -69,15 +69,15 @@ class LecheriaController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Lecheria $lecheria)
+    public function show(Lecheria $lecherium)
     {
         //
         $madre = Madre::first();
 
         // dd($madre->controles_lecheria);
         return view('ganado.bovino.lecheria.mostrar', [
-            'modelo' => $lecheria,
-            'vacas' => $lecheria->madres->filter(function ($item){
+            'modelo' => $lecherium,
+            'vacas' => $lecherium->madres->filter(function ($item){
                 return $item->ganado->tipo == 'bovino';
             })
         ]);

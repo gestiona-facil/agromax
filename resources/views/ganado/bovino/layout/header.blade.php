@@ -1,16 +1,14 @@
-<header class="bg-green-600 text-white p-4 flex justify-between items-center">
+<header class="bg-gradient-to-r from-cyan-700 to-amber-700 text-white p-4 flex justify-between items-center">
   <div class="flex items-center">
-    <img src="{{asset('img/logo.png')}}" alt="Logo" class="h-8 w-8 mr-2">
-    <h1 class="text-lg font-bold">Agromax</h1>
+    <img src="{{ asset('img/logo.png')}}" class="h-14">
   </div>
 
-  <nav class="space-x-4">
-    <a href="#" class="text-gray-600 hover:text-white">Inicio</a>
-    <a href="#" class="text-gray-300 hover:text-white">Vacas</a>
-    <a href="#" class="text-gray-300 hover:text-white">Control Ordeño</a>
-    <a href="#" class="text-gray-300 hover:text-white">Sanidad</a>
-    <a href="#" class="text-gray-300 hover:text-white">Finanzas</a>
-  </nav>
 
-  <button class="bg-blue-500 hover:bg-blue-500 text-white px-4 py-2 rounded">Cerrar Sesión</button>
+  <nav class="space-x-4">
+    <a href="ganados/bovinos/vaca/crear" class="text-gray-300 hover:text-white">Vaca</a>
+    <a href="ganados/bovinos/engorde/crear" class="text-gray-300 hover:text-white">engorde</a>
+    <a href="ganados/bovinos/cria/crear" class="text-gray-300 hover:text-white">Levante</a>
+    <a href="ganados/bovinos/lecheria/crear" class="text-gray-300 hover:text-white">Ordeño</a>
+   <a href="#" class="text-black-300 border:bg-cyan-100 hover:text-white font-bold text-xl"></a>
+  </nav>
 </header>
