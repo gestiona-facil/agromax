@@ -1,7 +1,8 @@
 @extends('main')
 
 @section('app')
-    <div class="flex justify-center items-center h-screen bg-gradient-to-r from-green-700 to-cyan-700">
+    <form action="{{ route('auth-guardar')}}"  method="post" class="flex justify-center items-center h-screen bg-gradient-to-r from-green-700 to-cyan-700">
+        @csrf
         <div class="w-2/3 bg-white rounded shadow p-8">
             
             <img src="{{ asset('img/logo.png')}}" class="h-14">
@@ -16,6 +17,7 @@
                             required="true" 
                             prefix="envelope"
                             prefix_is_icon="true"
+                            value="{{ old('nombre_empresa') }}"
                             class="border-cyan-700" />
                     </div>
                     <div class="px-2">
@@ -25,6 +27,7 @@
                             required="true" 
                             prefix="envelope"
                             prefix_is_icon="true"
+                            value="{{ old('email') }}"
                             class="border-cyan-700" />
                     </div>
                 </div>
@@ -56,7 +59,7 @@
                 <div class="flex items-center justify-between">
                     <div class="px-2">
                         <x-bladewind.input
-                            name="pregunta_seguridad"
+                            name="pregunta"
                             label="Pregunta de Seguridad"
                             required="true"
                             prefix="key"
@@ -66,7 +69,7 @@
                     </div>
                     <div class="px-2">
                         <x-bladewind.input
-                            name="respuesta_seguridad"
+                            name="respuesta"
                             label="Respuesta de Seguridad"
                             required="true"
                             prefix="key"
@@ -82,5 +85,5 @@
                 >Registrar</x-bladewind.button>
             </div>
         </div>
-
-    @endsection
+    </form>
+@endsection
