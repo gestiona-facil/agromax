@@ -10,10 +10,15 @@ class Ganado extends Model
     protected $tableName = 'ganados';
     use HasFactory;
 
+    public function controles_sanitario()
+    {
+        return $this->hasMany(ControlSanitarioAnimal::class, 'ganado_id');
+    }
+
     public function engordes()
-{
-    return $this->hasMany(Engorde::class);
-}
+    {
+        return $this->hasMany(Engorde::class);
+    }
 
     public function madres()
     {
