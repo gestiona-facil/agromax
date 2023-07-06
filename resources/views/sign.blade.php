@@ -2,15 +2,15 @@
 
 @section('app')
 
-<x-bladewind.centered-content size="Tiny">
-
     <x-bladewind.card>
-        Registrate
+        Registrate en Agromax
     </x-bladewind.card>
 
 
+    <div class="flex justify-center items-center h-screen">
+        <div class="w-1/3 bg-white rounded shadow p-8">
+            <h1 class="text-2xl font-bold mb-4">Registra Tus Credenciales</h1>
 
-<div class="flex flex-row justify-between py-3 items-center">
         <x-bladewind.input
         name="email"
         label="Email:"
@@ -51,5 +51,4 @@
         Registrar
     </x-bladewind.button>
 
-    </x-bladewind.centered-content>
     @endsection

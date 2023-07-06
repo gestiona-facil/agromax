@@ -12,15 +12,15 @@
         <script src="{{ asset('vendor/bladewind/js/helpers.js') }}"></script>
     </head>
     <body>
+
+
         @yield('pre-contenido')
         <div id="app">
             @yield('app')
         </div>
         @yield('post-contenido')
-        
+
     </body>
 
     <script src="{{asset('build/main.js')}}"></script>
     @yield('post-script')
-    
-</html>
