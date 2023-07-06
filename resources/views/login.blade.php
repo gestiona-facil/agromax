@@ -3,7 +3,8 @@
 @section('app')
 
 <div class="flex justify-center items-center h-screen bg-gradient-to-r from-cyan-700 to-amber-700">
-    <div class="w-1/3 bg-white rounded shadow p-8">
+    <form action="{{ route('auth-inspeccion') }}" method="post" class="w-1/3 bg-white rounded shadow p-8">
+        @csrf
         <img src="{{ asset('img/logo.png') }}" class="h-14">
         <h1 class="text-2xl font-bold mb-4 text-center">Iniciar Sesión</h1>
 
@@ -37,5 +38,5 @@
             >Iniciar</x-bladewind.button>
         </div>
         {{-- La seccion de registro aparecerá automaticamente en caso de que no exista usuario en BD --}}
-    </div>
+    </form>
 </div>

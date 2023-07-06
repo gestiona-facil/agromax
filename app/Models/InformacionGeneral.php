@@ -9,5 +9,5 @@ class InformacionGeneral extends Model
 {
     use HasFactory;
 
-    protected $tableName = 'informaciones_generales';
+    protected $tableName = 'informacion_generals';
 }
