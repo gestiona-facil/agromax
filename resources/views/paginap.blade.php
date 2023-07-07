@@ -1,34 +1,89 @@
 @extends('main')
-
-<html lang="en">
-<head>
+ <html lang="en">
+ <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-</head>
-<body>
-    <section class="bg-white dark:bg-gray-900">
-        <div class="grid max-w-screen-xl px-4 py-8 mx-auto lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-12">
-            <div class="mr-auto place-self-center lg:col-span-7">
-                <h1 class="max-w-2xl mb-4 text-4xl font-extrabold tracking-tight leading-none md:text-5xl xl:text-6xl dark:text-white">Welcome To Harare City</h1>
-                <p class="max-w-2xl mb-6 font-light text-gray-500 lg:mb-8 md:text-lg lg:text-xl dark:text-gray-400">
-                    Welcome to [Company Name], your gateway to unforgettable travel experiences. We are a leading travel and tour company dedicated to
-                     creating exceptional journeys for adventurers, explorers, and wanderers like you.</p>
-                <a href="#" class="inline-flex items-center justify-center px-5 py-3 mr-3 text-base font-medium text-center
-                 text-white rounded-lg bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 dark:focus:ring-primary-900">
-                    Get started
-                    <svg class="w-5 h-5 ml-2 -mr-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" 
-                        d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
-                </a>
-                <a href="#" class="inline-flex items-center justify-center px-5 py-3 text-base font-medium text-center text-gray-900 border border-gray-300 rounded-lg hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 dark:text-white dark:border-gray-700 dark:hover:bg-gray-700 dark:focus:ring-gray-800">
-                    Speak to Sales
-                </a> 
-            </div>
-            <div class="hidden lg:mt-0 lg:col-span-5 lg:flex rounded-lg">
-                <img src="https://lp-cms-production.imgix.net/2019-06/554369495_full.jpg" alt="mockup" class="rounded-lg">
-            </div>                
+ </head>
+ <body>
+    <!-- Header -->
+<header>
+    <!-- navbar and menu -->
+    <nav class="shadow">
+  
+    <div class="flex justify-between items-center py-6 px-10 container mx-auto">
+  
+      <div>
+        <h1 class="text-2xl font-bold bg-gradient-to-tr from-indigo-600 to-green-600 bg-clip-text text-transparent hover:cursor-pointer">Adsla</h1>
+      </div>
+  
+      <div>
+        
+        <div class="hover:cursor-pointer sm:hidden">
+          <span class="h-1 rounded-full block w-8 mb-1 bg-gradient-to-tr from-indigo-600 to-green-600"></span>
+          <spnan class="h-1 rounded-full block w-8 mb-1 bg-gradient-to-tr from-indigo-600 to-green-600"></spnan>
+          <spnan class="h-1 rounded-full block w-8 mb-1 bg-gradient-to-tr from-indigo-600 to-green-600"></spnan>
         </div>
-</body>
-</html>
+        <div class="flex items-center">
+  
+          <ul class="sm:flex space-x-4 hidden items-center">
+            <li><a href="#" class="text-gray-700 hover:text-indigo-600 text-md ">Home</a></li>
+            <li><a href="#" class="text-gray-700 hover:text-indigo-600 text-md ">About</a></li>
+            <li><a href="#" class="text-gray-700 hover:text-indigo-600 text-md ">Services</a></li>
+            <li><a href="#" class="text-gray-700 hover:text-indigo-600 text-md ">Products</a></li>
+            <li><a href="#" class="text-gray-700 hover:text-indigo-600 text-md ">Contact</a></li>
+          </ul>
+  
+          <div class="md:flex items-center hidden space-x-4 ml-8 lg:ml-12">
+            <h1 class="text-text-gray-600  py-2 hover:cursor-pointer hover:text-indigo-600">LOGIN</h1>
+            <h1 class="text-text-gray-600  py-2 hover:cursor-pointer px-4 rounded text-white bg-gradient-to-tr from-indigo-600 to-green-600 hover:shadow-lg">SIGNUP</h1>
+          </div>
+        </div>
+      </div>
+    </div>
+    </nav>
+  </header>
+  <main>
+    <!-- section hero -->
+    <section>
+      <div class="bg-gray-100 sm:grid grid-cols-5 grid-rows-2 px-4 py-6 min-h-full lg:min-h-screen space-y-6 sm:space-y-0 sm:gap-4">
+  
+      <div class="h-96 col-span-4 bg-gradient-to-tr from-indigo-800 to-indigo-500 rounded-md flex items-center">
+        <div class="ml-20 w-80">
+        <h2 class="text-white text-4xl">Adsla</h2>
+        <p class="text-indigo-100 mt-4 capitalize font-thin tracking-wider leading-7">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed, dolore?</p>
+  
+        <a href="#" class="uppercase inline-block mt-8 text-sm bg-white py-2 px-4 rounded font-semibold hover:bg-indigo-100">get start</a>
+        </div>
+  
+      </div>
+      <div class="h-96 col-span-1 ">
+        <div class="bg-white py-3 px-4 rounded-lg flex justify-around items-center ">
+     <input type="text" placeholder="seach" class=" bg-gray-100 rounded-md  outline-none pl-2 ring-indigo-700 w-full mr-2 p-2">
+    <span><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor ">
+    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+  </svg></span>
+        </div>
+        <div class="bg-white  rounded-md">
+  
+        <h1 class="text-center text-xl my-4  bg-white py-2 rounded-md border-b-2 cursor-pointer  text-gray-600">Service</h1>
+        <div class="bg-white rounded-md list-none  text-center ">
+          <li class="py-3 border-b-2"><a href="#" class="list-none  hover:text-indigo-600">Products</a></li>
+          <li class="py-3 border-b-2"><a href="#" class="list-none  hover:text-indigo-600">Models</a></li>
+          <li class="py-3 border-b-2"><a href="#" class="list-none  hover:text-indigo-600">Pricing</a></li>
+          <li class="py-3 border-b-2"><a href="#" class="list-none  hover:text-indigo-600">Hire</a></li>
+          <li class="py-3 "><a href="#" class="list-none border-b-2 hover:text-indigo-600">Business</a></li>
+        </div>
+        </div>
+      </div>
+      </div>
+  
+    </section>
+  
+  </main>
 
+
+ </body>
+ </html>
+<!-- component -->

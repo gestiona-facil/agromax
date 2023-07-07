@@ -16,7 +16,7 @@
         </div>
       
         <nav class="space-x-4">
-          <a href="agricultura/maiz/semilla/crear" class="text-gray-300 hover:text-white">Siembra</a>
+          <a href="crear" class="text-gray-300 hover:text-white">Siembra</a>
           <a href="#" class="text-gray-300 hover:text-white">Terreno</a>
           <a href="#" class="text-gray-300 hover:text-white">Fertilizacion</a>
           <a href="#" class="text-gray-300 hover:text-white">Semilla</a>
@@ -25,37 +25,28 @@
       
         <x-bladewind.button class="bg-gradient-to-r from-green-600 to-cyan-600 hover:bg-cyan-200 text-white px-4 py-2 rounded">Cerrar Sesión</x-bladewind.button>
       </header>
+      <body class="bg-cover bg-no-repeat bg-center h-screen" style="background-image: url('../img/fondo10.jpg')">
 
-      <div class="bg-gradient-to-r from-green-800 to-amber-400 p-8">
-        <p class="text-4xl text-white font-semibold uppercase">Bienvenido a Agromax Siembra</p>
-        <ul class="mt-4 text-white">
-          <li class="mb-2">
-            <span class="font-semibold">Gestión:</span> Permite llevar un control eficiente de todas las actividades relacionadas con la siembra.
-          </li>
-          <li class="mb-2">
-            <span class="font-semibold">Automatización:</span> Automatiza tareas repetitivas para ahorrar tiempo y recursos.
-          </li>
-          <li class="mb-2">
-            <span class="font-semibold">Optimización:</span> Mejora la eficiencia en la planificación y ejecución de los procesos agrícolas.
-          </li>
-          <!-- Añade aquí más beneficios con sus descripciones -->
-        </ul>
-      </div>
+        <main class="flex-1 overflow-y-auto p-4 bg-cover bg-center" style="background-image: url('..img/fondo10.jpg')"> 
+          <div class="max-w-6xl mx-auto bg-white bg-opacity-75 rounded p-4 shadow"> 
+            <h1 class="text-lg font-bold mb-4">Bienvenido a Agromax Siembra de Maiz</h1> 
+            <div class="flex"> 
+              <div class="w-1/2"> 
+                <p>La tecnología juega un papel importante en la agricultura moderna. Con el uso de herramientas y técnicas avanzadas, los agricultores pueden aumentar la eficiencia y la productividad de sus cultivos.</p> 
+                <p>Agromax es un sistema que ayuda a los agricultores a aprovechar al máximo la tecnología en sus operaciones agrícolas. Con Agromax, puedes monitorear y controlar tus cultivos desde cualquier lugar, tomar decisiones informadas y mejorar tus resultados.</p> 
+              </div> 
+              <div class="w-1/2 pl-4"> 
+                <img src="image1.jpg" alt="image1" class="w-full rounded shadow mb-4"> 
+                <img src="image2.jpg" alt="image2" class="w-full rounded shadow"> 
+              </div> 
+            </div> 
+          </div> 
+      </main>
 
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
-      <footer class="bg-gradient-to-r from-green-700 to-amber-700">
-        <div class="container mx-auto flex flex-wrap justify-between">
-          <div class="w-full md:w-1/2 lg:w-1/4 mb-6 md:mb-0">
-            <h3 class="text-white text-center text-lg font-bold mb-4">AGROMAX: Máxima Eficiencia en la Gestión de Granjas Integrales</h3>
-          </div>
-          </div>
-          <div class="w-full md:w-1/2 lg:w-1/4 mb-6 md:mb-0">
-            <h3 class="text-white text-center text-lg font-bold mb-4">Contactanos a nuestro Email: info@nuestragranja.com</h3>
-        </div>
-        <div class="container mx-auto mt-8">
+      <footer class="bg-gradient-to-r from-cyan-700 to-amber-700 text-white p-4 fixed bottom-0 w-full bg-gradient-to-r from-green-700 to-amber-700">
           <p class="text-center text-white">© Agromax 2023. Todos los derechos reservados.</p>
-        </div>
+     
       </footer>
     
 </body>
