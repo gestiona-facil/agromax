@@ -1,8 +1,8 @@
 @extends('main')
 
-@section('titulo', 'Riego')
+@section('titulo', 'Siembra')
 
-@section('titulo-contenido', 'Riego para siembra en: '.$modelo->siembra->terreno->ubicacion)
+@section('titulo-contenido', 'Datos de Siembra: '.$modelo->ganado->identificacion)
 
 @section('contenido')
 <div>
@@ -10,8 +10,8 @@
         {{-- boton editar --}}
         <x-bladewind.button
             tag="a" 
-            size="tiny" href="{{ route('riego.edit', ['riego' => $modelo->id])}}"
-            class="bg-cyan-700"
+            size="tiny" href="{{ route('siembra.edit', ['siembra' => $modelo->id])}}"
+            class="bg-green-700"
         >Editar</x-bladewind.button>
         {{-- boton exportar --}}
         <x-bladewind.button
@@ -27,39 +27,39 @@
                 <div class="flex flex-row items-center py-3 justify-between">
                     <div>
                         <p class="flex text-xl">
-                            <span class="px-2">Siembra </span><span class="italic text-2xl font-light">{{$modelo->siembra->}}</span>
+                            <span class="px-2">Semilla: </span><span class="italic text-2xl font-light">{{$modelo->semilla}}</span>
                         </p>
                     </div>
                     <div>
                         <p class="flex text-xl">
-                            <span class="px-2">Cantidad: </span><span class="italic text-2xl font-light">{{$modelo->cantidad}}</span>
+                            <span class="px-2">Terreno: </span><span class="italic text-2xl font-light">{{$modelo->terreno}}</span>
                         </p>
                     </div>
                     <div>
                         <p class="flex text-xl">
-                            <span class="px-2">Frecuencia: </span><span class="italic text-2xl font-light">{{$modelo->frecuencia}}</span>
+                            <span class="px-2">Fecha: </span><span class="italic text-2xl font-light">{{$modelo->fecha}}</span>
                         </p>
                     </div>
                     <div>
                         <p class="flex text-xl">
-                            <span class="px-2">Metodo: </span><span class="italic text-2xl font-light">{{$modelo->metodo}}</span>
+                            <span class="px-2">Cantidad esperada: </span><span class="italic text-2xl font-light">{{$modelo->cant_esperada}}</span>
                         </p>
                     </div>
                 </div>
             </div>
-            <h2 class="text-xl border-b border-t py-3 indent-3 border-gray-300 bg-cyan-700/10">Información Secundaria</h2>
+            <h2 class="text-xl border-b border-t py-3 indent-3 border-gray-300 bg-green-700/10">Información Secundaria</h2>
             <div class="p-3">
                 <div>
-                    {{-- <x-bladewind.button
+                    <x-bladewind.button
                         tag="a"
                         size="tiny"
-                        href="{{ route('agricultura.control-sanitario.index', ['ganado' => $modelo->ganado->id])}}" 
-                    >Ver los controles sanitarios realizados</x-bladewind.button> --}}
+                        href="{{ route('maiz.control-sanitario.index', ['ganado' => $modelo->agricultura->id])}}" 
+                    >Ver los controles sanitarios realizados</x-bladewind.button>
                 </div>
             </div>
         </div>
         <div  class="border-l-2 border-amber-700 border-dashed px-1">
-            <h2 class="text-lg text-white border-b border-t py-3 px-1 border-amber-700 bg-gradient-to-r from-cyan-700 to-amber-700">Información Adicional</h2>
+            <h2 class="text-lg text-white border-b border-t py-3 px-1 border-amber-700 bg-gradient-to-r from-green-700 to-amber-700">Información Adicional</h2>
         </div>
     </div>
 </div>
