@@ -36,6 +36,11 @@ Route::get('/seleccion', function (){
 
     
 });
+Route::get('/inicio', function (){
+    return view('agricultura.maiz.dashboard');
+
+    
+});
 Route::get('/prueba', function (){
     return view('ganado.bovino.layout.sidebar');
 });
