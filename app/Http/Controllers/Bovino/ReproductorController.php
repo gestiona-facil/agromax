@@ -50,9 +50,9 @@ class ReproductorController extends Controller
                 ];
             });
 
-        $padres = Reproductor::join('ganados', 'reproductors.ganado_id', '=', 'ganados.id')
+        $padres = Reproductor::join('ganados', 'toros.ganado_id', '=', 'ganados.id')
             ->where('ganados.tipo', '=', 'bovino')
-            ->select('reproductors.*')
+            ->select('toros.*')
             ->get()->map(function ($item){
                 return [
                     'label' => $item->ganado->identificacion,
@@ -69,19 +69,19 @@ class ReproductorController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreReproductorRequest $request, Reproductor $reproductor)
+    public function store(StoreReproductorRequest $request, Reproductor $toro)
     {
         //
         $ganado = $this->base->store($request, new Ganado());
 
         if($ganado->id){
-            $reproductor->ganado_id = $ganado->id;
+            $toro->ganado_id = $ganado->id;
 
-            $reproductor->tipo_alimentacion = $request->tipo_alimentacion;
-            $reproductor->tiempo_madurez = $request->tiempo_madurez;
+            $toro->tipo_alimentacion = $request->tipo_alimentacion;
+            $toro->tiempo_madurez = $request->tiempo_madurez;
 
-            if($reproductor->save()){
-                return redirect()->route('toro.show', ['toro' => $reproductor->id]);
+            if($toro->save()){
+                return redirect()->route('toro.show', ['toro' => $toro->id]);
             }
         }
 
@@ -104,24 +104,58 @@ class ReproductorController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Reproductor $reproductor)
+    public function edit(Reproductor $toro)
     {
         //
+        $padres = Reproductor::join('ganados', 'reproductors.ganado_id', '=', 'ganados.id')
+        ->where('ganados.tipo', '=', 'bovino')
+        ->where('reproductors.id', '!=', $toro->id)
+        ->select('reproductors.*')
+        ->get()->map(function ($item) use($toro){
+            return $toro->madre_id == $item->id ? [
+                'label' => $item->alias ? $item->alias : $item->ganado->identificacion,
+                'value' => $item->id,
+                'selected' => true
+            ] : [
+                'label' => $item->alias ? $item->alias : $item->ganado->identificacion,
+                'value' => $item->id
+            ];
+        });
+
+        $madres = Madre::join('ganados', 'madres.ganado_id', '=', 'ganados.id')
+        ->where('ganados.tipo', '=', 'bovino')
+        ->select('madres.*')
+        ->get()->map(function ($item) use($toro){
+            return $toro->madre_id == $item->id ? [
+                'label' => $item->alias ? $item->alias : $item->ganado->dentificacion,
+                'value' => $item->id,
+                'selected' => true
+            ] : [
+                'label' => $item->alias ? $item->alias : $item->ganado->dentificacion,
+                'value' => $item->id
+            ];
+        });
+
+        return view('ganado.bovino.toro.editar', [
+            'padres' => $padres,
+            'madres' => $madres,
+            'modelo' => $toro
+        ]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Reproductor $reproductor)
+    public function update(UpdateReproductorRequest $request, Reproductor $toro)
     {
         //
-        $ganado = $this->base->update($request, $reproductor->ganado);
+        $ganado = $this->base->update($request, $toro->ganado);
 
-        $reproductor->tipo_alimentacion = $request->tipo_alimentacion;
-        $reproductor->tiempo_madurez = $request->tiempo_madurez;
+        $toro->tipo_alimentacion = $request->tipo_alimentacion;
+        // $toro->tiempo_madurez = $request->tiempo_madurez;
 
-        if($reproductor->save()){
-            return redirect()->route('toro.show', ['toro' => $reproductor->id]);
+        if($toro->save()){
+            return redirect()->route('toro.show', ['toro' => $toro->id]);
         }
 
         //Error presente, si se alcanza este punto
@@ -133,11 +167,11 @@ class ReproductorController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Reproductor $reproductor)
+    public function destroy(Reproductor $toro)
     {
         //
-        $reproductor->ganado->delete();
-        $reproductor->delete();
+        $toro->ganado->delete();
+        $toro->delete();
 
         return redirect()->route('toro.index')->withInput([
             'status' => 'Registro eliminado exitosamente'

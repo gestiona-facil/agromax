@@ -20,7 +20,7 @@
                 <tr>
                     <td class="font-bold">{{ $loop->iteration }}</td>
                     <td><a class="text-amber-700 underline hover:text-cyan-700" href="{{ route('lecheria.show', ['lecherium' => $dato->id])}}">{{ $dato->alias}}</a></td>
-                    <td>{{ $dato->cant_recolectada}}</td>
+                    <td>{{ $dato->cant_meta}} Litros al dia</td>
                     <td class="flex justify-start">
                         <x-bladewind.button
                             class="bg-cyan-700" 

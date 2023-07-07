@@ -24,7 +24,7 @@
                     type="number" 
                     name="cant_meta" 
                     label="Meta de producción: "
-                    suffix="Litros"
+                    suffix="Litros / dia"
                     min="0" 
                     value="{{old('cant_meta')}}" 
                     class="border-cyan-700"

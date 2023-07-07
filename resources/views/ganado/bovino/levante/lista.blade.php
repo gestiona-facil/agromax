@@ -1,8 +1,8 @@
-@extends('ganaderia.bovino.main')
+@extends('ganado.bovino.main')
 
-@section('titulo', 'Lista de becerros')
+@section('titulo', 'Lista de Levante')
 
-@section('titulo-contenido', 'Listado de Becerros')
+@section('titulo-contenido', 'Listado de Levante')
 
 @section('contenido')
 <div class="p-4">
@@ -11,25 +11,25 @@
     >
         <x-slot name="header" class="!bg-cyan-700 text-white">
             <th class="!bg-cyan-700 !text-white">Nro</th>
-            <th class="!bg-cyan-700 !text-white">Destetado¿?</th>
-            <th class="!bg-cyan-700 !text-white">Alias</th>
+            <th class="!bg-cyan-700 !text-white">Identificacion</th>
+            <th class="!bg-cyan-700 !text-white">Destetado</th>
             <th class="!bg-cyan-700 !text-white">Acciones</th>
         </x-slot>
         @if($datos->count())
             @foreach($datos->items() as $dato)
                 <tr>
                     <td class="font-bold">{{ $loop->iteration }}</td>
-                    <td><a class="text-amber-700 underline hover:text-cyan-700" href="{{ route('cria.show', ['cria' => $dato->id])}}">{{ $dato->agricultura->identificacion}}</a></td>
+                    <td><a class="text-amber-700 underline hover:text-cyan-700" href="{{ route('cria.show', ['crium' => $dato->id])}}">{{ $dato->ganado->identificacion}}</a></td>
                     <td>{{ $dato->alias}}</td>
                     <td class="flex justify-start">
                         <x-bladewind.button
                             class="bg-cyan-700" 
                             tag="a" 
                             size="tiny"
-                            href="{{ route('cria.edit', ['cria' => $dato->id])}}">Editar</x-bladewind.button>
+                            href="{{ route('cria.edit', ['crium' => $dato->id])}}">Editar</x-bladewind.button>
                         {{-- Eliminar --}}
-                        <form action="{{route('lecheria.destroy', [
-                            'cria' => $dato->id
+                        <form action="{{route('cria.destroy', [
+                            'crium' => $dato->id
                         ])}}" method="post">
                             @csrf
                             @method('delete')

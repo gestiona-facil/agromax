@@ -11,48 +11,53 @@
 
         <div class="flex flex-row justify-between py-3 items-center">
             <div class="w-1/4">
-                <x-bladewind.input  
-                    name="alias"  
-                    label="Alias: "  
-                    value="{{ $modelo->alias }}"  
-                    class="border-cyan-700" 
+                <x-bladewind.input 
+                    name="alias" 
+                    label="Alias: " 
+                    value="{{ $modelo->alias }}" 
+                    class="border-cyan-700"
+                    required="true"
                 />
             </div>
+
             <div class="w-1/4">
-                <x-bladewind.input  
-                    name="tipo_alimento"  
-                    label="Tipo de alimento: "  
-                    value="{{ $modelo->tipo_alimento }}"  
-                    class="border-cyan-700" 
+                <x-bladewind.input
+                    type="number" 
+                    name="cant_meta" 
+                    label="Meta de producción: "
+                    suffix="Litros / dia"
+                    min="0" 
+                    value="{{ $modelo->cant_meta }}" 
+                    class="border-cyan-700"
+                    required="true"
                 />
             </div>
+
             <div class="w-1/4">
-                <x-bladewind.input  
-                    name="cant_meta"  
-                    label="Cantidad meta: " 
-                    min="0"  
-                    value="{{ $modelo->cant_meta }}"  
-                    class="border-cyan-700" 
+                <x-bladewind.input 
+                    name="tipo_alimento" 
+                    label="Tipo de alimento: " 
+                    value="{{ $modelo->tipo_alimentacion }}" 
+                    class="border-cyan-700"
                 />
             </div>
+
         </div>
 
-           
+        <div class="flex flex-row justify-between py-3 items-center">
+            <x-bladewind.textarea 
+            label="Observaciones" 
+            name="observaciones" 
+            value="{{ $modelo->observaciones }}"  
+            class="border-cyan-700"
+            />
+        </div>
 
-            <div class="flex flex-row justify-between py-3 items-center">
-                <x-bladewind.textarea 
-                label="Observaciones" 
-                name="observaciones" 
-                value="{{ $modelo->observaciones }}"  
-                class="border-cyan-700"
-                />
-            </div>
-
-            <div class="my-4">
-                <x-bladewind.button  
-                    can_submit="true" 
-                    class="bg-cyan-700">Actualizar</x-bladewind.button>
-            </div>
-        </form>
-    </div>
+        <div class="my-4">
+            <x-bladewind.button  
+                can_submit="true" 
+                class="bg-cyan-700">Actualizar</x-bladewind.button>
+        </div>
+    </form>
+</div>
 @endsection

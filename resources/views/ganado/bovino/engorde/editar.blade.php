@@ -9,7 +9,7 @@
         @csrf
         @method('PUT')
 
-        @include('ganado.bovino.base.crear')
+        @include('ganado.bovino.base.editar')
 
         <div class="flex flex-row justify-between py-3 items-center">
             <div class="w-1/4">
@@ -24,57 +24,39 @@
             <div class="w-1/4">
                 <x-bladewind.input  
                     numeric="true"
-                    name="cant_total_alimento"  
-                    label="Cantidad Total de alimento: " 
-                    min="0"  
-                    value="{{ $modelo->cant_total_alimento }}"  
-                    class="border-cyan-700" 
-                />
-            </div>
-
-            <div class="w-1/4">
-                <x-bladewind.input  
-                    numeric="true"
-                    name="duracion (En dias)"  
+                    name="duracion"  
                     label="Duracion: "  
                     value="{{ $modelo->duracion }}"  
                     class="border-cyan-700" 
-                />
-            </div>
-
-            <div class="w-1/4">
-                <x-bladewind.input  
-                    numeric="true"
-                    name="cant_meta"  
-                    min="0" 
-                    label="Cantidad meta: " 
-                    min="0"  
-                    value="{{ $modelo->cant_meta }}"  
-                    class="border-cyan-700" 
+                    required="true"
+                    suffix="dias"
                 />
             </div>
 
             <div class="w-1/4">
                 <x-bladewind.input 
-                    numeric="true" 
+                    type="number"
                     name="peso_inicial"  
-                    min="0" 
                     label="Peso inicial: " 
                     min="0"  
                     value="{{ $modelo->peso_inicial }}"  
                     class="border-cyan-700" 
+                    suffix="Kg"
                 />
             </div>
+        </div>
 
+        <div class="flex flex-row justify-between py-3 items-center">
             <div class="w-1/4">
                 <x-bladewind.input
                     numeric="true"  
                     name="peso_final"  
                     min="0" 
-                    label="Peso final: " 
+                    label="Peso Esperado: " 
                     min="0"  
                     value="{{ $modelo->peso_final }}"  
                     class="border-cyan-700" 
+                    suffix="Kg"
                 />
             </div>
         </div>

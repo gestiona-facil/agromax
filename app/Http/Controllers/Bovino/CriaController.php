@@ -116,10 +116,10 @@ class CriaController extends Controller
         $ganado = $this->base->update($request, $crium->ganado);
 
         $crium->alias = $request->alias;
-        $crium->destetado =  $request->destetado;
+        $crium->destetado =  $request->has('destetado') ? 1 : 0;
 
         if($crium->save()){
-            return redirect()->route('cria.show', ['cria' => $crium->id]);
+            return redirect()->route('cria.show', ['crium' => $crium->id]);
         }
 
         //Error presente, si se alcanza este punto

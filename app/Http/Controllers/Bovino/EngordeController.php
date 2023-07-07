@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Controllers\GanadoController;
 use App\Models\Engorde;
 use App\Models\Madre;
+use App\Models\Reproductor;
 use App\Models\Ganado;
 use App\Http\Requests\Bovino\StoreEngordeRequest;
 use App\Http\Requests\Bovino\UpdateEngordeRequest;
@@ -37,19 +38,32 @@ class EngordeController extends Controller
     public function create()
     {
         //
-        $madres = Madre::join('ganados', 'madres.ganado_id', '=', 'ganados.id')
-                    ->where('ganados.tipo', '=', 'bovino')
-                    ->select('madres.*')
-                    ->get()->map(function($item){
-                        return [
-                            'label' => $item->ganado->identificacion,
-                            'value' => $item->id,
-                        ];
-                    });
+        $madres = Madre::with('ganado')->join('ganados', 'madres.ganado_id', '=', 'ganados.id')
+        ->where('ganados.tipo', '=', 'bovino')
+        ->select('madres.*')
+        ->get()
+        ->map(function ($item){
+            return [
+                'label' => $item->ganado->identificacion,
+                'value' => $item->id
+            ];
+        });
+
+        $padres = Reproductor::with('ganado')->join('ganados', 'reproductors.ganado_id', '=', 'ganados.id')
+            ->where('ganados.tipo', '=', 'bovino')
+            ->select('reproductors.*')
+            ->get()
+            ->map(function ($item){
+                return [
+                    'label' => $item->ganado->identificacion,
+                    'value' => $item->id
+                ];
+            });
+
 
         return view('ganado.bovino.engorde.crear', [
             'madres' => $madres,
-            'padres' => collect([])
+            'padres' => $padres
         ]);
     }
 
@@ -111,7 +125,7 @@ class EngordeController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Engorde $engorde)
+    public function update(UpdateEngordeRequest $request, Engorde $engorde)
     {
         $ganado = $this->base->update($request, $engorde->ganado);
 
@@ -122,7 +136,7 @@ class EngordeController extends Controller
         $engorde->peso_final = $request->peso_final;
 
         if($engorde->save()){
-            return redirect()->route('engorde.mostrar', ['engorde' => $engorde->id]);
+            return redirect()->route('engorde.show', ['engorde' => $engorde->id]);
         }
 
         //Error presente, si se alcanza este punto

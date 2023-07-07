@@ -13,7 +13,7 @@
         <input type="hidden" name="tiempo_destete" value="240">{{--En DIAS--}}
         <input type="hidden" name="tiempo_fin_levante" value="912">{{-- 0 -> pasa de levante a toro o vaca --}}
 
-        @include('ganado.bovino.base.crear')
+        @include('ganado.bovino.base.editar')
 
         <div class="flex flex-row justify-between py-3 items-center">
             <div class="w-1/4">
@@ -25,26 +25,28 @@
                 />
             </div>
 
-            <div class="w-1/4">
-                <x-bladewind.toggle  
-                    name="sexo" 
-                    {{-- 0 => hembra, 1 => macho --}}
-                    value="{{ $modelo->sexo }}" 
+            <div class="w-1/4 flex items-center">
+                <x-bladewind.toggle 
+                    name="sexo"
+                    value="0"{{-- 0 => hembra, 1 => macho --}}
+                    vue_attr='@change="levante_sexo = !levante_sexo"'
+                    :checked="$modelo->ganado->sexo"
                 />
+                <h3 class="px-2" v-if="levante_sexo">Hembra</h3>
+                <h3 class="px-2" v-else>Macho</h3>
             </div>
 
-            <div class="w-1/4">
-                <x-bladewind.toggle  
-                    name="destetado" 
-                    {{-- 0 => destetado, 1 => lactando --}}
-                    value="{{ $modelo->destetado }}"  
+            <div class="w-1/4 flex items-center">
+                <x-bladewind.toggle 
+                    name="destetado"
+                    :checked="$modelo->destetado"
+                    value="0" {{-- 0 => destetado, 1 => no destetado --}}
+                    vue_attr='@change="levante_destetado = !levante_destetado"'
                 />
+                <h3 class="px-2" v-if="levante_destetado">Destetado</h3>
+                <h3 class="px-2" v-else>No destetado</h3>
             </div>
-        </div>
 
-        <div {!!'@click="vaca_gestando = !vaca_gestando"'!!}>
-            <h1 v-if="vaca_gestando">Si gestando</h1>
-            <h1 v-if="!vaca_gestando">No gestando</h1>
         </div>
 
         <div class="my-4">
@@ -54,3 +56,4 @@
         </div>
     </form>
 </div>
+@endsection

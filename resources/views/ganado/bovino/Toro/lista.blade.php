@@ -11,8 +11,8 @@
     >
         <x-slot name="header" class="!bg-cyan-700 text-white">
             <th class="!bg-cyan-700 !text-white">Nro</th>
-            <th class="!bg-cyan-700 !text-white">Tiempo de Madurez¿?</th>
-            <th class="!bg-cyan-700 !text-white">Tipo de alimentacion</th>
+            <th class="!bg-cyan-700 !text-white">Identificacion</th>
+            <th class="!bg-cyan-700 !text-white">Raza</th>
             <th class="!bg-cyan-700 !text-white">Acciones</th>
         </x-slot>
         @if($datos->count())
@@ -20,7 +20,7 @@
                 <tr>
                     <td class="font-bold">{{ $loop->iteration }}</td>
                     <td><a class="text-amber-700 underline hover:text-cyan-700" href="{{ route('toro.show', ['toro' => $dato->id])}}">{{ $dato->ganado->identificacion}}</a></td>
-                    <td>{{ $dato->alias}}</td>
+                    <td>{{ $dato->ganado->raza}}</td>
                     <td class="flex justify-start">
                         <x-bladewind.button
                             class="bg-cyan-700" 

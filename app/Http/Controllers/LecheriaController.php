@@ -100,10 +100,10 @@ class LecheriaController extends Controller
     public function update(UpdateLecheriaRequest $request, Lecheria $lecheria)
     {
         //
-        $lecheria = $request->alias;
-        $lecheria = $request->tipo_alimento;
-        $lecheria = $request->cant_meta;
-        $lecheria = $request->observaciones;
+        $lecheria->alias = $request->alias;
+        $lecheria->tipo_alimento = $request->tipo_alimento;
+        $lecheria->cant_meta = $request->cant_meta;
+        $lecheria->observaciones = $request->observaciones;
 
         if($lecheria->save()){
             return redirect()->route('lecheria.index')->withInput([

@@ -71,70 +71,79 @@ Route::controller(App\Http\Controllers\AuthController::class)->group(function ()
 
 // Route::middleware()->group(function (){
     
-    //---- Rutas para Ganando Bovino
-    Route::prefix('/ganados/bovinos')->group(function (){
+    //---- Rutas para Ganando
+    Route::prefix('/ganados')->group(function (){
 
-        Route::prefix('control-lecheria')->group(function (){
+        //---- Rutas especificas para Bovinos
+        Route::prefix('bovinos')->group(function(){
 
-            Route::controller(App\Http\Controllers\Bovino\ControlLecheriaController::class)->group(function (){
+            Route::prefix('control-lecheria')->group(function (){
 
-                Route::get('{madre}/agregar', 'create')->name('bovino.control-lecheria.create');
-                Route::get('{controlLecheria}/editar', 'edit')->name('bovino.control-lecheria.edit');
+                Route::controller(App\Http\Controllers\Bovino\ControlLecheriaController::class)->group(function (){
 
-                Route::post('', 'store')->name('bovino.control-lecheria.store');
-                Route::put('{controlLecheria}', 'update')->name('bovino.control-lecheria.update');
-            });
+                    Route::get('{madre}/agregar', 'create')->name('bovino.control-lecheria.create');
+                    Route::get('{controlLecheria}/editar', 'edit')->name('bovino.control-lecheria.edit');
 
-        });
-
-        Route::prefix('control-sanitario')->group(function (){
-
-            Route::controller(App\Http\Controllers\Bovino\ControlSanitarioAnimalController::class)->group(function (){
-
-                Route::get('{ganado}/agregar', 'create')->name('bovino.control-sanitario.create');
-                Route::get('{controlSanitarioAnimal}/editar', 'edit')->name('bovino.control-sanitario.edit');
-                Route::get('{ganado}', 'index')->name('bovino.control-sanitario.index');
-                Route::get('{controlSanitarioAnimal}/ver', 'show')->name('bovino.control-sanitario.show');
-
-                Route::post('', 'store')->name('bovino.control-sanitario.store');
-                Route::put('{controlSanitarioAnimal}', 'update')->name('bovino.control-sanitario.update');
-                Route::delete('{controlSanitarioAnimal}', 'destroy')->name('bovino.control-sanitario.destroy');
+                    Route::post('', 'store')->name('bovino.control-lecheria.store');
+                    Route::put('{controlLecheria}', 'update')->name('bovino.control-lecheria.update');
+                });
 
             });
 
+            Route::prefix('control-sanitario')->group(function (){
+
+                Route::controller(App\Http\Controllers\Bovino\ControlSanitarioAnimalController::class)->group(function (){
+
+                    Route::get('{ganado}/agregar', 'create')->name('bovino.control-sanitario.create');
+                    Route::get('{controlSanitarioAnimal}/editar', 'edit')->name('bovino.control-sanitario.edit');
+                    Route::get('{ganado}', 'index')->name('bovino.control-sanitario.index');
+                    Route::get('{controlSanitarioAnimal}/ver', 'show')->name('bovino.control-sanitario.show');
+
+                    Route::post('', 'store')->name('bovino.control-sanitario.store');
+                    Route::put('{controlSanitarioAnimal}', 'update')->name('bovino.control-sanitario.update');
+                    Route::delete('{controlSanitarioAnimal}', 'destroy')->name('bovino.control-sanitario.destroy');
+
+                });
+
+            });
+            
+            Route::resources([
+                'vaca' => App\Http\Controllers\Bovino\MadreController::class,
+                'cria' => App\Http\Controllers\Bovino\CriaController::class,
+                'engorde' => App\Http\Controllers\Bovino\EngordeController::class,
+                'toro' => App\Http\Controllers\Bovino\ReproductorController::class,
+                //produccion lactea
+                'lecheria' => App\Http\Controllers\LecheriaController::class
+            ]);
         });
-        
-        Route::resources([
-            'vaca' => App\Http\Controllers\Bovino\MadreController::class,
-            'cria' => App\Http\Controllers\Bovino\CriaController::class,
-            'engorde' => App\Http\Controllers\Bovino\EngordeController::class,
-            'toro' => App\Http\Controllers\Bovino\ReproductorController::class,
-            //produccion lactea
-            'lecheria' => App\Http\Controllers\LecheriaController::class
-        ]);
 
-    });
-
-    Route::prefix('/ganados')->group(function(){
-        
         Route::resource('vacuna', App\Http\Controllers\VacunaController::class);
-        
     });
 
     //---- Rutas para Agricultura
-    Route::prefix('/agricultura/maiz')->group(function (){
+    Route::prefix('/agricultura')->group(function (){
 
+        //---- Rutas No especificas para un tipo de rubro
         Route::resources([
             'terreno' => \App\Http\Controllers\Agricultura\TerrenoController::class,
-            'semilla' => \App\Http\Controllers\Agricultura\SemillaController::class,
-            'siembra' => \App\Http\Controllers\Agricultura\SiembraController::class,
-            'cosecha' => \App\Http\Controllers\Agricultura\CosechaController::class,
-            'planta' => \App\Http\Controllers\Agricultura\PlantaController::class, //vegetal
-            'riego' => \App\Http\Controllers\Agricultura\RiegoController::class,
-            'fertilizacion' => \App\Http\Controllers\Agricultura\FertilizacionController::class
         ]);
 
+        //---- Rutas especificas para Maiz
+        Route::prefix('maiz')->group(function (){
+
+            Route::resources([
+                'semilla' => \App\Http\Controllers\Agricultura\SemillaController::class,
+                'siembra' => \App\Http\Controllers\Agricultura\SiembraController::class,
+                'cosecha' => \App\Http\Controllers\Agricultura\CosechaController::class,
+                'planta' => \App\Http\Controllers\Agricultura\PlantaController::class, //vegetal
+                'riego' => \App\Http\Controllers\Agricultura\RiegoController::class,
+                'fertilizacion' => \App\Http\Controllers\Agricultura\FertilizacionController::class
+            ]);
+
+        });
+
     });
+
 
     Route::resource('finanza', \App\Http\Controllers\FinanzaController::class);
 // });

@@ -34,12 +34,14 @@
             </div> --}}
 
             <div class="w-1/4">
-                <x-bladewind.input 
-                    numeric="true"
-                    name="duracion (En dias)" 
+                <x-bladewind.input
+                    type="number" 
+                    min="0"
+                    name="duracion" 
                     label="Duracion: " 
                     value="{{old('duracion')}}" 
                     class="border-cyan-700"
+                    suffix="dias"
                 />
             </div>
 
@@ -63,7 +65,7 @@
                     type="number" 
                     name="peso_final" 
                     min="0"
-                    label="Peso final: "
+                    label="Peso Esperado: "
                     value="{{old('peso_final')}}"
                     suffix="Kg" 
                     class="border-cyan-700"
