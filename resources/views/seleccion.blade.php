@@ -20,10 +20,18 @@
       </header>
     
     <!-- Botón Maiz -->
-<button class="fixed left-0 top-1/2 transform -translate-y-1/2 bg-blue-500 text-white px-4 py-2 rounded">Maiz</button>
+<button class="fixed left-0 top-1/2 transform -translate-y-1/2 bg-green-500 text-white px-4 py-2 rounded">Maiz</button>
 
 <!-- Botón Bovino -->
-<button class="fixed right-0 top-1/2 transform -translate-y-1/2 bg-red-500 text-white px-4 py-2 rounded">Bovino</button>
+<button class="fixed right-0 top-1/2 transform -translate-y-1/2 bg-cyan-500 text-white px-4 py-2 rounded">Bovino</button>
+      <!-- Imágenes de fondo -->
+        body {
+            background-image: url('..public/fondos/fondo1.jpg'), url('imagen2.jpg');
+            background-position: left, right;
+            background-repeat: no-repeat;
+            background-size: 50% 100%, 50% 100%;
+        }
+
     
 </body>
 </html>

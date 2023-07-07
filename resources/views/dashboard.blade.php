@@ -34,16 +34,40 @@
       una solución integral que abarca todos los aspectos de la producción agropecuaria. <br><br>
     
   </p>
-  <p class="text-lg text-black font-semibold text-justify">
-    Una de las características más destacadas de Agromax es su capacidad<br> para gestionar diferentes tipos de animales,
-    incluyendo ganadería bovina, porcina y caprina. El sistema proporciona<br> herramientas específicas para cada tipo de
-    animal, permitiendo un control exhaustivo sobre su alimentación, salud,<br> reproducción y crecimiento.
-    Esto garantiza que los animales reciban el cuidado adecuado en cada etapa de su desarrollo,<br> lo que se traduce en
-    una mejor calidad de vida y un aumento en la productividad.
-  </p>
+
+
+<div class="py-20 px-8 mx-auto bg-white rounded-xl shadow-lg space-y-2 flex justify-center">
+  <x-bladewind.button>
+      <a href="seleccion">Seleccionar Produccion</a>
+  </x-bladewind.button>
 </div>
 
-<div class="py-20 px-8 mx-center bg-white rounded-xl shadow-lg space-y-2">
-<x-bladewind.button>
-<a href="seleccion">Seleccionar Produccion</a></x-bladewind.button>
+<p class="text-lg text-black font-semibold text-justify">
+  Una de las características más destacadas de Agromax es su capacidad<br> para gestionar diferentes tipos de animales,
+  incluyendo ganadería bovina, porcina y caprina. El sistema proporciona<br> herramientas específicas para cada tipo de
+  animal, permitiendo un control exhaustivo sobre su alimentación, salud,<br> reproducción y crecimiento.
+  Esto garantiza que los animales reciban el cuidado adecuado en cada etapa de su desarrollo,<br> lo que se traduce en
+  una mejor calidad de vida y un aumento en la productividad.
+</p>
 </div>
+
+<div class="flex">
+  <div class="w-1/4 bg-gray-200 p-4">
+    <!-- Sidebar -->
+  </div>
+  <div class="w-3/4 p-4">
+      <div class="w-1/4 bg-gray-200 p-4">
+        <h2 class="text-lg font-bold mb-2">Información Curiosa</h2>
+        <ul class="list-disc ml-4">
+          <li>La tecnología de riego por goteo fue inventada en Israel.</li>
+          <li>Los drones se utilizan para monitorear cultivos y detectar enfermedades.</li>
+          <li>La inteligencia artificial se utiliza para optimizar los rendimientos agrícolas.</li>
+        </ul>
+      <h1 class="text-2xl font-bold mb-4">Tecnología en la Agricultura</h1>
+      <p>La tecnología ha revolucionado la agricultura en los últimos años...</p>
+    </div>
+    <!-- Contenido principal -->
+  </div>
+</div>
+
+</body>
