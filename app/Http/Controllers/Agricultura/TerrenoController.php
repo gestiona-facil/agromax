@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Agricultura;
 
 use App\Http\Controllers\Controller;
 use App\Models\Terreno;
+use App\Http\Requests\Agricultura\StoreTerrenoRequest;
 use Illuminate\Http\Request;
 
 class TerrenoController extends Controller
@@ -67,7 +68,7 @@ class TerrenoController extends Controller
     {
         //
         return view('agricultura.maiz.terreno.editar', [
-            'modelo' => $cosecha
+            'modelo' => $terreno
         ]);
     }
 

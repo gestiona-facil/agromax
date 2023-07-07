@@ -124,18 +124,15 @@ Route::controller(App\Http\Controllers\AuthController::class)->group(function ()
     Route::prefix('/agricultura')->group(function (){
 
         //---- Rutas No especificas para un tipo de rubro
-        Route::resources([
-            'terreno' => \App\Http\Controllers\Agricultura\TerrenoController::class,
-        ]);
-
+        
         //---- Rutas especificas para Maiz
         Route::prefix('maiz')->group(function (){
-
+            
             Route::resources([
+                'terreno' => \App\Http\Controllers\Agricultura\TerrenoController::class,
                 'semilla' => \App\Http\Controllers\Agricultura\SemillaController::class,
                 'siembra' => \App\Http\Controllers\Agricultura\SiembraController::class,
                 'cosecha' => \App\Http\Controllers\Agricultura\CosechaController::class,
-                'planta' => \App\Http\Controllers\Agricultura\PlantaController::class, //vegetal
                 'riego' => \App\Http\Controllers\Agricultura\RiegoController::class,
                 'fertilizacion' => \App\Http\Controllers\Agricultura\FertilizacionController::class
             ]);

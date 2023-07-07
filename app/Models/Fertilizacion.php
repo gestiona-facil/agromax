@@ -4,16 +4,15 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Fertilizacion extends Model
 {
-    protected $tableName = 'fertilizaciones';
+    protected $tableName = 'fertilizacions';
     use HasFactory;
 
-    public function siembras(): BelongsTo
+    public function siembra()
     {
-    return $this->belongsTo(Siembra::class);
+        return $this->belongsTo(Siembra::class);
     }
 
 }

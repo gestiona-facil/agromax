@@ -4,6 +4,9 @@ namespace App\Http\Controllers\Agricultura;
 
 use App\Http\Controllers\Controller;
 use App\Models\Semilla;
+use App\Models\Vegetal as Planta;
+use App\Http\Requests\Agricultura\StoreSemillaRequest;
+use App\Http\Requests\Agricultura\UpdateSemillaRequest;
 use Illuminate\Http\Request;
 
 class SemillaController extends Controller
@@ -25,7 +28,7 @@ class SemillaController extends Controller
     public function create()
     {
         //
-        return view('agricultura.maiz.Semilla.crear');
+        return view('agricultura.maiz.semilla.crear');
     }
 
     /**
@@ -34,8 +37,6 @@ class SemillaController extends Controller
     public function store(StoreSemillaRequest $request, Semilla $semilla)
     {
         //
-        $semilla->vegetal_id = $request->vegetal;
-
         $semilla->marca = $request->marca;
         $semilla->cantidad =  $request->cantidad;
 

@@ -9,31 +9,27 @@
     <x-bladewind.table
         divider="thin"
     >
-        <x-slot name="header" class="!bg-cyan-700 text-white">
-            <th class="!bg-cyan-700 !text-white">Nro</th>
-            <th class="!bg-cyan-700 !text-white">Nombre</th>
-            <th class="!bg-cyan-700 !text-white">Tipo</th>
-            <th class="!bg-cyan-700 !text-white">Fecha</th>
-            <th class="!bg-cyan-700 !text-white">Cantidad</th>
-            <th class="!bg-cyan-700 !text-white">Metodo de aplicacion</th>
-            <th class="!bg-cyan-700 !text-white">Observaciones</th>
-            <th class="!bg-cyan-700 !text-white">Acciones</th>
+        <x-slot name="header" class="!bg-green-700 text-white">
+            <th class="!bg-green-700 !text-white">Nro</th>
+            <th class="!bg-green-700 !text-white">Siembra en</th>
+            <th class="!bg-green-700 !text-white">Cantidad</th>
+            <th class="!bg-green-700 !text-white">Acciones</th>
         </x-slot>
         @if($datos->count())
             @foreach($datos->items() as $dato)
                 <tr>
                     <td class="font-bold">{{ $loop->iteration }}</td>
-                    <td><a class="text-amber-700 underline hover:text-cyan-700" href="{{ route('planta.show', ['planta' => $dato->id])}}">{{ $dato->agricultura->identificacion}}</a></td>
-                    <td>{{ $dato->alias}}</td>
+                    <td><a class="text-amber-700 underline hover:text-green-700" href="{{ route('riego.show', ['riego' => $dato->id])}}">{{ $dato->siembra->terreno->ubicacion}}</a></td>
+                    <td>{{ $dato->cantidad}}</td>
                     <td class="flex justify-start">
                         <x-bladewind.button
-                            class="bg-cyan-700" 
+                            class="bg-green-700" 
                             tag="a" 
                             size="tiny"
-                            href="{{ route('planta.edit', ['planta' => $dato->id])}}">Editar</x-bladewind.button>
+                            href="{{ route('riego.edit', ['riego' => $dato->id])}}">Editar</x-bladewind.button>
                         {{-- Eliminar --}}
-                        <form action="{{route('planta.destroy', [
-                            'planta' => $dato->id
+                        <form action="{{route('riego.destroy', [
+                            'riego' => $dato->id
                         ])}}" method="post">
                             @csrf
                             @method('delete')

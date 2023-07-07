@@ -4,16 +4,16 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Cosecha extends Model
 {
-    protected $tableName = 'cosechas';
     use HasFactory;
+    
+    protected $tableName = 'cosechas';
 
-    public function siembras(): BelongsTo
+    public function siembra()
     {
-    return $this->belongsTo(Siembra::class);
+        return $this->belongsTo(Siembra::class);
     }
 
 }

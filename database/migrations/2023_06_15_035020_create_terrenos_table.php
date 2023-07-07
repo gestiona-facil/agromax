@@ -15,8 +15,8 @@ return new class extends Migration
             $table->id();
             $table->text('ubicacion');
             $table->float('hectareas');
-            $table->text('tipo_suelo');
-            $table->text('nivel_humedad');
+            $table->text('tipo_suelo')->nullable();
+            $table->text('nivel_humedad')->nullable();
             $table->timestamps();
         });
     }

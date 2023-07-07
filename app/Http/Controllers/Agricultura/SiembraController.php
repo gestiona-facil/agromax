@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use App\Models\Siembra;
 use App\Http\Requests\Agricultura\StoreSiembraRequest;
 use App\Http\Requests\Agricultura\UpdateSiembraRequest;
+use App\Models\Semilla;
+use App\Models\Terreno;
 
 class SiembraController extends Controller
 {
@@ -26,7 +28,24 @@ class SiembraController extends Controller
     public function create()
     {
         //
-        return view('agricultura.maiz.siembra.crear');
+        $semillas = Semilla::all()->map(function ($item){
+            return [
+                'label' => $item->marca,
+                'value' => $item->id
+            ];
+        });
+        
+        $terrenos = Terreno::all()->map(function ($item){
+            return [
+                'label' => $item->id.' - '.$item->ubicacion,
+                'value' => $item->id
+            ];
+        });
+
+        return view('agricultura.maiz.siembra.crear',[
+            'semillas' => $semillas,
+            'terrenos' => $terrenos
+        ]);
     }
 
     /**
@@ -66,8 +85,33 @@ class SiembraController extends Controller
      */
     public function edit(Siembra $siembra)
     {
-        //
-        return view('agricultura.maiz.siembra.editar', [
+
+        $semillas = Semilla::get()->map(function ($item) use($siembra) {
+            return $siembra->id == $item->id ? [
+                'label' => $item->marca,
+                'value' => $item->id,
+                'selected' => true
+            ] : [
+                'label' => $item->marca,
+                'value' => $item->id
+            ];
+        });
+
+        
+        $terrenos = Terreno::get()->map(function ($item) use($siembra) {
+            return $siembra->id == $item->id ? [
+                'label' => $item->id.' - '.$item->ubicacion,
+                'value' => $item->id,
+                'selected' => true
+            ] : [
+                'label' => $item->id.' - '.$item->ubicacion,
+                'value' => $item->id
+            ];
+        });
+
+        return view('agricultura.maiz.siembra.editar',[
+            'semillas' => $semillas,
+            'terrenos' => $terrenos,
             'modelo' => $siembra
         ]);
     }

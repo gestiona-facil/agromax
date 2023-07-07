@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('semillas', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('vegetal_id');
             $table->string('marca');
+            $table->integer('cantidad');
             $table->timestamps();
         });
     }

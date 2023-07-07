@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Riego;
 use App\Http\Requests\Agricultura\StoreRiegoRequest;
 use App\Http\Requests\Agricultura\UpdateRiegoRequest;
+use App\Models\Siembra;
 
 class RiegoController extends Controller
 {
@@ -16,7 +17,7 @@ class RiegoController extends Controller
     {
         //
         return view('agricultura.maiz.riego.lista', [
-            'datos' => Cosecha::paginate(25)
+            'datos' => Riego::paginate(25)
         ]);
     }
 
@@ -26,7 +27,16 @@ class RiegoController extends Controller
     public function create()
     {
         //
-        return view('agricultura.maiz.riego.crear');
+        $siembras = Siembra::get()->map(function ($item){
+            return [
+                'label' => $item->terreno->ubicacion,
+                'value' => $item->id
+            ];
+        });
+
+        return view('agricultura.maiz.riego.crear', [
+            'siembras' => $siembras
+        ]);
     }
 
     /**
@@ -67,8 +77,21 @@ class RiegoController extends Controller
     public function edit(Riego $riego)
     {
         //
+        $siembras = Siembra::get()->map(function ($item) use($riego) {
+            return $riego->siembra->id == $item->id ? [
+                'label' => $item->terreno->ubicacion,
+                'value' => $item->id,
+                'selected' => true
+            ] : [
+                'label' => $item->terreno->ubicacion,
+                'value' => $item->id,
+                'selected' => true
+            ];
+        });
+
         return view('agricultura.maiz.riego.editar', [
-            'modelo' => $riego
+            'modelo' => $riego,
+            'siembras' => $siembras
         ]);
     
     }

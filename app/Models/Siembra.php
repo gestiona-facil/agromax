@@ -5,7 +5,6 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Siembra extends Model
 {
@@ -27,10 +26,13 @@ class Siembra extends Model
         return $this->hasMany(Riego::class);
     }
 
-    
-    public function terrenos(): hasMany
+    public function semilla(){
+        return $this->belongsTo(Semilla::class, 'semilla_id');
+    }
+
+    public function terreno()
     {
-        return $this->hasMany(Terreno::class);
+        return $this->belongsTo(Terreno::class);
     }
 
     public function controlSanitarioVegetales(): hasMany

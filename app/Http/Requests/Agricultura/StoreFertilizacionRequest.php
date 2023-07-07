@@ -4,14 +4,14 @@ namespace App\Http\Requests\Agricultura;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class StoreVegetalRequest extends FormRequest
+class StoreFertilizacionRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**

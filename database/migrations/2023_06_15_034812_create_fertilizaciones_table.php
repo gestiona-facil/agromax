@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('fertilizaciones', function (Blueprint $table) {
+        Schema::create('fertilizacions', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('siembra_id');
             $table->text('nombre');
@@ -19,7 +19,7 @@ return new class extends Migration
             $table->date('fecha');
             $table->float('cantidad');
             $table->string('metodo_aplicacion');
-            $table->text('observaciones');
+            $table->text('observaciones')->nullable();
             $table->timestamps();
         });
     }

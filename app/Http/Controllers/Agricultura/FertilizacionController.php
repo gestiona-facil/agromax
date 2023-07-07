@@ -4,6 +4,9 @@ namespace App\Http\Controllers\Agricultura;
 
 use App\Http\Controllers\Controller;
 use App\Models\Fertilizacion;
+use App\Models\Siembra;
+use App\Http\Requests\Agricultura\StoreFertilizacionRequest;
+use App\Http\Requests\Agricultura\UpdateFertilizacionRequest;
 use Illuminate\Http\Request;
 
 class FertilizacionController extends Controller
@@ -25,13 +28,22 @@ class FertilizacionController extends Controller
     public function create()
     {
         //
-        return view('agricultura.maiz.fertilizacion.crear');
+        $siembras = Siembra::get()->map(function ($item){
+            return [
+                'label' => $item->terreno->ubicacion,
+                'value' => $item->id
+            ];
+        });
+
+        return view('agricultura.maiz.fertilizacion.crear',[
+            'siembras' => $siembras
+        ]);
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StorCosechaRequest $request, Fertilizacion $fertilizacion)
+    public function store(StoreFertilizacionRequest $request, Fertilizacion $fertilizacion)
     {
         //
         $fertilizacion->siembra_id = $request->siembra;
@@ -69,15 +81,27 @@ class FertilizacionController extends Controller
     public function edit(Fertilizacion $fertilizacion)
     {
         //
+        $siembras = Siembra::get()->map(function ($item) use($fertilizacion){
+            return $fertilizacion->siembra->id == $item->id ? [
+                'label' => $item->terreno->ubicacion,
+                'value' => $item->id,
+                'selected' => true
+            ]: [
+                'label' => $item->terreno->ubicacion,
+                'value' => $item->id,
+            ];
+        });
+
         return view('agricultura.maiz.fertilizacion.editar', [
-            'modelo' => $fertilizacion
+            'modelo' => $fertilizacion,
+            'siembras' => $siembras
         ]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Fertilizacion $fertilizacion)
+    public function update(UpdateFertilizacionRequest $request, Fertilizacion $fertilizacion)
     {
         //
         $fertilizacion->siembra_id = $request->siembra;

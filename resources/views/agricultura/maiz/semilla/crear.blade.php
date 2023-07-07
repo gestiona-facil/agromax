@@ -1,29 +1,41 @@
-@extends('agricultura.main')
+@extends('agricultura.maiz.main')
 
-@section('titulo', 'Registrar Siembra ')
+@section('titulo', 'Registrar Semilla')
+@section('titulo-contenido', 'Registrar Semilla')
 
-@section('titulo-contenido', 'Registrar Siembra')
 @section('contenido')
 <div class="p-2">
-    <form action="{{route('siembra.store')}}" method="POST">
+    <form action="{{route('semilla.store')}}" method="POST">
         @csrf
-        {{-- Valores ocultos --}}
-        
-                
-                <div class="flex flex-row justify-between py-3 items-center">
-                    <div class="w-1/4">
-                    <x-bladewind.input
-                        label="Marca"
-                        name="marca: "
-                        value="{{old('marca')}}"  
-                        class="border-cyan-700"
-                        />
-                    </div>
+        {{-- Valores ocultos --}}        
+        <div class="flex flex-row justify-between py-3 items-center">
+
+            <div class="w-1/3">
+                <x-bladewind.input
+                    label="Marca: "
+                    name="marca"
+                    required="true"
+                    value="{{old('marca')}}"  
+                    class="border-green-700"
+                />
+            </div>
+
+            <div class="w-1/3">
+                <x-bladewind.input
+                    type="number"
+                    label="Cantidad: "
+                    name="cantidad"
+                    required="true"
+                    value="{{old('marca')}}"  
+                    class="border-green-700"
+                    />
+            </div>
+        </div>
 
         <div class="my-4">
             <x-bladewind.button 
                 can_submit="true"
-                class="bg-cyan-700">Registrar</x-bladewind.button>
+                class="bg-green-700">Registrar</x-bladewind.button>
         </div>
     </form>
 </div>

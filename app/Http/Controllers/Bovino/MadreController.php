@@ -131,7 +131,7 @@ class MadreController extends Controller
                     ->where('madres.id', '!=', $madre->id)
                     ->select('madres.*')
                     ->get()->map(function ($item) use($madre){
-                        return $madre->madre_id == $item->id ? [
+                        return $madre->ganado->madre_id == $item->id ? [
                             'label' => $item->alias,
                             'value' => $item->id,
                             'selected' => true
@@ -145,7 +145,7 @@ class MadreController extends Controller
             ->where('ganados.tipo', '=', 'bovino')
             ->select('reproductors.*')
             ->get()->map(function ($item) use($madre){
-                return $madre->padre_id == $item->id ? [
+                return $madre->ganado->padre_id == $item->id ? [
                     'label' => $item->ganado->dentificacion,
                     'value' => $item->id,
                     'selected' => true

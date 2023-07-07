@@ -4,6 +4,9 @@ namespace App\Http\Controllers\Agricultura;
 
 use App\Http\Controllers\Controller;
 use App\Models\Cosecha;
+use App\Http\Requests\Agricultura\StoreCosechaRequest;
+use App\Http\Requests\Agricultura\UpdateCosechaRequest;
+use App\Models\Siembra;
 use Illuminate\Http\Request;
 
 class CosechaController extends Controller
@@ -25,7 +28,14 @@ class CosechaController extends Controller
     public function create()
     {
         //
-        return view('agricultura.maiz.cosecha.crear');
+        $siembras = Siembra::get()->map(function ($item){
+            return [
+                'label' => $item->terreno->ubicacion,
+                'value' => $item->id
+            ];
+        });
+
+        return view('agricultura.maiz.cosecha.crear', ['siembras' => $siembras]);
     }
     
 
@@ -35,11 +45,10 @@ class CosechaController extends Controller
     public function store(StoreCosechaRequest $request, Cosecha $cosecha)
     {
         //
+
         $cosecha->siembra_id = $request->siembra;
-        $cosecha->afecciones = $request->afecciones;
         $cosecha->fecha = $request->fecha;
-        $cosecha->fecha_control_proximo = $request->fecha_control_proximo;
-        $cosecha->observaciones = $request->observaciones;
+        $cosecha->cantidad = $request->cantidad;
 
         if($cosecha->save()){
             return redirect()->route('cosecha.show', ['cosecha' => $cosecha->id]);
@@ -67,8 +76,20 @@ class CosechaController extends Controller
     public function edit(Cosecha $cosecha)
     {
         //
+        $siembras = Siembra::get()->map(function ($item) use($cosecha){
+            return $cosecha->siembra->id == $item->id ? [
+                'label' => $item->terreno->ubicacion,
+                'value' => $item->id,
+                'selected' => true
+            ] : [
+                'label' => $item->terreno->ubicacion,
+                'value' => $item->id
+            ];
+        });
+
         return view('agricultura.maiz.cosecha.editar', [
-            'modelo' => $cosecha
+            'modelo' => $cosecha,
+            'siembras' => $siembras
         ]);
     }
     
@@ -76,14 +97,12 @@ class CosechaController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Cosecha $cosecha)
+    public function update(UpdateCosechaRequest $request, Cosecha $cosecha)
     {
         //
         $cosecha->siembra_id = $request->siembra;
-        $cosecha->afecciones = $request->afecciones;
+        $cosecha->cantidad = $request->cantidad;
         $cosecha->fecha = $request->fecha;
-        $cosecha->fecha_control_proximo = $request->fecha_control_proximo;
-        $cosecha->observaciones = $request->observaciones;
 
         if($cosecha->save()){
             return redirect()->route('cosecha.show', ['cosecha' => $cosecha->id])->withInput([

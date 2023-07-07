@@ -172,7 +172,7 @@
 
             @if($data->count())
                 @foreach($data as $item)
-                    <option value="{{ $item['value'] }}" @if(array_key_exists('selected', $item)) @endif>{{ $item['label'] }}</option>
+                    <option value="{{ $item['value'] }}" @if(array_key_exists('selected', $item)) selected @endif>{{ $item['label'] }}</option>
                 @endforeach
             @else
                 <option disabled>{{ $empty_label }}</option>
