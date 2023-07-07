@@ -13,9 +13,9 @@ return new class extends Migration
     {
         Schema::create('informaciones_generales', function (Blueprint $table) {
             $table->id();
-            $table->string('nombre_empresa_');
-            $table->string('codigo_hierro');
-            $table->float('cant_hectareas');
+            $table->string('nombre_empresa');
+            $table->string('codigo_hierro')->nullable();
+            $table->float('cant_hectareas')->nullable();
             $table->timestamps();
         });
     }

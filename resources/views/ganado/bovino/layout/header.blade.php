@@ -1,15 +1,6 @@
-@extends('main')
-
-@section ('app')
-<!DOCTYPE html>
-<html lang="en">
-<head>
-</head>
-<body>
-
 <header class="bg-green-600 text-white p-4 flex justify-between items-center">
   <div class="flex items-center">
-    <img src="logo.png" alt="Logo" class="h-8 w-8 mr-2">
+    <img src="{{asset('img/logo.png')}}" alt="Logo" class="h-8 w-8 mr-2">
     <h1 class="text-lg font-bold">Agromax</h1>
   </div>
 
@@ -23,8 +14,3 @@
 
   <button class="bg-blue-500 hover:bg-blue-500 text-white px-4 py-2 rounded">Cerrar Sesión</button>
 </header>
-
-
-<script src=""></script> <!-- Si necesitas algún script -->
-</body>
-</html>

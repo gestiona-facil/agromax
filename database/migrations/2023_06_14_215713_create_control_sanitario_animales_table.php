@@ -11,13 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('control_sanitario_animales', function (Blueprint $table) {
+        Schema::create('control_sanitario_animals', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('ganado_id');
             $table->date('fecha');
-            $table->date('fecha_control_proximo');
+            $table->date('fecha_control_proximo')->nullable();
             $table->text('estado_salud');
-            $table->text('observaciones');
+            $table->text('observaciones')->nullable();
             $table->timestamps();
             
         });

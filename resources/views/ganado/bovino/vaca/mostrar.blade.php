@@ -53,9 +53,11 @@
             <h2 class="text-xl border-b border-t py-3 indent-3 border-gray-300 bg-cyan-700/10">Información Secundaria</h2>
             <div class="p-3">
                 <div>
-                    <p>
-                        <span>info</span><span></span>
-                    </p>
+                    <x-bladewind.button
+                        tag="a"
+                        size="tiny"
+                        href="{{ route('bovino.control-sanitario.index', ['ganado' => $modelo->ganado->id])}}" 
+                    >Ver los controles sanitarios realizados</x-bladewind.button>
                 </div>
             </div>
         </div>

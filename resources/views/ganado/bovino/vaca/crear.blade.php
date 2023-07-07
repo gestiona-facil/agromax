@@ -27,14 +27,25 @@
             <div class="w-1/4 flex items-center" >
                 <x-bladewind.toggle 
                     name="gestando"
-                    value="0"
-                    vue_attr='@click="vaca_gestando = !vaca_gestando"'
+                    value="1"
+                    vue_attr='@change="vaca_gestando = !vaca_gestando"'
                 />
+                <h3 class="px-2" v-if="vaca_gestando">Esta preñada</h3>
+                <h3 class="px-2" v-else>No esta preñada</h3>
             </div>
-        </div>
-        <div class="flex flex-row justify-between py-3">
-            @{{ vaca_gestando }}
-            {{-- <x-bladewind.input type="date" label="Fecha de inicio de gestacion: *" model-value="{{ old('fecha_inicio_gestacion') }}"></x-bladewind.input> --}}
+
+            <div class="w-1/4">
+                <div v-if="vaca_gestando">
+                    <x-bladewind.input 
+                        type="date"
+                        name="fecha_inicio_gestacion" 
+                        label="Fecha" 
+                        required="true"
+                        value="{{ old('fecha_inicio_gestacion') }}"
+                        class="border-cyan-700"
+                    />
+                </div>
+            </div>
         </div>
 
         <div class="my-4">

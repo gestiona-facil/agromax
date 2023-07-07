@@ -21,6 +21,7 @@
     'onclick' => 'javascript:void(0)',
     // css for label
     'class' => '',
+    'vue_attr' => ''
 ])
 @php 
     // reset variables for Laravel 8 support
@@ -31,7 +32,7 @@
     $justified = filter_var($justified, FILTER_VALIDATE_BOOLEAN);
 @endphp
 
-<label class="relative @if(!$justified)inline-flex @else flex justify-between @endif items-center group" onclick="{!!$onclick!!}">
+<label class="relative @if(!$justified)inline-flex @else flex justify-between @endif items-center group" onclick="{!!$onclick!!}" {!!$vue_attr!!}>
     @if($label_position == 'left' && $label !== '')<span class="pr-4 {{$class}}">{!!$label!!}</span>@endif
     <input type="checkbox" name="{{$name}}" @if($checked) checked @endif @if($disabled) disabled @endif class="absolute left-1/2 -translate-x-1/2 w-full h-full peer sr-only appearance-none border-0 rounded-full cursor-pointer" />
     <span  class="w-20 @if($bar=='thick') h-9 @else h-4 @endif flex items-center flex-shrink-0 p-1 bg-gray-300  dark:bg-slate-700 rounded-full duration-300 ease-in-out cursor-pointer

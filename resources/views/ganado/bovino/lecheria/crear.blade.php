@@ -1,15 +1,13 @@
 @extends('ganado.bovino.main')
 
-@section('titulo', 'Registrar Ordeño')
+@section('titulo', 'Registrar Lecheria')
 
-@section('titulo-contenido', 'Registrar Ordeño')
+@section('titulo-contenido', 'Registrar Lecheria')
 @section('contenido')
 <div class="p-2">
     <form action="{{route('lecheria.store')}}" method="POST">
         @csrf
         
-        @include('ganado.bovino.base.crear')
-
         <div class="flex flex-row justify-between py-3 items-center">
             <div class="w-1/4">
                 <x-bladewind.input 
@@ -17,10 +15,23 @@
                     label="Alias: " 
                     value="{{old('alias')}}" 
                     class="border-cyan-700"
+                    required="true"
                 />
             </div>
 
-        <div class="flex flex-row justify-between py-3 items-center">
+            <div class="w-1/4">
+                <x-bladewind.input
+                    type="number" 
+                    name="cant_meta" 
+                    label="Meta de producción: "
+                    suffix="Litros"
+                    min="0" 
+                    value="{{old('cant_meta')}}" 
+                    class="border-cyan-700"
+                    required="true"
+                />
+            </div>
+
             <div class="w-1/4">
                 <x-bladewind.input 
                     name="tipo_alimento" 
@@ -30,24 +41,16 @@
                 />
             </div>
 
-            <div class="flex flex-row justify-between py-3 items-center">
-                <div class="w-1/4">
-                    <x-bladewind.input 
-                        name="cant_meta" 
-                        label="Cantidad meta: "
-                        min="0" 
-                        value="{{old('cant_meta')}}" 
-                        class="border-cyan-700"
-                    />
-                </div>
+        </div>
                 
-                <div class="flex flex-row justify-between py-3 items-center">
-                    <div class="w-1/4">
-                    <x-bladewind-textarea
-                        label="Observaciones"
-                        name="observaciones: "
-                        value="{{old('observaciones')}}"  />
-                        class="border-cyan-700"
+        <div class="py-3">
+            <x-bladewind.textarea
+                label="Observaciones:"
+                name="observaciones"
+                value="{{old('observaciones')}}"
+                class="border-cyan-700"
+            />
+        </div>
 
         <div class="my-4">
             <x-bladewind.button 

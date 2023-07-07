@@ -36,12 +36,28 @@ class MadreController extends Controller
      */
     public function create()
     {
+        $madres = Madre::with('ganado')->join('ganados', 'madres.ganado_id', '=', 'ganados.id')
+            ->where('ganados.tipo', '=', 'bovino')
+            ->select('madres.*')
+            ->get()
+            ->map(function ($item){
+                return [
+                    'label' => $item->ganado->identificacion,
+                    'value' => $item->id
+                ];
+            });
+
+        $lecherias = Lecheria::all()->map(function ($item){
+            return [
+                'label' => $item->alias,
+                'value' => $item->id
+            ];
+        });
+        
         return view('ganado.bovino.vaca.crear', [
-            'madres' => Madre::join('ganados', 'madres.ganado_id', '=', 'ganados.id')
-                        ->where('ganados.tipo', '=', 'bovino')
-                        ->select('madres.*')
-                        ->get(),
-            'padres' => collect([])
+            'madres' => $madres,
+            'padres' => collect([]),
+            'lecherias' => $lecherias
         ]);
     }
 
@@ -62,7 +78,11 @@ class MadreController extends Controller
 
             $madre->alias = $request->alias;
             $madre->tiempo_parto = $request->tiempo_parto;
-            $madre->gestando =  $request->gestando;
+            $madre->gestando =  $request->has('fecha_inicio_gestacion');
+
+            if($request->has('fecha_inicio_gestacion')){
+                $madre->fecha_inicio_gestacion = $request->fecha_inicio_gestacion;
+            }
 
             if($madre->save()){
                 return redirect()->route('vaca.show', ['vaca' => $madre->id]);
@@ -92,12 +112,39 @@ class MadreController extends Controller
     public function edit(Madre $madre)
     {
         //
+        $madres = Madre::join('ganados', 'madres.ganado_id', '=', 'ganados.id')
+                    ->where('ganados.tipo', '=', 'bovino')
+                    ->where('madres.id', '!=', $madre->id)
+                    ->select('madres.*')
+                    ->get()->map(function ($item) use($madre){
+                        return $madre->madre_id == $item->id ? [
+                            'label' => $item->alias,
+                            'value' => $item->id,
+                            'selected' => true
+                        ] : [
+                            'label' => $item->alias,
+                            'value' => $item->id
+                        ];
+                    });
+
+        $lecherias = Lecheria::all()->map(function ($item) use($madre){
+            // return ['lecheria' => $madre->lecheria_id, 'item' => $item->id];
+            return $madre->lecheria_id == $item->id ? [
+                'label' => $item->alias,
+                'value' => $item->id,
+                'selected' => true
+            ] : [
+                'label' => $item->alias,
+                'value' => $item->id
+            ];
+        });
+
+        // dd($lecherias);
+
         return view('ganado.bovino.vaca.editar', [
-            'madres' => Madre::join('ganados', 'madres.ganado_id', '=', 'ganados.id')
-                        ->where('ganados.tipo', '=', 'bovino')
-                        ->select('madres.*')
-                        ->get(),
+            'madres' => $madres,
             'padres' => collect(),
+            'lecherias' => $lecherias,
             'modelo' => $madre
         ]);
     }
@@ -116,7 +163,7 @@ class MadreController extends Controller
 
         $madre->alias = $request->alias;
         $madre->tiempo_parto = $request->tiempo_parto;
-        $madre->gestando =  $request->gestando;
+        $madre->gestando =  $request->has('fecha_inicio_gestacion');
 
         if($madre->save()){
             return redirect()->route('vaca.show', ['vaca' => $madre->id]);

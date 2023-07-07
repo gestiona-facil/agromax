@@ -37,11 +37,18 @@ class EngordeController extends Controller
     public function create()
     {
         //
+        $madres = Madre::join('ganados', 'madres.ganado_id', '=', 'ganados.id')
+                    ->where('ganados.tipo', '=', 'bovino')
+                    ->select('madres.*')
+                    ->get()->map(function($item){
+                        return [
+                            'label' => $item->ganado->identificacion,
+                            'value' => $item->id,
+                        ];
+                    });
+
         return view('ganado.bovino.engorde.crear', [
-            'madres' => Madre::join('ganados', 'madres.ganado_id', '=', 'ganados.id')
-                ->where('ganados.tipo', '=', 'bovino')
-                ->select('madres.*')
-                ->get(),
+            'madres' => $madres,
             'padres' => collect([])
         ]);
     }

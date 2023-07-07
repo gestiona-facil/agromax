@@ -2,17 +2,10 @@
 
 @section('app')
 
-<x-bladewind.card>
-
-</x-bladewind.card>
-<body> {
-    background-image: url('{{ asset("fondos/fondo1.jpg") }}');
-    background-size: cover;
-}
- 
-<div class="flex justify-center h-screen ">
+<div class="flex justify-center items-center h-screen bg-gradient-to-r from-cyan-700 to-amber-700">
     <div class="w-1/3 bg-white rounded shadow p-8">
-        <h1 class="text-2xl font-bold mb-4 ">Iniciar Sesión</h1>
+        <img src="{{ asset('img/logo.png') }}" class="h-14">
+        <h1 class="text-2xl font-bold mb-4 text-center">Iniciar Sesión</h1>
 
         <div class="mb-4">
             <x-bladewind.input
@@ -28,7 +21,7 @@
         <div class="mb-3">
             <x-bladewind.input
                 type="password"
-                name="contraseña"
+                name="password"
                 label="Contraseña"
                 required="true"
                 prefix="key"
@@ -38,18 +31,12 @@
         </div>
 
         <div>
-            <p class="link"> 
-            <x-bladewind.button color="cyan" hover="blue">
-               <a href="dashboard"> Iniciar</a>
-            </x-bladewind.button>
-            
+            <x-bladewind.button
+                can_submit="true"
+                class="mt-4 bg-cyan-500 focus:ring-cyan-500"
+            >Iniciar</x-bladewind.button>
         </div>
-        <br>
-            <b>
-                <p class="link">
-                    No posee cuenta,
-                    <a href="sign">Registrate</a>
-                  </p></b>
+        {{-- La seccion de registro aparecerá automaticamente en caso de que no exista usuario en BD --}}
     </div>
 </div>
 </body>

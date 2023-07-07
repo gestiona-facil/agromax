@@ -60,6 +60,36 @@ Route::controller(App\Http\Controllers\AuthController::class)->group(function ()
     
     //---- Rutas para Ganando Bovino
     Route::prefix('/ganados/bovinos')->group(function (){
+
+        Route::prefix('control-lecheria')->group(function (){
+
+            Route::controller(App\Http\Controllers\Bovino\ControlLecheriaController::class)->group(function (){
+
+                Route::get('{madre}/agregar', 'create')->name('bovino.control-lecheria.create');
+                Route::get('{controlLecheria}/editar', 'edit')->name('bovino.control-lecheria.edit');
+
+                Route::post('', 'store')->name('bovino.control-lecheria.store');
+                Route::put('{controlLecheria}', 'update')->name('bovino.control-lecheria.update');
+            });
+
+        });
+
+        Route::prefix('control-sanitario')->group(function (){
+
+            Route::controller(App\Http\Controllers\Bovino\ControlSanitarioAnimalController::class)->group(function (){
+
+                Route::get('{ganado}/agregar', 'create')->name('bovino.control-sanitario.create');
+                Route::get('{controlSanitarioAnimal}/editar', 'edit')->name('bovino.control-sanitario.edit');
+                Route::get('{ganado}', 'index')->name('bovino.control-sanitario.index');
+                Route::get('{controlSanitarioAnimal}/ver', 'show')->name('bovino.control-sanitario.show');
+
+                Route::post('', 'store')->name('bovino.control-sanitario.store');
+                Route::put('{controlSanitarioAnimal}', 'update')->name('bovino.control-sanitario.update');
+                Route::delete('{controlSanitarioAnimal}', 'destroy')->name('bovino.control-sanitario.destroy');
+
+            });
+
+        });
         
         Route::resources([
             'vaca' => App\Http\Controllers\Bovino\MadreController::class,

@@ -12,7 +12,7 @@ class ControlLecheria extends Model
 
     protected $tableName = 'control_lecherias';
 
-    public function madres(){
-        return $this->hasMany(Madre::class, 'madre_id', 'id');
+    public function madre(){
+        return $this->belongsTo(Madre::class, 'madre_id', 'id');
     }
 }

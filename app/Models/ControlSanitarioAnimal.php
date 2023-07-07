@@ -9,7 +9,7 @@ class ControlSanitarioAnimal extends Model
 {
     use HasFactory;
 
-    protected $tableName = 'control_sanitario_animales';
+    protected $tableName = 'control_sanitario_animals';
 
     public function vacunas()
     {

@@ -74,6 +74,8 @@
     // additional css for suffix
     'suffix_icon_css' => '',
     'suffixIconCss' => '',
+    'data' => collect([]),
+    'empty_label' => 'Ther are not items'
 ])
 @php
     // reset variables for Laravel 8 support
@@ -147,12 +149,12 @@
         </label>
     @endif
     <div class="relative">
-        <input 
+        <select
             {{ $attributes->merge(['class' => "bw-input peer $is_required $name $placeholder_color rounded focus:border"]) }}
             type="{{ $type }}" 
             id="{{ $name }}"
             name="{{ $name }}" 
-            value="{{ $selected_value }}" 
+            {{-- value="{{ $selected_value }}"  --}}
             autocomplete="off"
             placeholder="{{ $placeholder_label }}{{$required_symbol}}" 
             @if($numeric) onkeypress="return isNumberKey(event, {{$with_dots}})" @endif
@@ -161,7 +163,16 @@
                 data-error-inline="{{$show_error_inline}}" 
                 data-error-heading="{{$error_heading}}" 
             @endif 
-        />
+        >
+            {{-- Items --}}
+            @if($data->count())
+                @foreach($data as $item)
+                    <option value="{{ $item['value'] }}" @if(array_key_exists('selected', $item)) @endif>{{ $item['label'] }}</option>
+                @endforeach
+            @else
+                <option disabled>{{ $empty_label }}</option>
+            @endif
+        </select>
         @if(!empty($error_message))<div class="text-red-500 text-xs p-1 {{ $name }}-inline-error hidden">{{$error_message}}</div>@endif
     
         @if (!empty($prefix))

@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Models\ControlLecheria;
 use App\Models\Lecheria;
 use App\Models\Madre;
 use App\Models\Reproductor;
