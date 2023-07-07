@@ -7,7 +7,7 @@
     </x-bladewind.card>
 
 
-    <div class="flex justify-center items-center h-screen">
+    <div class="flex justify-center h-screen">
         <div class="w-1/3 bg-white rounded shadow p-8">
             <h1 class="text-2xl font-bold mb-4">Registra Tus Credenciales</h1>
 
@@ -47,8 +47,9 @@
         <x-bladewind.button
         has_spinner="true"
         name="registrarse"
-        onclick="unhide('.registrarse .bw-spinner')"  >
-        Registrar
+        onclick="unhide('.registrarse .bw-spinner')">
+        <a href="welcome">Registrar</a>
+        
     </x-bladewind.button>
 
     @endsection

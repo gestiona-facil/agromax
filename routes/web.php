@@ -27,6 +27,14 @@ Route::get('/sign', function (){
 
 Route::get('/dashboard', function (){
     return view('dashboard');
+
+    
+});
+
+Route::get('/seleccion', function (){
+    return view('seleccion');
+
+    
 });
 Route::get('/prueba', function (){
     return view('ganado.bovino.layout.sidebar');

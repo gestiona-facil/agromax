@@ -5,8 +5,12 @@
 <x-bladewind.card>
 
 </x-bladewind.card>
-
-<div class="flex justify-center items-center h-screen">
+<body> {
+    background-image: url('{{ asset("fondos/fondo1.jpg") }}');
+    background-size: cover;
+}
+ 
+<div class="flex justify-center h-screen ">
     <div class="w-1/3 bg-white rounded shadow p-8">
         <h1 class="text-2xl font-bold mb-4 ">Iniciar Sesión</h1>
 
@@ -21,7 +25,7 @@
             />
         </div>
 
-        <div class="mb-4">
+        <div class="mb-3">
             <x-bladewind.input
                 type="password"
                 name="contraseña"
@@ -48,3 +52,4 @@
                   </p></b>
     </div>
 </div>
+</body>
