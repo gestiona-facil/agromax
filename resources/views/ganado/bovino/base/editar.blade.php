@@ -6,6 +6,7 @@
             name="madre"
             label="Seleccione Madre (vaca): "
             empty_label="No hay registros"
+            none_selected_label="ninguno"
             class="border-cyan-700"
         />
     </div>
@@ -17,6 +18,7 @@
             name="padre"
             label="Seleccione Padre (toro): "
             empty_label="No hay registros"
+            none_selected_label="ninguno"
             class="border-cyan-700"
         />   
     </div>
@@ -29,6 +31,7 @@
             name="lecheria"
             label="Seleccione Lecheria: "
             empty_label="No hay registros"
+            none_selected_label="ninguno"
             class="border-cyan-700"
         />   
     </div>

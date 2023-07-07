@@ -13,9 +13,13 @@ class ControlLecheriaController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Madre $madre)
     {
         //
+        return view('ganado.bovino.control_lecheria.lista', [
+            'modelo' => $madre,
+            'datos' => $madre->controles_lecheria()->paginate(25)
+        ]);
     }
 
     /**
@@ -80,5 +84,11 @@ class ControlLecheriaController extends Controller
     public function destroy(ControlLecheria $controlLecheria)
     {
         //
+        $madre = $controlLecheria->madre->id;
+        $controlLecheria->delete();
+
+        return redirect()->route('bovino.control-lecheria.index', ['madre' => $madre])->withInput([
+            'status' => 'Registro eliminado exitosamente'
+        ]);
     }
 }
