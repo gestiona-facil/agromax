@@ -18,9 +18,16 @@ Route::get('/', function () {
 });
 
 Route::get('/welcome', function (){
-    return view('testing');
+    return view('login');
 });
 
+Route::get('/sign', function (){
+    return view('sign');
+});
+
+Route::get('/dashboard', function (){
+    return view('dashboard');
+});
 Route::get('/prueba', function (){
     return view('ganado.bovino.layout.sidebar');
 });
