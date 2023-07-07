@@ -107,6 +107,13 @@ Route::controller(App\Http\Controllers\AuthController::class)->group(function ()
 
             });
             
+            //---- Rutas de exportación
+            Route::get('vaca/{vaca}/exportar', [App\Http\Controllers\Bovino\MadreController::class, 'export'])->name('bovino.vaca.exportar');
+            Route::get('cria/{crium}/exportar', [App\Http\Controllers\Bovino\CriaController::class, 'export'])->name('bovino.cria.exportar');
+            Route::get('engorde/{engorde}/exportar', [App\Http\Controllers\Bovino\EngordeController::class, 'export'])->name('bovino.engorde.exportar');
+            Route::get('toro/{toro}/exportar', [App\Http\Controllers\Bovino\ToroController::class, 'export'])->name('bovino.toro.exportar');
+            Route::get('lecheria/{lecherium}/exportar', [App\Http\Controllers\LecheriaController::class, 'export'])->name('bovino.lecheria.exportar');
+
             Route::resources([
                 'vaca' => App\Http\Controllers\Bovino\MadreController::class,
                 'cria' => App\Http\Controllers\Bovino\CriaController::class,
@@ -128,6 +135,13 @@ Route::controller(App\Http\Controllers\AuthController::class)->group(function ()
         //---- Rutas especificas para Maiz
         Route::prefix('maiz')->group(function (){
             
+            Route::get('terreno/{terreno}/exportar', [App\Http\Controllers\Agricultura\TerrenoController::class, 'export'])->name('agricultura.terreno.exportar');
+            Route::get('semilla/{semilla}/exportar', [App\Http\Controllers\Agricultura\SemillaController::class, 'export'])->name('agricultura.semilla.exportar');
+            Route::get('siembra/{siembra}/exportar', [App\Http\Controllers\Agricultura\SiembraController::class, 'export'])->name('agricultura.siembra.exportar');
+            Route::get('cosecha/{cosecha}/exportar', [App\Http\Controllers\Agricultura\CosechaController::class, 'export'])->name('agricultura.cosecha.exportar');
+            Route::get('riego/{riego}/exportar', [App\Http\Controllers\Agricultura\RiegoController::class, 'export'])->name('agricultura.riego.exportar');
+            Route::get('fertilizacion/{fertilizacion}/exportar', [App\Http\Controllers\Agricultura\FertilizacionController::class, 'export'])->name('agricultura.fertilizacion.exportar');
+
             Route::resources([
                 'terreno' => \App\Http\Controllers\Agricultura\TerrenoController::class,
                 'semilla' => \App\Http\Controllers\Agricultura\SemillaController::class,

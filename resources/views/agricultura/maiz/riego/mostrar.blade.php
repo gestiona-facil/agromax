@@ -2,7 +2,7 @@
 
 @section('titulo', 'Riego')
 
-@section('titulo-contenido', 'Datos de Vaca: '.$modelo->riego->identificacion)
+@section('titulo-contenido', 'Riego para siembra en: '.$modelo->siembra->terreno->ubicacion)
 
 @section('contenido')
 <div>
@@ -50,11 +50,11 @@
             <h2 class="text-xl border-b border-t py-3 indent-3 border-gray-300 bg-cyan-700/10">Información Secundaria</h2>
             <div class="p-3">
                 <div>
-                    <x-bladewind.button
+                    {{-- <x-bladewind.button
                         tag="a"
                         size="tiny"
-                        href="{{ route('bovino.control-sanitario.index', ['ganado' => $modelo->ganado->id])}}" 
-                    >Ver los controles sanitarios realizados</x-bladewind.button>
+                        href="{{ route('agricultura.control-sanitario.index', ['ganado' => $modelo->ganado->id])}}" 
+                    >Ver los controles sanitarios realizados</x-bladewind.button> --}}
                 </div>
             </div>
         </div>

@@ -10,6 +10,8 @@ use App\Models\Madre;
 use App\Http\Requests\Bovino\StoreReproductorRequest;
 use App\Http\Requests\Bovino\UpdateReproductorRequest;
 use Illuminate\Http\Request;
+use Barryvdh\DomPDF\Facade\Pdf;
+use Illuminate\Support\Str;
 
 class ReproductorController extends Controller
 {
@@ -18,6 +20,15 @@ class ReproductorController extends Controller
     public function __construct(GanadoController $ganado)
     {
         $this->base = $ganado;
+    }
+
+    public function export(Reproductor $toro){
+        
+        $pdf = Pdf::loadView('ganado.bovino.toro.exportar', [
+            'modelo' => $toro
+        ]);
+
+        return $pdf->download('AGROMAX-'.Str::random(7).'.pdf');
     }
 
     /**

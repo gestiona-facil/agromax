@@ -7,9 +7,20 @@ use App\Models\Riego;
 use App\Http\Requests\Agricultura\StoreRiegoRequest;
 use App\Http\Requests\Agricultura\UpdateRiegoRequest;
 use App\Models\Siembra;
+use Barryvdh\DomPDF\Facade\Pdf;
+use Illuminate\Support\Str;
 
 class RiegoController extends Controller
 {
+    public function export(Riego $riego){
+        
+        $pdf = Pdf::loadView('agricultura.maiz.riego.exportar', [
+            'modelo' => $riego
+        ]);
+
+        return $pdf->download('AGROMAX-'.Str::random(7).'.pdf');
+    }
+
     /**
      * Display a listing of the resource.
      */

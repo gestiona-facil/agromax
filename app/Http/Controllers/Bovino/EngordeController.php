@@ -11,6 +11,8 @@ use App\Models\Ganado;
 use App\Http\Requests\Bovino\StoreEngordeRequest;
 use App\Http\Requests\Bovino\UpdateEngordeRequest;
 use Illuminate\Http\Request;
+use Barryvdh\DomPDF\Facade\Pdf;
+use Illuminate\Support\Str;
 
 class EngordeController extends Controller
 {
@@ -20,6 +22,16 @@ class EngordeController extends Controller
     {
         $this->base = $ganado;
     }
+
+    public function export(Engorde $engorde){
+        
+        $pdf = Pdf::loadView('ganado.bovino.engorde.exportar', [
+            'modelo' => $engorde
+        ]);
+
+        return $pdf->download('AGROMAX-'.Str::random(7).'.pdf');
+    }
+
 
     /**
      * Display a listing of the resource.

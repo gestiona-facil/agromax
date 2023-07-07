@@ -10,6 +10,8 @@ use App\Models\Reproductor;
 use App\Models\Lecheria;
 use App\Http\Requests\Bovino\StoreMadreRequest;
 use App\Http\Requests\Bovino\UpdateMadreRequest;
+use Barryvdh\DomPDF\Facade\Pdf;
+use Illuminate\Support\Str;
 
 class MadreController extends Controller
 {
@@ -18,6 +20,15 @@ class MadreController extends Controller
     public function __construct(GanadoController $ganado)
     {
         $this->base = $ganado;
+    }
+
+    public function export(Madre $vaca){
+        
+        $pdf = Pdf::loadView('ganado.bovino.vaca.exportar', [
+            'modelo' => $vaca
+        ]);
+
+        return $pdf->download('AGROMAX-'.Str::random(7).'.pdf');
     }
 
     /**

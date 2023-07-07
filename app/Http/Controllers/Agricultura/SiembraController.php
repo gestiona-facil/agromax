@@ -8,9 +8,20 @@ use App\Http\Requests\Agricultura\StoreSiembraRequest;
 use App\Http\Requests\Agricultura\UpdateSiembraRequest;
 use App\Models\Semilla;
 use App\Models\Terreno;
+use Barryvdh\DomPDF\Facade\Pdf;
+use Illuminate\Support\Str;
 
 class SiembraController extends Controller
 {
+    public function export(Siembra $siembra){
+        
+        $pdf = Pdf::loadView('agricultura.maiz.siembra.exportar', [
+            'modelo' => $siembra
+        ]);
+
+        return $pdf->download('AGROMAX-'.Str::random(7).'.pdf');
+    }
+
     /**
      * Display a listing of the resource.
      */

@@ -8,9 +8,20 @@ use App\Models\Vegetal as Planta;
 use App\Http\Requests\Agricultura\StoreSemillaRequest;
 use App\Http\Requests\Agricultura\UpdateSemillaRequest;
 use Illuminate\Http\Request;
+use Barryvdh\DomPDF\Facade\Pdf;
+use Illuminate\Support\Str;
 
 class SemillaController extends Controller
 {
+    public function export(Semilla $semilla){
+        
+        $pdf = Pdf::loadView('agricultura.maiz.semilla.exportar', [
+            'modelo' => $semilla
+        ]);
+
+        return $pdf->download('AGROMAX-'.Str::random(7).'.pdf');
+    }
+
     /**
      * Display a listing of the resource.
      */
