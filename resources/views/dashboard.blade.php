@@ -1,10 +1,9 @@
 @extends('main')
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
 </head>
-<body>
 
 <header class="bg-cyan-700 text-white p-4 flex justify-between items-center">
   <div class="flex items-center">
@@ -19,6 +18,7 @@
 
   <button class="bg-cyan-500 hover:bg-cyan-200 text-white px-4 py-2 rounded">Cerrar Sesión</button>
 </header>
+<body class="bg-cover bg-no-repeat bg-center h-screen background-image: url('../img/fondo1.jpg')">
 
 <div class="container mx-auto">
     <div class="bg-cyan-150 p-4">
@@ -28,7 +28,9 @@
             permitiendo a los agricultores y ganaderos obtener el máximo provecho de sus actividades de siembra y cría de animales.
             Este sistema revolucionario combina tecnología avanzada con conocimientos agrícolas y pecuarios para ofrecer
             una solución integral que abarca todos los aspectos de la producción agropecuaria.
-        </p> 
+
+        </p>
+      </div> 
         <br><br>
 
         <div class="py-8 px-8 mx-center bg-white rounded-xl shadow-lg space-y-2">
@@ -37,6 +39,7 @@
             </x-bladewind.button>
         </div>
 <br> <br>
+      <div>
         <p class="text-lg text-black font-semibold text-justify">
             Una de las características más destacadas de Agromax es su capacidad para gestionar diferentes tipos de animales,
             incluyendo ganadería bovina, porcina y caprina. El sistema proporciona herramientas específicas para cada tipo de
@@ -65,4 +68,5 @@
     
 </div>
 
-</body>.
+</body>
+</html>

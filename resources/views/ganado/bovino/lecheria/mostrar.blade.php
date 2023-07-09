@@ -57,18 +57,23 @@
                         @php
                             $control = $vaca->controles_lecheria()->orderByDesc('created_at')->first();
                         @endphp
+
                         <tr>
                             <td>{{ $loop->iteration }}</td>
                             <td>{{ $vaca->ganado->identificacion }}</td>
+                            @if($control)
                             <td>{{ $control->cant_recolectada }} Litros</td>
-                            <td></td>
+                            <td>{{ $control->fecha }}</td>
+                            @endif
                             <td>
+                                @if($control)
                                 <x-bladewind.button
                                     tag="a"
-                                    href="{{ route('bovino.control-lecheria.edit', ['control' => $control->id])}}"
+                                    href="{{ route('bovino.control-lecheria.edit', ['controlLecheria' => $control->id])}}"
                                     size="tiny"
                                     class="bg-cyan-700"
                                 >Editar</x-bladewind.button>
+                                @endif
                                 <x-bladewind.button
                                     tag="a"
                                     href="{{ route('bovino.control-lecheria.create', ['madre' => $vaca->id]) }}"

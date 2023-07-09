@@ -9,8 +9,6 @@
         @csrf
         @method('PUT')
 
-        @include('ganado.bovino.base.crear')
-
         <div class="flex flex-row justify-between py-3 items-center">
             <div class="w-1/4">
                 <x-bladewind.input  
@@ -20,39 +18,34 @@
                     class="border-cyan-700" 
                 />
             </div>
-
-            <div class="flex flex-row justify-between py-3 items-center">
-                <div class="w-1/4">
-                    <x-bladewind.input  
-                        name="tipo_alimento"  
-                        label="Tipo de alimento: "  
-                        value="{{ $modelo->tipo_alimento }}"  
-                        class="border-cyan-700" 
-                    />
-                </div>
+            <div class="w-1/4">
+                <x-bladewind.input  
+                    name="tipo_alimento"  
+                    label="Tipo de alimento: "  
+                    value="{{ $modelo->tipo_alimento }}"  
+                    class="border-cyan-700" 
+                />
             </div>
-
-            <div class="flex flex-row justify-between py-3 items-center">
-                <div class="w-1/4">
-                    <x-bladewind.input  
-                        name="cant_meta"  
-                        label="Cantidad meta: " 
-                        min="0"  
-                        value="{{ $modelo->cant_meta }}"  
-                        class="border-cyan-700" 
-                    />
-                </div>
+            <div class="w-1/4">
+                <x-bladewind.input  
+                    name="cant_meta"  
+                    label="Cantidad meta: " 
+                    min="0"  
+                    value="{{ $modelo->cant_meta }}"  
+                    class="border-cyan-700" 
+                />
             </div>
+        </div>
+
+           
 
             <div class="flex flex-row justify-between py-3 items-center">
-                <div class="w-1/4">
-                    <x-bladewind-textarea 
-                        label="Observaciones" 
-                        name="observaciones" 
-                        value="{{ $modelo->observaciones }}"  
-                        class="border-cyan-700"
-                    />
-                </div>
+                <x-bladewind.textarea 
+                label="Observaciones" 
+                name="observaciones" 
+                value="{{ $modelo->observaciones }}"  
+                class="border-cyan-700"
+                />
             </div>
 
             <div class="my-4">

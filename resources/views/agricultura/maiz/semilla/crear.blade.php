@@ -1,4 +1,4 @@
-@extends('agricultura.maiz.main')
+@extends('agricultura.main')
 
 @section('titulo', 'Registrar Siembra ')
 
@@ -9,11 +9,10 @@
         @csrf
         {{-- Valores ocultos --}}
         
-        @include('agricultura.maiz.base.crear')
                 
                 <div class="flex flex-row justify-between py-3 items-center">
                     <div class="w-1/4">
-                    <x-bladewind-input
+                    <x-bladewind.input
                         label="Marca"
                         name="marca: "
                         value="{{old('marca')}}"  

@@ -24,7 +24,7 @@
 <button class="fixed left-0 top-1/2 transform -translate-y-1/2 bg-green-500 text-white px-4 py-2 rounded"><a href="Inicio">Maiz</a></button>
 
 <!-- Botón Bovino -->
-<button class="fixed right-0 top-1/2 transform -translate-y-1/2 bg-cyan-500 text-white px-4 py-2 rounded">Bovino</button>
+<button class="fixed right-0 top-1/2 transform -translate-y-1/2 bg-cyan-500 text-white px-4 py-2 rounded"><a href="{{ route('dashgan') }}">Bovino</a></button>
       
 </body>
 </html>

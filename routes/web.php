@@ -38,11 +38,19 @@ Route::get('/seleccion', function (){
 });
 Route::get('/inicio', function (){
     return view('agricultura.maiz.dashboard');
-
-    
 });
-Route::get('/prueba', function (){
-    return view('ganado.bovino.layout.sidebar');
+
+Route::get('/inicio2', function (){
+    return view('ganado.bovino.dashboard');
+})->name('dashgan');
+
+
+Route::get('/pagina', function (){
+    return view('pagina');
+});
+
+Route::get('/paginap', function (){
+    return view('paginap');
 });
 
 //---- Autenticación
@@ -119,6 +127,7 @@ Route::controller(App\Http\Controllers\AuthController::class)->group(function ()
         Route::resources([
             'terreno' => \App\Http\Controllers\Agricultura\TerrenoController::class,
             'semilla' => \App\Http\Controllers\Agricultura\SemillaController::class,
+            'siembra' => \App\Http\Controllers\Agricultura\SiembraController::class,
             'cosecha' => \App\Http\Controllers\Agricultura\CosechaController::class,
             'planta' => \App\Http\Controllers\Agricultura\PlantaController::class, //vegetal
             'riego' => \App\Http\Controllers\Agricultura\RiegoController::class,
