@@ -44,7 +44,7 @@
 
 <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
-      <footer class="bg-gradient-to-r from-green-700 to-amber-700">
+      <footer class=" mt-auto bg-gradient-to-r from-green-700 to-amber-700">
         <div class="container mx-auto flex flex-wrap justify-between">
           <div class="w-full md:w-1/2 lg:w-1/4 mb-6 md:mb-0">
             <h3 class="text-white text-center text-lg font-bold mb-4">AGROMAX: Máxima Eficiencia en la Gestión de Granjas Integrales</h3>

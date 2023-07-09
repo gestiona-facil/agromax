@@ -1,11 +1,11 @@
 @extends('agricultura.main')
 
-@section('titulo', 'Registrar Siembra ')
+@section('titulo', 'Registrar Semilla ')
 
-@section('titulo-contenido', 'Registrar Siembra')
+@section('titulo-contenido', 'Registrar Semilla')
 @section('contenido')
 <div class="p-2">
-    <form action="{{route('siembra.store')}}" method="POST">
+    <form action="{{route('semilla.store')}}" method="POST">
         @csrf
         {{-- Valores ocultos --}}
         

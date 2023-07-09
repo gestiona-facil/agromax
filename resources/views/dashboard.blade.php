@@ -19,7 +19,7 @@
   <button class="bg-cyan-500 hover:bg-cyan-200 text-white px-4 py-2 rounded">Cerrar Sesión</button>
 </header>
 <body class="bg-cover bg-no-repeat bg-center h-screen background-image: url('../img/fondo1.jpg')">
-
+<img src="{{ asset('img/fondo.png')}}">
 <div class="container mx-auto">
     <div class="bg-cyan-150 p-4">
         <h2 class="text-2xl font-bold">AGROMAX: Máxima Eficiencia en la Gestión de Granjas Integrales</h2>

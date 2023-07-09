@@ -20,10 +20,11 @@
                         class="border-cyan-700"
                     />
                 </div>
+            </div>
                 
                 <div class="flex flex-row justify-between py-3 items-center">
                     <div class="w-1/4">
-                    <x-bladewind-input
+                    <x-bladewind.input
                         type="numeric"
                         label="Cantidad esperada"
                         name="cantidad esperada: "
