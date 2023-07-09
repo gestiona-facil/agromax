@@ -35,9 +35,9 @@ class Ganado extends Model
         return $this->hasMany(Cria::class);
     }
 
-    public function control_sanitario_animales()
+    public function control_sanitario()
     {
-        return $this->hasMany(ControlSanitarioAnimal::class);
+        return $this->hasMany(ControlSanitarioAnimal::class, 'ganado_id');
     }
 
 

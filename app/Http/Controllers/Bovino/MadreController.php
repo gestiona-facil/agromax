@@ -27,7 +27,10 @@ class MadreController extends Controller
     {
         //
         return view('ganado.bovino.vaca.lista', [
-            'datos' => Madre::paginate(25)
+            'datos' => Madre::with('ganado')->join('ganados', 'madres.ganado_id', '=', 'ganados.id')
+                ->where('ganados.tipo', '=', 'bovino')
+                ->select('madres.*')
+                ->paginate(25)
         ]);
     }
 
@@ -47,6 +50,17 @@ class MadreController extends Controller
                 ];
             });
 
+        $padres = Reproductor::with('ganado')->join('ganados', 'reproductors.ganado_id', '=', 'ganados.id')
+            ->where('ganados.tipo', '=', 'bovino')
+            ->select('reproductors.*')
+            ->get()
+            ->map(function ($item){
+                return [
+                    'label' => $item->ganado->identificacion,
+                    'value' => $item->id
+                ];
+            });
+
         $lecherias = Lecheria::all()->map(function ($item){
             return [
                 'label' => $item->alias,
@@ -56,7 +70,7 @@ class MadreController extends Controller
         
         return view('ganado.bovino.vaca.crear', [
             'madres' => $madres,
-            'padres' => collect([]),
+            'padres' => $padres,
             'lecherias' => $lecherias
         ]);
     }
@@ -126,6 +140,20 @@ class MadreController extends Controller
                             'value' => $item->id
                         ];
                     });
+        
+        $padres = Reproductor::join('ganados', 'reproductors.ganado_id', '=', 'ganados.id')
+            ->where('ganados.tipo', '=', 'bovino')
+            ->select('reproductors.*')
+            ->get()->map(function ($item) use($madre){
+                return $madre->padre_id == $item->id ? [
+                    'label' => $item->ganado->dentificacion,
+                    'value' => $item->id,
+                    'selected' => true
+                ] : [
+                    'label' => $item->ganado->dentificacion,
+                    'value' => $item->id
+                ];
+            });
 
         $lecherias = Lecheria::all()->map(function ($item) use($madre){
             // return ['lecheria' => $madre->lecheria_id, 'item' => $item->id];
@@ -143,7 +171,7 @@ class MadreController extends Controller
 
         return view('ganado.bovino.vaca.editar', [
             'madres' => $madres,
-            'padres' => collect(),
+            'padres' => $padres,
             'lecherias' => $lecherias,
             'modelo' => $madre
         ]);

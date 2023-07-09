@@ -1,8 +1,8 @@
 @extends('ganado.bovino.main')
 
-@section('titulo', 'Levante')
+@section('titulo', 'Información sobre Toro')
 
-@section('titulo-contenido', 'Datos de Levante: '.$modelo->ganado->identificacion)
+@section('titulo-contenido', 'Datos de Toro: '.$modelo->ganado->identificacion)
 
 @section('contenido')
 <div>
@@ -10,7 +10,7 @@
         {{-- boton editar --}}
         <x-bladewind.button
             tag="a" 
-            size="tiny" href="{{ route('cria.edit', ['crium' => $modelo->id])}}"
+            size="tiny" href="{{ route('toro.edit', ['toro' => $modelo->id])}}"
             class="bg-cyan-700"
         >Editar</x-bladewind.button>
         {{-- boton exportar --}}
@@ -28,11 +28,6 @@
                     <div>
                         <p class="flex text-xl">
                             <span class="px-2">Identificación: </span><span class="italic text-2xl font-light">{{$modelo->ganado->identificacion}}</span>
-                        </p>
-                    </div>
-                    <div>
-                        <p class="flex text-xl">
-                            <span class="px-2">Alias: </span><span class="italic text-2xl font-light">{{$modelo->alias}}</span>
                         </p>
                     </div>
                 </div>

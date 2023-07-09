@@ -1,4 +1,4 @@
-@extends('ganaderia.bovino.main')
+@extends('ganado.bovino.main')
 
 @section('titulo', 'Lista de Toros')
 
@@ -19,17 +19,17 @@
             @foreach($datos->items() as $dato)
                 <tr>
                     <td class="font-bold">{{ $loop->iteration }}</td>
-                    <td><a class="text-amber-700 underline hover:text-cyan-700" href="{{ route('reproductor.show', ['reproductor' => $dato->id])}}">{{ $dato->agricultura->identificacion}}</a></td>
+                    <td><a class="text-amber-700 underline hover:text-cyan-700" href="{{ route('toro.show', ['toro' => $dato->id])}}">{{ $dato->ganado->identificacion}}</a></td>
                     <td>{{ $dato->alias}}</td>
                     <td class="flex justify-start">
                         <x-bladewind.button
                             class="bg-cyan-700" 
                             tag="a" 
                             size="tiny"
-                            href="{{ route('reproductor.edit', ['reproductor' => $dato->id])}}">Editar</x-bladewind.button>
+                            href="{{ route('toro.edit', ['toro' => $dato->id])}}">Editar</x-bladewind.button>
                         {{-- Eliminar --}}
-                        <form action="{{route('reproductor.destroy', [
-                            'reproductor' => $dato->id
+                        <form action="{{route('toro.destroy', [
+                            'toro' => $dato->id
                         ])}}" method="post">
                             @csrf
                             @method('delete')

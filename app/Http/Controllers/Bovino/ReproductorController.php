@@ -26,6 +26,12 @@ class ReproductorController extends Controller
     public function index()
     {
         //
+        return view('ganado.bovino.toro.lista', [
+            'datos' =>  Reproductor::with('ganado')->join('ganados', 'reproductors.ganado_id', '=', 'ganados.id')
+                ->where('ganados.tipo', '=', 'bovino')
+                ->select('reproductors.*')
+                ->paginate(25)
+        ]);
     }
 
     /**
@@ -34,13 +40,29 @@ class ReproductorController extends Controller
     public function create()
     {
         //
-        return view('ganado.bovino.toro.crear', [
-            'madres' => Madre::join('ganados', 'reproductor.ganado_id', '=', 'ganados.id')
-                        ->where('ganados.tipo', '=', 'bovino')
-                        ->select('reproductor.*')
-                        ->get(),
+        $madres = Madre::join('ganados', 'madres.ganado_id', '=', 'ganados.id')
+            ->where('ganados.tipo', '=', 'bovino')
+            ->select('madres.*')
+            ->get()->map(function ($item){
+                return [
+                    'label' => $item->ganado->identificacion,
+                    'value' => $item->id
+                ];
+            });
 
-            'padres' => collect([]),//TODO: agregar de forma similar que arriba, pero problema con nombre de tabla es presentado
+        $padres = Reproductor::join('ganados', 'reproductors.ganado_id', '=', 'ganados.id')
+            ->where('ganados.tipo', '=', 'bovino')
+            ->select('reproductors.*')
+            ->get()->map(function ($item){
+                return [
+                    'label' => $item->ganado->identificacion,
+                    'value' => $item->id
+                ];
+            });
+
+        return view('ganado.bovino.toro.crear', [
+            'madres' => $madres,
+            'padres' => $padres,//TODO: agregar de forma similar que arriba, pero problema con nombre de tabla es presentado
         ]);
     }
 
@@ -59,7 +81,7 @@ class ReproductorController extends Controller
             $reproductor->tiempo_madurez = $request->tiempo_madurez;
 
             if($reproductor->save()){
-                return redirect()->route('toro.mostrar', ['reproductor' => $reproductor->id]);
+                return redirect()->route('toro.show', ['toro' => $reproductor->id]);
             }
         }
 
@@ -73,9 +95,10 @@ class ReproductorController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Reproductor $reproductor)
+    public function show(Reproductor $toro)
     {
         //
+        return view('ganado.bovino.toro.mostrar', ['modelo' => $toro]);
     }
 
     /**
@@ -98,7 +121,7 @@ class ReproductorController extends Controller
         $reproductor->tiempo_madurez = $request->tiempo_madurez;
 
         if($reproductor->save()){
-            return redirect()->route('reproductor.show', ['reproductor' => $reproductor->id]);
+            return redirect()->route('toro.show', ['toro' => $reproductor->id]);
         }
 
         //Error presente, si se alcanza este punto
@@ -116,7 +139,7 @@ class ReproductorController extends Controller
         $reproductor->ganado->delete();
         $reproductor->delete();
 
-        return redirect()->route('reproductor.index')->withInput([
+        return redirect()->route('toro.index')->withInput([
             'status' => 'Registro eliminado exitosamente'
         ]);
     }

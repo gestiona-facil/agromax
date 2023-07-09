@@ -9,10 +9,10 @@ class Reproductor extends Model
 {
     use HasFactory;
     
-    protected $tableName = 'reproductores';
+    protected $tableName = 'reproductors';
     
-    public function ganados()
+    public function ganado()
     {
-        return $this->belongsTo(Ganado::class, );
+        return $this->belongsTo(Ganado::class, 'ganado_id');
     }
 }
