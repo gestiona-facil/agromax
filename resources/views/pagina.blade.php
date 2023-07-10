@@ -10,7 +10,7 @@
 <body class=" bg-no-repeat bg-center h-screen" style="background-image: url('../img/logoc.jpg')">
 
 
-    <header class="bg-gradient-to-r from-cyan-700 to-blue-600 text-white p-4 flex justify-between items-center">
+    <header class="bg-gradient-to-l from-cyan-700 to-blue-600 text-white p-4 flex justify-between items-center">
         <div class="flex items-center">
           <img src="{{ asset('img/logogpt.jpg')}}" class="h-20">
         </div>
