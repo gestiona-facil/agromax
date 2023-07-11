@@ -1,5 +1,5 @@
 <!-- component -->
-<div id="Main" class="xl:rounded-r transform  xl:translate-x-0  ease-in-out transition duration-500 flex justify-start items-start h-full  w-full sm:w-64 bg-gray-900 flex-col">
+<div id="Main" class="xl:rounded-r transform  xl:translate-x-0  ease-in-out transition duration-500 flex justify-start items-start h-full  w-full sm:w-64bg-gradient-to-r from-green-700 to-amber-700 border border-gray-700 flex-col">
 
     <div class="mt-6 flex flex-col justify-start items-center  pl-4 w-full border-gray-600 border-b space-y-3 pb-5 ">
       <button class="flex jusitfy-start items-center space-x-6 w-full  focus:outline-none  focus:text-indigo-400  text-white rounded ">
@@ -21,7 +21,7 @@
     </div>
     {{-- dropdown para terrenos --}}
     <div class="flex flex-col justify-start items-center   px-6 border-b border-gray-600 w-full  ">
-      <button id="terreno-btn" class="focus:outline-none focus:text-indigo-400 text-left  text-white flex justify-between items-center w-full py-5 space-x-14  ">
+      <button id="terreno-btn" class="focus:outline-none focus:text-indigo-400 text-left  text-white font-bold flex justify-between items-center w-full py-5 space-x-14  ">
         <p class="text-sm leading-5  uppercase">Terrenos</p>
         <x-bladewind.icon 
           name="chevron-down" 
@@ -51,7 +51,7 @@
     
     {{--dropdown para semillas --}}
     <div class="flex flex-col justify-start items-center   px-6 border-b border-gray-600 w-full  ">
-      <button id="semilla-btn" class="focus:outline-none focus:text-indigo-400 text-left  text-white flex justify-between items-center w-full py-5 space-x-14  ">
+      <button id="semilla-btn" class="focus:outline-none focus:text-indigo-400 text-left  text-white font-bold flex justify-between items-center w-full py-5 space-x-14  ">
         <p class="text-sm leading-5  uppercase">Semillas</p>
         <x-bladewind.icon 
           name="chevron-down" 
@@ -62,7 +62,7 @@
         />
       </button>
       <div data-menu="semilla-btn" class="hidden justify-start  flex-col w-full md:w-auto items-start pb-1 ">
-        <a href="{{ route('semilla.create') }}" class="flex justify-start items-center space-x-6 hover:text-white focus:bg-gray-700 focus:text-white hover:bg-gray-700 text-gray-400 rounded px-3 py-2  w-full md:w-52">
+        <a href="{{ route('semilla.create') }}" class="flex justify-start items-center space-x-6 hover:text-white  focus:bg-gray-700 focus:text-white hover:bg-gray-700 text-gray-400 rounded px-3 py-2  w-full md:w-52">
           <x-bladewind.icon
             name="plus"
           />
@@ -78,7 +78,7 @@
     </div>
     {{--dropdown para siembra --}}
     <div class="flex flex-col justify-start items-center   px-6 border-b border-gray-600 w-full  ">
-      <button id="siembra-btn" class="focus:outline-none focus:text-indigo-400 text-left  text-white flex justify-between items-center w-full py-5 space-x-14  ">
+      <button id="siembra-btn" class="focus:outline-none focus:text-indigo-400 text-left  text-white font-bold flex justify-between items-center w-full py-5 space-x-14  ">
         <p class="text-sm leading-5  uppercase">Siembras</p>
         <x-bladewind.icon 
           name="chevron-down" 
@@ -105,7 +105,7 @@
     </div>
     {{--dropdown para cria - cosecha --}}
     <div class="flex flex-col justify-start items-center   px-6 border-b border-gray-600 w-full  ">
-      <button id="cosecha-btn" class="focus:outline-none focus:text-indigo-400 text-left  text-white flex justify-between items-center w-full py-5 space-x-14  ">
+      <button id="cosecha-btn" class="focus:outline-none focus:text-indigo-400 text-left  text-white font-bold flex justify-between items-center w-full py-5 space-x-14  ">
         <p class="text-sm leading-5  uppercase">Cosechas</p>
         <x-bladewind.icon 
           name="chevron-down" 
@@ -132,7 +132,7 @@
     </div>
     {{--dropdown para riego --}}
     <div class="flex flex-col justify-start items-center   px-6 border-b border-gray-600 w-full  ">
-      <button id="riego-btn" class="focus:outline-none focus:text-indigo-400 text-left  text-white flex justify-between items-center w-full py-5 space-x-14  ">
+      <button id="riego-btn" class="focus:outline-none focus:text-indigo-400 text-left  text-white font-bold flex justify-between items-center w-full py-5 space-x-14  ">
         <p class="text-sm leading-5  uppercase">Riegos</p>
         <x-bladewind.icon 
           name="chevron-down" 
@@ -159,7 +159,7 @@
     </div>
     {{--dropdown para fertilizacion --}}
     <div class="flex flex-col justify-start items-center   px-6 border-b border-gray-600 w-full  ">
-      <button id="fertilizacion-btn" class="focus:outline-none focus:text-indigo-400 text-left  text-white flex justify-between items-center w-full py-5 space-x-14  ">
+      <button id="fertilizacion-btn" class="focus:outline-none focus:text-indigo-400 text-left  text-white font-bold flex justify-between items-center w-full py-5 space-x-14  ">
         <p class="text-sm leading-5  uppercase">Fertilización</p>
         <x-bladewind.icon 
           name="chevron-down" 

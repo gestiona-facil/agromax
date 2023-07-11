@@ -4,6 +4,7 @@
 
 @section('titulo-contenido', 'Registrar Vaca')
 @section('contenido')
+
 <div class="p-2">
     <form action="{{route('vaca.store')}}" method="POST">
         @csrf
@@ -55,4 +56,5 @@
         </div>
     </form>
 </div>
+</body>
 @endsection
