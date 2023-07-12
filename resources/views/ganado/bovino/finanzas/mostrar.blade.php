@@ -2,7 +2,7 @@
 
 @section('titulo', 'Finanzas')
 
-@section('titulo-contenido', 'Datos de Finanzas: '.$modelo->finanza->)
+@section('titulo-contenido', 'Datos de Finanzas: '.$modelo->fecha.'-'.$modelo->concepto)
 
 @section('contenido')
 <div>
@@ -22,31 +22,35 @@
     </div>
     <div class="flex flex-row">
         <div class="px-1 w-4/5">
-            <h2 class="text-2xl text-white border-b border-t py-3 indent-3 border-green-700 bg-green-700">Información Principal</h2>
+            <h2 class="text-2xl text-white border-b border-t py-3 indent-3 border-cyan-700 bg-cyan-700">Información Principal</h2>
             <div class="p-3">
                 <div class="flex flex-row items-center py-3 justify-between">
-                    <div>
-                        <p class="flex text-xl">
-                            <span class="px-2">Concepto </span><span class="italic text-2xl font-light">{{$modelo->concepto->}}</span>
+                    <div class="w-1/2">
+                        <p class="flex flex-col text-xl">
+                            <span class="px-2">Concepto </span><span class="italic indent-6 text-2xl font-light">{{$modelo->concepto}}</span>
                         </p>
                     </div>
-                    <div>
-                        <p class="flex text-xl">
-                            <span class="px-2">Naturaleza: </span><span class="italic text-2xl font-light">{{$modelo->naturaleza}}</span>
+                    <div class="w-1/2">
+                        <p class="flex flex-col text-xl">
+                            <span class="px-2">Naturaleza: </span><span class="italic indent-6 text-2xl font-light">{{$modelo->naturaleza}}</span>
                         </p>
                     </div>
-                    <div>
-                        <p class="flex text-xl">
-                            <span class="px-2">Monto: </span><span class="italic text-2xl font-light">{{$modelo->monto}}</span>
+                </div>
+                <div class="flex flex-row items-center py-3 justify-between">
+                    <div class="w-1/2">
+                        <p class="flex flex-col text-xl">
+                            <span class="px-2">Monto: </span><span class="italic indent-6 text-2xl font-light">{{$modelo->monto}}</span>
                         </p>
                     </div>
-                    <div>
-                        <p class="flex text-xl">
-                            <span class="px-2">Fecha: </span><span class="italic text-2xl font-light">{{$modelo->fecha}}</span>
+                    <div class="w-1/2">
+                        <p class="flex flex-col text-xl">
+                            <span class="px-2">Fecha: </span><span class="italic indent-6 text-2xl font-light">{{$modelo->fecha}}</span>
                         </p>
                     </div>
+                </div>
+                <div class="flex flex-row items-center py-3 justify-between">
                     <div>
-                        <p class="flex text-xl">
+                        <p class="flex flex-col text-xl">
                             <span class="px-2">Observaciones: </span><span class="italic text-2xl font-light">{{$modelo->observaciones}}</span>
                         </p>
                     </div>
@@ -54,13 +58,6 @@
             </div>
             <h2 class="text-xl border-b border-t py-3 indent-3 border-gray-300 bg-cyan-700/10">Información Secundaria</h2>
             <div class="p-3">
-                <div>
-                    <x-bladewind.button
-                        tag="a"
-                        size="tiny"
-                        href="{{ route('maiz.control-sanitario.index', ['agricultura' => $modelo->agricultura->id])}}" 
-                    >Ver los controles sanitarios realizados</x-bladewind.button>
-                </div>
             </div>
         </div>
         <div  class="border-l-2 border-amber-700 border-dashed px-1">

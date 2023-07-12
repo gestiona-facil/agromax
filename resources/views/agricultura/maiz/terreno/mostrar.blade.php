@@ -16,7 +16,7 @@
         {{-- boton exportar --}}
         <x-bladewind.button
             tag="a" 
-            size="tiny" href="{{ route('agricultura.terreno.exportar', ['modelo' => $modelo]) }}"
+            size="tiny" href="{{ route('agricultura.terreno.exportar', ['terreno' => $modelo->id]) }}"
             class="!bg-amber-700"
         >Exportar</x-bladewind.button>
     </div>

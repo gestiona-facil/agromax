@@ -146,8 +146,14 @@ Route::controller(App\Http\Controllers\AuthController::class)->group(function ()
                 'engorde' => App\Http\Controllers\Bovino\EngordeController::class,
                 'toro' => App\Http\Controllers\Bovino\ReproductorController::class,
                 //produccion lactea
-                'lecheria' => App\Http\Controllers\LecheriaController::class
+                'lecheria' => App\Http\Controllers\LecheriaController::class,
             ]);
+
+            Route::name('bovino.')->group(function(){
+
+                Route::resource('finanza', App\Http\Controllers\Bovino\FinanzaController::class);
+
+            });
         });
 
         Route::resource('vacuna', App\Http\Controllers\VacunaController::class);

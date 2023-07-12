@@ -1,6 +1,6 @@
 <header class="bg-gradient-to-r from-cyan-700 to-amber-700 text-white p-4 flex justify-between items-center">
   <div class="flex items-center">
-    <img src="{{ asset('img/logo.png')}}" class="h-14">
+    <a href="{{ route('seleccion') }}"><img src="{{ asset('img/logo.png')}}" class="h-14"></a>
   </div>
 
 

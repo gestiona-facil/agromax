@@ -1,8 +1,8 @@
-@extends('main')
+@extends('agricultura.maiz.main')
 
 @section('titulo', 'Semilla')
 
-@section('titulo-contenido', 'Datos de Semilla: '.$modelo->ganado->identificacion)
+@section('titulo-contenido', 'Datos de Semilla: '.$modelo->marca)
 
 @section('contenido')
 <div>
@@ -16,7 +16,7 @@
         {{-- boton exportar --}}
         <x-bladewind.button
             tag="a" 
-            size="tiny" href="#exportar"
+            size="tiny" href="{{ route('agricultura.semilla.exportar', ['semilla' => $modelo->id ]) }}"
             class="!bg-amber-700"
         >Exportar</x-bladewind.button>
     </div>
@@ -25,14 +25,14 @@
             <h2 class="text-2xl text-white border-b border-t py-3 indent-3 border-green-700 bg-green-700">Información Principal</h2>
             <div class="p-3">
                 <div class="flex flex-row items-center py-3 justify-between">
-                    <div>
-                        <p class="flex text-xl">
-                            <span class="px-2">Marca: </span><span class="italic text-2xl font-light">{{$modelo->marca}}</span>
+                    <div class="w-1/2">
+                        <p class="flex flex-col text-xl">
+                            <span class="px-2">Marca: </span><span class="italic indent-6 text-2xl font-light">{{$modelo->marca}}</span>
                         </p>
                     </div>
-                    <div>
-                        <p class="flex text-xl">
-                            <span class="px-2">Cantidad: </span><span class="italic text-2xl font-light">{{$modelo->cantidad}}</span>
+                    <div class="w-1/2">
+                        <p class="flex flex-col text-xl">
+                            <span class="px-2">Cantidad: </span><span class="italic indent-6 text-2xl font-light">{{$modelo->cantidad}}</span>
                         </p>
                     </div>
                 </div>
@@ -43,7 +43,7 @@
                     <x-bladewind.button
                         tag="a"
                         size="tiny"
-                        href="{{ route('maiz.control-sanitario.index', ['ganado' => $modelo->agricultura->id])}}" 
+                        {{-- href="{{ route('maiz.control-sanitario.index', ['ganado' => $modelo->agricultura->id])}}"  --}}
                     >Ver los controles sanitarios realizados</x-bladewind.button>
                 </div>
             </div>
