@@ -16,7 +16,7 @@
         {{-- boton exportar --}}
         <x-bladewind.button
             tag="a" 
-            size="tiny" href="#exportar"
+            size="tiny" href="{{ route('bovino.vaca.exportar', ['vaca' => $modelo->id]) }}"
             class="!bg-amber-700"
         >Exportar</x-bladewind.button>
     </div>
@@ -25,34 +25,40 @@
             <h2 class="text-2xl text-white border-b border-t py-3 indent-3 border-cyan-700 bg-cyan-700">Información Principal</h2>
             <div class="p-3">
                 <div class="flex flex-row items-center py-3 justify-between">
-                    <div>
-                        <p class="flex text-xl">
-                            <span class="px-2">Identificación: </span><span class="italic text-2xl font-light">{{$modelo->ganado->identificacion}}</span>
+                    <div class="w-full">
+                        <p class="flex flex-col text-xl">
+                            <span class="px-2">Identificación: </span><span class="indent-6 italic text-2xl font-light">{{$modelo->ganado->identificacion}}</span>
                         </p>
                     </div>
-                    <div>
-                        <p class="flex text-xl">
-                            <span class="px-2">Alias: </span><span class="italic text-2xl font-light">{{$modelo->alias}}</span>
+                    <div class="w-full">
+                        <p class="flex flex-col text-xl">
+                            <span class="px-2">Alias: </span><span class="indent-6 italic text-2xl font-light">{{$modelo->alias ? $modelo->alias : 'no especificado'}}</span>
                         </p>
                     </div>
                 </div>
                 <div class="flex flex-row items-center py-3 justify-between">
-                    <div>
-                        <p class="flex text-xl">
-                            <span class="px-2">Fecha de nacimiento:</span><span class="italic text-2xl font-light">{{$modelo->ganado->fecha_nacimiento}}</span>
+                    <div class="w-full">
+                        <p class="flex flex-col text-xl">
+                            <span class="px-2">Fecha de nacimiento:</span><span class="indent-6 italic text-2xl font-light">{{$modelo->ganado->fecha_nacimiento}}</span>
                         </p>
                     </div>
-                    @if($modelo->gestando)
-                    <div>
-                        <h3><span>Vaca preñada</span> desde <span>{{$modelo->fecha_inicio_gestacion}}</span></h3>
-                        {{-- TODO: incluir fecha aproximada de parto --}}
+                    <div class="w-full">
+                        <p class="flex flex-col text-xl">
+                            <span class="px-2">Raza:</span><span class="indent-6 italic text-2xl font-light">{{$modelo->ganado->raza }}</span>
+                        </p>
                     </div>
-                    @endif
                 </div>
             </div>
             <h2 class="text-xl border-b border-t py-3 indent-3 border-gray-300 bg-cyan-700/10">Información Secundaria</h2>
             <div class="p-3">
-                <div>
+                <div class="flex flex-row items-center py-3 justify-between">
+                    <div class="w-full">
+                        <p class="flex flex-col text-xl">
+                            <span class="px-2">Lecheria:</span><span class="indent-6 italic text-2xl font-light">{{$modelo->lecheria ? $modelo->lecheria->alias : 'No especificado'}}</span>
+                        </p>
+                    </div>
+                </div>
+                <div class="pt-6">
                     <x-bladewind.button
                         tag="a"
                         size="tiny"
@@ -63,6 +69,22 @@
         </div>
         <div  class="border-l-2 border-amber-700 border-dashed px-1">
             <h2 class="text-lg text-white border-b border-t py-3 px-1 border-amber-700 bg-gradient-to-r from-cyan-700 to-amber-700">Información Adicional</h2>
+            <div class="p-3">
+                <div>
+                    <x-bladewind.tag
+                        :label="$modelo->gestando ? 'Vaca preñada': 'Vaca no esta preñada'" />
+                </div>
+                @if($modelo->lecheria)
+                    <div>
+                        <x-bladewind.button
+                            tag="a"
+                            href="{{ route('bovino.control-lecheria.index', ['madre' => $modelo->id]) }}"
+                            size="tiny"
+                            class="bg-cyan-700"
+                        >Ver control en leche</x-bladewind.button>
+                    </div>
+                @endif
+            </div>
         </div>
     </div>
 </div>

@@ -8,9 +8,19 @@ use App\Models\Siembra;
 use App\Http\Requests\Agricultura\StoreFertilizacionRequest;
 use App\Http\Requests\Agricultura\UpdateFertilizacionRequest;
 use Illuminate\Http\Request;
+use Barryvdh\DomPDF\Facade\Pdf;
+use Illuminate\Support\Str;
 
 class FertilizacionController extends Controller
 {
+    public function export(Fertilizacion $fertilizacion){
+        
+        $pdf = Pdf::loadView('agricultura.maiz.fertilizacion.exportar', [
+            'modelo' => $fertilizacion
+        ]);
+
+        return $pdf->download('AGROMAX-'.Str::random(7).'.pdf');
+    }
     /**
      * Display a listing of the resource.
      */

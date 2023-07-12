@@ -8,9 +8,20 @@ use App\Http\Requests\Agricultura\StoreCosechaRequest;
 use App\Http\Requests\Agricultura\UpdateCosechaRequest;
 use App\Models\Siembra;
 use Illuminate\Http\Request;
+use Barryvdh\DomPDF\Facade\Pdf;
+use Illuminate\Support\Str;
 
 class CosechaController extends Controller
 {
+    public function export(Cosecha $cosecha){
+        
+        $pdf = Pdf::loadView('agricultura.maiz.cosecha.exportar', [
+            'modelo' => $cosecha
+        ]);
+
+        return $pdf->download('AGROMAX-'.Str::random(7).'.pdf');
+    }
+
     /**
      * Display a listing of the resource.
      */

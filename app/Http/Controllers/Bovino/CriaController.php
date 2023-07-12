@@ -10,6 +10,8 @@ use App\Models\Ganado;
 use App\Http\Requests\Bovino\StoreCriaRequest;
 use App\Http\Requests\Bovino\UpdateCriaRequest;
 use Illuminate\Http\Request;
+use Barryvdh\DomPDF\Facade\Pdf;
+use Illuminate\Support\Str;
 
 class CriaController extends Controller
 {
@@ -18,6 +20,15 @@ class CriaController extends Controller
     public function __construct(GanadoController $ganado)
     {
         $this->base = $ganado;
+    }
+
+    public function export(Cria $levante){
+        
+        $pdf = Pdf::loadView('ganado.bovino.cria.exportar', [
+            'modelo' => $levante
+        ]);
+
+        return $pdf->download('AGROMAX-'.Str::random(7).'.pdf');
     }
 
     /**

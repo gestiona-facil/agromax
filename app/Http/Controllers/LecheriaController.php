@@ -6,9 +6,21 @@ use App\Models\Madre;
 use App\Models\Lecheria;
 use App\Http\Requests\StoreLecheriaRequest;
 use App\Http\Requests\UpdateLecheriaRequest;
+use Barryvdh\DomPDF\Facade\Pdf;
+use Illuminate\Support\Str;
 
 class LecheriaController extends Controller
 {
+
+    public function export(Lecheria $lecherium){
+        
+        $pdf = Pdf::loadView('ganado.bovino.lecheria.exportar', [
+            'modelo' => $lecherium
+        ]);
+
+        return $pdf->download('AGROMAX-'.Str::random(7).'.pdf');
+    }
+
     /**
      * Display a listing of the resource.
      */

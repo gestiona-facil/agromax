@@ -6,9 +6,20 @@ use App\Http\Controllers\Controller;
 use App\Models\Terreno;
 use App\Http\Requests\Agricultura\StoreTerrenoRequest;
 use Illuminate\Http\Request;
+use Barryvdh\DomPDF\Facade\Pdf;
+use Illuminate\Support\Str;
 
 class TerrenoController extends Controller
 {
+    public function export(Terreno $terreno){
+        
+        $pdf = Pdf::loadView('agricultura.maiz.terreno.exportar', [
+            'modelo' => $terreno
+        ]);
+
+        return $pdf->download('AGROMAX-'.Str::random(7).'.pdf');
+    }
+
     /**
      * Display a listing of the resource.
      */

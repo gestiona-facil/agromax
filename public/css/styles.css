@@ -3733,6 +3733,10 @@ input:checked + .toggle-bg {
   text-indent: 0.75rem;
 }
 
+.indent-6 {
+  text-indent: 1.5rem;
+}
+
 .align-middle {
   vertical-align: middle;
 }
