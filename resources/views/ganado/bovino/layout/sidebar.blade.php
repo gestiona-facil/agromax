@@ -158,7 +158,7 @@
     </div>
     {{--dropdown para finanzas --}}
   <div class="flex flex-col justify-start items-center   px-6 border-b border-gray-600 w-full  ">
-    <button id="finanzas-btn" class="focus:outline-none focus:text-indigo-400 text-left  text-white font-bold flex justify-between items-center w-full py-5 space-x-14  ">
+    <button id="finanza-btn" class="focus:outline-none focus:text-indigo-400 text-left  text-white font-bold flex justify-between items-center w-full py-5 space-x-14  ">
       <p class="text-sm leading-5  uppercase">Finanzas</p>
       <x-bladewind.icon 
         name="chevron-down" 
@@ -216,7 +216,8 @@ function mostrarMenu(id){
   'toro-btn',
   'engorde-btn',
   'levante-btn',
-  'lecheria-btn'
+  'lecheria-btn',
+  'finanza-btn'
 ].forEach((id) => {
   mostrarMenu(id)
 });

@@ -4,6 +4,8 @@
 
 @section('titulo-contenido', 'Editar Datos de Terreno')
 @section('contenido')
+
+<body class="bg-cover bg-gradient-to-r from-green-400 to-amber-500 full-screen">
 <div class="p-2">
     <form action="{{route('terreno.update', ['terreno' => $modelo->id])}}" method="POST">
         @csrf         
@@ -61,4 +63,5 @@
         </div>
     </form>
 </div>
+</body>
 @endsection

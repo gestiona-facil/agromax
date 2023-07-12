@@ -4,11 +4,11 @@
     </div>
   
     <nav class="space-x-4">
-      <a href="{{ route('siembra.create')}}" class="text-gray-300 hover:text-white">Siembra</a>
-      <a href="{{ route('terreno.create')}}" class="text-gray-300 hover:text-white">Terreno</a>
-      <a href="{{ route('fertilizacion.create')}}" class="text-gray-300 hover:text-white">Fertilizacion</a>
-      <a href="{{ route('semilla.create')}}" class="text-gray-300 hover:text-white">Semilla</a>
-     <a href="#" class="text-black-300 border:bg-cyan-100 hover:text-white font-bold text-xl"></a>
+      <a href="{{ route('siembra.create')}}" class="text-gray- font-bold hover:text-white">Siembra</a>
+      <a href="{{ route('terreno.create')}}" class="text-gray-300 font-bold hover:text-white">Terreno</a>
+      <a href="{{ route('fertilizacion.create')}}" class="text-gray-300 font-bold hover:text-white">Fertilizacion</a>
+      <a href="{{ route('semilla.create')}}" class="text-gray-300 font-bold hover:text-white">Semilla</a>
+     <a href="#" class="text-black-300 border:bg-cyan-100 hover:text-white  font-bold text-xl"></a>
     </nav>
   
     <x-bladewind.button class="bg-gradient-to-r from-green-600 to-cyan-600 hover:bg-cyan-200 text-white px-4 py-2 rounded">Cerrar Sesión</x-bladewind.button>

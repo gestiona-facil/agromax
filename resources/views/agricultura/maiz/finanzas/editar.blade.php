@@ -4,6 +4,7 @@
 
 @section('titulo-contenido', 'Registrar Finanzas')
 @section('contenido')
+<body class="bg-cover bg-gradient-to-r from-cyan-700 to-green-600 full-screen">
 <div class="p-2">
     <form action="{{route('finanza.update, ['finanza' => $modelo->id] ')}}" method="POST">
         @csrf
@@ -70,4 +71,5 @@
                     </div>
                 </form>
             </div>
+</body>
             @endsection

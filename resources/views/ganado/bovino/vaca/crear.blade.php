@@ -4,16 +4,17 @@
 
 @section('titulo-contenido', 'Registrar Vaca')
 @section('contenido')
-
+<body class="bg-gradient-to-r from-cyan-500 to-amber-500">
 <div class="p-2">
-    <form action="{{route('vaca.store')}}" method="POST">
+    
+    <form action="{{route('vaca.store')}}" method="POST ">
         @csrf
         {{-- Valores ocultos --}}
         <input type="hidden" name="tiempo_parto" value="270">{{--En DIAS--}}
         <input type="hidden" name="sexo" value="0">{{-- 0 -> hembra --}}
         @include('ganado.bovino.base.crear')
 
-        <div class="flex flex-row justify-between items-center py-3">
+        <div class="flex flex-row justify-between items-center py-3 ">
 
             <div class="w-1/4">
                 <x-bladewind.input 

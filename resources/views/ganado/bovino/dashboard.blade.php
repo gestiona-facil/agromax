@@ -1,4 +1,6 @@
-@extends('main') 
+@extends('ganado.bovino.main') 
+
+@section('titulo', 'Agromax Bovinos')
 
 @section('app') 
 
@@ -7,7 +9,7 @@
     <meta charset="UTF-8"> 
     <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
     <meta http-equiv="X-UA-Compatible" content="ie=edge"> 
-    <title>Bienvenido, has crecer tu siembra con AGROMAX</title> 
+    <title></title> 
 </head> 
 <body class="bg-cover bg-no-repeat bg-center full-screen" style="background-image: url('../img/fondo8.jpg')"> 
     <header class="bg-gradient-to-r from-cyan-700 to-amber-700 text-white p-4 flex justify-between items-center"> 
@@ -16,11 +18,11 @@
         </div> 
 
         <nav class="space-x-4"> 
-            <a href="crear" class="text-gray-300 hover:text-white">Siembra</a> 
-            <a href="#" class="text-gray-300 hover:text-white">Terreno</a> 
-            <a href="#" class="text-gray-300 hover:text-white">Fertilizacion</a> 
-            <a href="#" class="text-gray-300 hover:text-white">Semilla</a> 
-            <a href="#" class="text-black-300 border:bg-cyan-100 hover:text-white font-bold text-xl"></a> 
+            <a href="{{route('vaca.create')}}" class="text-gray-300 font-bold hover:text-white">Vaca</a> 
+            <a href="{{route('engorde.create')}}" class="text-gray-300 font-bold hover:text-white">Engorde</a> 
+            <a href="{{route('cria.create')}}" class="text-gray-300 font-bold hover:text-white">Cria</a> 
+            <a href="{{route('lecheria.create')}}" class="text-gray-300 font-bold hover:text-white">Ordeño</a> 
+            <a href="#" class="text-black-300 border:bg-cyan-100 hover:text-white font-bold font-bold text-xl"></a> 
         </nav> 
 
         <x-bladewind.button class="bg-gradient-to-r from-green-600 to-cyan-600 hover:bg-cyan-200 text-white px-4 py-2 rounded">Cerrar Sesión</x-bladewind.button> 
@@ -31,13 +33,14 @@
       </div> 
 
       <div class="container px-8 py-8 flex flex-row justify-between mt-4 space-x-4"> 
-        <ul class="text-white w-full md:w-auto font-extrabold bg-blue-500 bg-opacity-60 p-4 rounded-lg shadow-md"> 
-          <li class="mb-2 font-semibold">Aquí tienes guías y manuales para sacar el máximo provecho a tu producción animal:</li> 
+        <ul class="text-white w-full text-xl md:w-auto font-extrabold bg-blue-500 bg-opacity-60 p-4 rounded-lg shadow-md"> 
+          <li class="mb-2 font-semibold">Aquí tienes guías y manuales para sacar el máximo provecho a tu producción animal:</li> <br>
           <!-- Añade aquí más manuales con sus enlaces --> 
           <!-- Ejemplo: --> 
-          <li><a href="<URL>" class="hover:underline text-blue-200">Manual 1</a></li> 
-          <li><a href="<URL>" class="hover:underline text-blue-200">Manual 2</a></li> 
-          <li><a href="<URL>" class="hover:underline text-blue-200">Manual 3</a></li> 
+          <li><a href="{{ asset('img/manualg.pdf')}}" class="hover:underline text-blue-200">* Manual</a></li> <br> 
+          <li><a href="{{ asset('img/guiarazas.pdf')}}" class="hover:underline text-blue-200">* Guia de Razas</a></li> <br>
+          <li><a href="{{ asset('img/manualc.pdf')}}" class="hover:underline text-blue-200">* Manejo Sanitario</a></li> <br>
+          <li><a href="{{ asset('img/aa.pdf')}}" class="hover:underline text-blue-200">* Alimentación Alternativa</a></li><br> 
         </ul> 
 
         <p class="text-white italic w-full md:w-auto text-right bg-gray-600 bg-opacity-50 text-2xl text-justify font-bold p-4 rounded-lg shadow-md">

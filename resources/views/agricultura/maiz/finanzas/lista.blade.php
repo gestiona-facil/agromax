@@ -5,6 +5,7 @@
 @section('titulo-contenido', 'Listado de Finanzas')
 
 @section('contenido')
+<body class="bg-cover bg-gradient-to-r from-cyan-700 to-green-600 full-screen">
 <div class="p-4">
     <x-bladewind.table
         divider="thin"
@@ -54,4 +55,5 @@
         {{ $datos->links() }}
     </div>
 </div>
+</body>
 @endsection

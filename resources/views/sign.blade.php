@@ -15,10 +15,10 @@
         <div class="w-2/3 bg-gradient-to-r from-cyan-700 to-green-700 opacity-80 rounded shadow p-8">
             
             <img src="{{ asset('img/logo.png')}}" class="h-14">
-            <h1 class="text-2xl font-bold mb-4 text-center">Registra Tus Credenciales</h1>
+            <h1 class="text-2xl font-bold mb-4 text-center text-white">Registra Tus Credenciales</h1>
 
             <div>
-                <div class="flex items-center justify-between font-semibold ">
+                <div class="flex items-center justify-between font-semibold text-white ">
                     <div class="px-2 ">
                         <x-bladewind.input
                             name="nombre_empresa"
@@ -29,7 +29,7 @@
                             value="{{ old('nombre_empresa') }}"
                             class="border-cyan-700" />
                     </div>
-                    <div class="px-2">
+                    <div class="px-2 text-white font-semibold">
                         <x-bladewind.input
                             name="email"
                             label="Email:"
@@ -40,7 +40,7 @@
                             class="border-cyan-700" />
                     </div>
                 </div>
-                <div class="flex items-center justify-between">
+                <div class="flex items-center justify-between text-white font-semibold">
                     <div class="px-2">
                         <x-bladewind.input
                             type="password"
@@ -52,7 +52,7 @@
                             class="border-cyan-700"
                         />
                     </div>
-                    <div class="px-2">
+                    <div class="px-2 text-white font-semibold">
                         <x-bladewind.input
                             type="password"
                             name="password_confirmation"
@@ -65,7 +65,7 @@
                     </div>
                 </div>
 
-                <div class="flex items-center justify-between">
+                <div class="flex items-center justify-between text-white font-semibold">
                     <div class="px-2">
                         <x-bladewind.input
                             name="pregunta"
@@ -76,7 +76,7 @@
                             class="border-cyan-700"
                         />
                     </div>
-                    <div class="px-2">
+                    <div class="px-2 text-white font-semibold">
                         <x-bladewind.input
                             name="respuesta"
                             label="Respuesta de Seguridad"
@@ -90,7 +90,7 @@
 
                 <x-bladewind.button
                     can_submit="true"
-                    class="bg-cyan-500 focus:ring-cyan-500 mt-4"
+                    class="bg-cyan-500 focus:ring-cyan-500 mt-4 font-semibold"
                 >Registrar</x-bladewind.button>
             </div>
         </div>

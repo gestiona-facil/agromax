@@ -4,6 +4,7 @@
 
 @section('titulo-contenido', 'Editar Engorde')
 @section('contenido')
+<body class="bg-gradient-to-r from-cyan-500 to-amber-500">
 <div class="p-2">
     <form action="{{route('engorde.update', ['engorde' => $modelo->id])}}" method="POST">
         @csrf
@@ -67,5 +68,6 @@
                 class="bg-cyan-700">Actualizar</x-bladewind.button>
         </div>
     </form>
-</div>
+    </div>
+</body>
 @endsection

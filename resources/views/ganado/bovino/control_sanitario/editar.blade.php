@@ -4,7 +4,8 @@
 
 @section('titulo-contenido', 'Editar Control Sanitario')
 @section('contenido')
-<div class="p-2">
+<body class="bg-gradient-to-r from-cyan-500 to-amber-500">
+    <div class="p-2">
     <form action="{{route('bovino.control-sanitario.update', ['controlSanitarioAnimal' => $modelo->id])}}" method="POST">
         @csrf
         @method('put')
@@ -70,5 +71,6 @@
                 class="bg-cyan-700">Agregar</x-bladewind.button>
         </div>
     </form>
-</div>
+    </div>
+</body>
 @endsection

@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Inicia Sesion en Agromax</title>
+    <title>Inicia Sesión en Agromax</title>
 </head>
 
 <body class="bg-cover bg-no-repeat bg-center h-screen bg-opacity-70 " style="background-image: url('../img/f2.jpg') ">
@@ -15,9 +15,9 @@
         <form action="{{ route('auth-inspeccion') }}" method="post" class="w-1/3 bg-gradient-to-r from-cyan-700 to-amber-700 rounded shadow p-8">
             @csrf
             <img src="{{ asset('img/logo.png') }}" class="h-14">
-            <h1 class="text-2xl font-bold mb-4 text-center">Iniciar Sesión</h1>
+            <h1 class="text-2xl text-white font-bold mb-4 text-center">Iniciar Sesión</h1>
     
-            <div class="mb-4">
+            <div class="mb-4 text-white">
                 <x-bladewind.input
                     name="email"
                     label="Email:"
@@ -26,10 +26,9 @@
                     prefix_is_icon="true"
                     class="border-cyan-700"
                 />
-                <a href="#" class="underline text-sm text-cyan-700">Recuperar contraseña</a>
             </div>
     
-            <div class="mb-3">
+            <div class="mb-3 text-white">
                 <x-bladewind.input
                     type="password"
                     name="password"
@@ -39,6 +38,7 @@
                     prefix_is_icon="true"
                     class="border-cyan-700"
                 />
+                <a href="#" class="underline text-sm text-gray-300">Recuperar contraseña</a>
             </div>
     
             <div>

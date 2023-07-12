@@ -5,7 +5,8 @@
 @section('titulo-contenido', 'Controles Sanitario para ganado: '.$ganado->identificacion)
 
 @section('contenido')
-<div class="p-4">
+<body class="bg-gradient-to-r from-cyan-500 to-amber-500">
+    <div class="p-4">
     <div class="p-4">
         <x-bladewind.button
             tag="a"
@@ -57,5 +58,6 @@
     <div class="p-2">
         {{ $datos->links() }}
     </div>
-</div>
+    </div>
+</body>
 @endsection

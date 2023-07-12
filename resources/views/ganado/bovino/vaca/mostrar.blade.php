@@ -5,6 +5,7 @@
 @section('titulo-contenido', 'Datos de Vaca: '.$modelo->ganado->identificacion)
 
 @section('contenido')
+
 <div>
     <div class="p-b-2 pt-4 px-4 flex justify-between pt-6 pb-8">
         {{-- boton editar --}}

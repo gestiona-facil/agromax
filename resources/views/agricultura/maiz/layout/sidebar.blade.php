@@ -19,9 +19,9 @@
       <p class="text-base leading-4 font-bold ">Users</p>
     </button>
   </div>
-  {{-- dropdown para vacas --}}
+  {{-- dropdown para terrenos --}}
   <div class="flex flex-col justify-start items-center   px-6 border-b border-gray-600 w-full  ">
-    <button id="vaca-btn" class="focus:outline-none focus:text-indigo-400 text-left  text-white font-bold flex justify-between items-center w-full py-5 space-x-14  ">
+    <button id="terreno-btn" class="focus:outline-none focus:text-indigo-400 text-left  text-white font-bold flex justify-between items-center w-full py-5 space-x-14  ">
       <p class="text-sm leading-5  uppercase">Terrenos</p>
       <x-bladewind.icon 
         name="chevron-down" 
@@ -49,9 +49,9 @@
     </div>
   </div>
   
-  {{--dropdown para toros --}}
+  {{--dropdown para semillas --}}
   <div class="flex flex-col justify-start items-center   px-6 border-b border-gray-600 w-full  ">
-    <button id="toro-btn" class="focus:outline-none focus:text-indigo-400 text-left  text-white font-bold flex justify-between items-center w-full py-5 space-x-14  ">
+    <button id="semilla-btn" class="focus:outline-none focus:text-indigo-400 text-left  text-white font-bold flex justify-between items-center w-full py-5 space-x-14  ">
       <p class="text-sm leading-5  uppercase">Semillas</p>
       <x-bladewind.icon 
         name="chevron-down" 
@@ -76,7 +76,7 @@
       </a>
     </div>
   </div>
-  {{--dropdown para engorde --}}
+  {{--dropdown para siembras --}}
   <div class="flex flex-col justify-start items-center   px-6 border-b border-gray-600 w-full  ">
     <button id="siembra-btn" class="focus:outline-none focus:text-indigo-400 text-left  text-white font-bold flex justify-between items-center w-full py-5 space-x-14  ">
       <p class="text-sm leading-5  uppercase">Siembras</p>
@@ -103,9 +103,9 @@
       </a>
     </div>
   </div>
-  {{--dropdown para cria - levante --}}
+  {{--dropdown para cosecha --}}
   <div class="flex flex-col justify-start items-center   px-6 border-b border-gray-600 w-full  ">
-    <button id="levante-btn" class="focus:outline-none focus:text-indigo-400 text-left  text-white font-bold flex justify-between items-center w-full py-5 space-x-14  ">
+    <button id="cosecha-btn" class="focus:outline-none focus:text-indigo-400 text-left  text-white font-bold flex justify-between items-center w-full py-5 space-x-14  ">
       <p class="text-sm leading-5  uppercase">Cosechas</p>
       <x-bladewind.icon 
         name="chevron-down" 
@@ -130,7 +130,7 @@
       </a>
     </div>
   </div>
-  {{--dropdown para lecheria --}}
+  {{--dropdown para riegos --}}
   <div class="flex flex-col justify-start items-center   px-6 border-b border-gray-600 w-full  ">
     <button id="riego-btn" class="focus:outline-none focus:text-indigo-400 text-left  text-white font-bold flex justify-between items-center w-full py-5 space-x-14  ">
       <p class="text-sm leading-5  uppercase">Riegos</p>
@@ -158,7 +158,7 @@
     </div>
     {{--dropdown para finanzas --}}
   <div class="flex flex-col justify-start items-center   px-6 border-b border-gray-600 w-full  ">
-    <button id="finanzas-btn" class="focus:outline-none focus:text-indigo-400 text-left  text-white font-bold flex justify-between items-center w-full py-5 space-x-14  ">
+    <button id="finanza-btn" class="focus:outline-none focus:text-indigo-400 text-left  text-white font-bold flex justify-between items-center w-full py-5 space-x-14  ">
       <p class="text-sm leading-5  uppercase">Finanzas</p>
       <x-bladewind.icon 
         name="chevron-down" 
@@ -212,11 +212,12 @@ function mostrarMenu(id){
 
 //dropdown IDS
 [
-  'vaca-btn',
-  'toro-btn',
-  'engorde-btn',
-  'levante-btn',
-  'lecheria-btn'
+  'terreno-btn',
+  'siembra-btn',
+  'semilla-btn',
+  'cosecha-btn',
+  'riego-btn',
+  'finanza-btn'
 ].forEach((id) => {
   mostrarMenu(id)
 });

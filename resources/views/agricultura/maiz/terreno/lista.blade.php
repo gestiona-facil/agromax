@@ -5,6 +5,8 @@
 @section('titulo-contenido', 'Listado de Terrenos')
 
 @section('contenido')
+
+<body class="bg-cover bg-gradient-to-r from-green-400 to-amber-500 full-screen">
 <div class="p-4">
     <x-bladewind.table
         divider="thin"
@@ -50,7 +52,7 @@
             @endforeach
         @else 
             <tr>
-                <td colspan="4" class="text-center">Aún no existen registros de Terrenos</td>
+                <td colspan="5" class="text-center">Aún no existen registros de Terrenos</td>
             </tr>
         @endif
     </x-bladewind.table>
@@ -59,4 +61,5 @@
         {{ $datos->links() }}
     </div>
 </div>
+</body>
 @endsection
