@@ -1,4 +1,4 @@
-@extends('main')
+@extends('agricultura.maiz.main')
 
 @section('titulo', 'Riego')
 
@@ -11,12 +11,12 @@
         <x-bladewind.button
             tag="a" 
             size="tiny" href="{{ route('riego.edit', ['riego' => $modelo->id])}}"
-            class="bg-cyan-700"
+            class="bg-green-700"
         >Editar</x-bladewind.button>
         {{-- boton exportar --}}
         <x-bladewind.button
             tag="a" 
-            size="tiny" href="#exportar"
+            size="tiny" href="{{ route('agricultura.riego.exportar', ['riego' => $modelo->id])}}"
             class="!bg-amber-700"
         >Exportar</x-bladewind.button>
     </div>
@@ -25,29 +25,31 @@
             <h2 class="text-2xl text-white border-b border-t py-3 indent-3 border-green-700 bg-green-700">Información Principal</h2>
             <div class="p-3">
                 <div class="flex flex-row items-center py-3 justify-between">
-                    <div>
-                        <p class="flex text-xl">
-                            <span class="px-2">Siembra </span><span class="italic text-2xl font-light">{{$modelo->siembra->}}</span>
+                    <div class="w-1/2">
+                        <p class="flex flex-col text-xl">
+                            <span class="px-2">Siembra en: </span><span class="italic indent-6 text-2xl font-light">{{$modelo->siembra->terreno->ubicacion}}</span>
                         </p>
                     </div>
-                    <div>
-                        <p class="flex text-xl">
-                            <span class="px-2">Cantidad: </span><span class="italic text-2xl font-light">{{$modelo->cantidad}}</span>
+                    <div class="w-1/2">
+                        <p class="flex flex-col text-xl">
+                            <span class="px-2">Cantidad: </span><span class="italic indent-6 text-2xl font-light">{{$modelo->cantidad}}</span>
                         </p>
                     </div>
-                    <div>
-                        <p class="flex text-xl">
-                            <span class="px-2">Frecuencia: </span><span class="italic text-2xl font-light">{{$modelo->frecuencia}}</span>
+                </div>
+                <div class="flex flex-row items-center py-3 justify-between">
+                    <div class="w-1/2">
+                        <p class="flex flex-col text-xl">
+                            <span class="px-2">Frecuencia: </span><span class="italic indent-6 text-2xl font-light">{{$modelo->frecuencia}}</span>
                         </p>
                     </div>
-                    <div>
-                        <p class="flex text-xl">
-                            <span class="px-2">Metodo: </span><span class="italic text-2xl font-light">{{$modelo->metodo}}</span>
+                    <div class="w-1/2">
+                        <p class="flex flex-col text-xl">
+                            <span class="px-2">Metodo: </span><span class="italic indent-6 text-2xl font-light">{{$modelo->metodo}}</span>
                         </p>
                     </div>
                 </div>
             </div>
-            <h2 class="text-xl border-b border-t py-3 indent-3 border-gray-300 bg-cyan-700/10">Información Secundaria</h2>
+            <h2 class="text-xl border-b border-t py-3 indent-3 border-gray-300 bg-green-700/10">Información Secundaria</h2>
             <div class="p-3">
                 <div>
                     {{-- <x-bladewind.button
@@ -59,7 +61,7 @@
             </div>
         </div>
         <div  class="border-l-2 border-amber-700 border-dashed px-1">
-            <h2 class="text-lg text-white border-b border-t py-3 px-1 border-amber-700 bg-gradient-to-r from-cyan-700 to-amber-700">Información Adicional</h2>
+            <h2 class="text-lg text-white border-b border-t py-3 px-1 border-amber-700 bg-gradient-to-r from-green-700 to-amber-700">Información Adicional</h2>
         </div>
     </div>
 </div>

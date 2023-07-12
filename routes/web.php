@@ -63,9 +63,9 @@ Route::get('/pagina3', function (){
 Route::get('/pagina4', function (){
     return view('pagina4');
 });
-Route::get('/recuperar', function (){
-    return view('recuperar');
-});
+// Route::get('/recuperar', function (){
+//     return view('recuperar');
+// });
 
 
 
@@ -80,12 +80,16 @@ Route::controller(App\Http\Controllers\AuthController::class)->group(function ()
     //--- registrar
     Route::get('/registrar', 'showRegistroForm')->name('registrar');
     Route::post('/auth-guardar', 'registrar')->name('auth-guardar');
+
+    //---- recuperar
+    Route::get('/recuperar', 'showRecuperarForm')->name('recuperar');
+    Route::post('/cambiar-clave', 'showRecuperarForm')->name('cambiar-clave');
 });
 
 
 //---- Solo Usuario Autenticados
 
-// Route::middleware()->group(function (){
+Route::middleware('auth')->group(function (){
     //---- Rutas generales
     Route::get('/seleccion', function (){
         return view('seleccion');
@@ -170,6 +174,12 @@ Route::controller(App\Http\Controllers\AuthController::class)->group(function ()
             Route::get('inicio', function (){
                 return view('agricultura.maiz.dashboard');
             })->name('agricultura.maiz.inicio');
+
+            Route::name('agricultura.')->group(function(){
+
+                Route::resource('finanza', App\Http\Controllers\Bovino\FinanzaController::class);
+
+            });
             
             Route::get('terreno/{terreno}/exportar', [App\Http\Controllers\Agricultura\TerrenoController::class, 'export'])->name('agricultura.terreno.exportar');
             Route::get('semilla/{semilla}/exportar', [App\Http\Controllers\Agricultura\SemillaController::class, 'export'])->name('agricultura.semilla.exportar');
@@ -192,5 +202,5 @@ Route::controller(App\Http\Controllers\AuthController::class)->group(function ()
     });
 
 
-    Route::resource('finanza', \App\Http\Controllers\FinanzaController::class);
-// });
+    // Route::resource('finanza', \App\Http\Controllers\FinanzaController::class);
+});

@@ -1,16 +1,20 @@
 @extends ('main')
 
-@section('app' ) 
 
-<html lang="en">
-<head>
+{{-- <html lang="en">
+<head> --}}
+@section('pre-links')
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Registrate en Agromax</title>
-</head>
-<body class="bg-cover bg-no-repeat bg-center h-screen bg-opacity-90 " style="background-image: url('../img/f1.jpg') ">
-    <form action="{{ route('auth-guardar')}}"  method="post" class="flex justify-center items-center h-screen ">
+@endsection
+    {{-- <title>Registrate en Agromax</title> --}}
+@section('titulo', 'Cambiar Contraseña')
+    {{-- </head> --}}
+@section('app' ) 
+{{-- <body class="bg-cover bg-no-repeat bg-center h-screen bg-opacity-90 " style="background-image: url('../img/f1.jpg') "> --}}
+<div class="bg-cover bg-no-repeat bg-center h-screen bg-opacity-90 " style="background-image: url('{{ asset('img/f1.jpg') }}') ">
+    <form action="{{ route('cambiar-clave')}}"  method="post" class="flex justify-center items-center h-screen ">
         @csrf
         <div class="w-2/3 bg-gradient-to-r from-cyan-700 to-green-700 opacity-80 rounded shadow p-8">
             
@@ -19,28 +23,33 @@
 
             <div>
                 <div class="flex items-center justify-between font-semibold text-white ">
+                    <div class="px-2">
+                        <h3 class="text-lg pl-2 py-1 inline-block">Pregunta de seguridad:</h3>
+                        <h4 class="indent-6 underline text-lg">{{ $pregunta }}</h4>
+                    </div>
                     <div class="px-2 ">
                         <x-bladewind.input
-                            name="respuesta_de_seguridad"
+                            name="respuesta"
                             label="Respuesta:"
                             required="true" 
                             prefix="envelope"
                             prefix_is_icon="true"
-                            value="{{ old('nombre_empresa') }}"
+                            value="{{ old('respuesta') }}"
                             class="border-cyan-700" />
                     </div>
+                </div>
+                <div class="flex items-center justify-between font-semibold text-white ">
                     <div class="px-2 text-white font-semibold">
                         <x-bladewind.input
                             type="password"
-                            name="nueva_contraseña"
+                            name="password"
                             label="Nueva Contraseña:"
                             required="true" 
                             prefix="envelope"
                             prefix_is_icon="true"
-                            value="{{ old('email') }}"
+                            value=""
                             class="border-cyan-700" />
                     </div>
-                </div>
                     <div class="px-2 text-white font-semibold">
                         <x-bladewind.input
                             type="password"

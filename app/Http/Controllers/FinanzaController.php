@@ -22,6 +22,12 @@ class FinanzaController extends Controller
     public function create()
     {
         //
+        return view('ganado.bovino.finanzas.crear',[
+            'naturaleza' => collect([
+                ['label' => 'Acreedora', 'value' => 1],
+                ['label' => 'Deudora', 'value' => 0]
+            ])
+        ]);
     }
 
     /**
@@ -31,7 +37,7 @@ class FinanzaController extends Controller
     {
         //
         $finanza->concepto = $request->concepto;
-        $finanza->naturaleza = $request->naturaleza;    
+        $finanza->naturaleza = !!$request->naturaleza;    
         $finanza->monto = $request->monto;
         $finanza->fecha = $request->fecha;
         $finanza->observaciones = $request->observaciones;
