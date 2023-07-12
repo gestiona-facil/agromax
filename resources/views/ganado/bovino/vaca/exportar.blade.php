@@ -27,7 +27,7 @@
         <div class="contenido__der">
             <div class="contenido__campo">
                 <h3>Alias: </h3>
-                <span>{{ $modelo->ganado->alias ? $modelo->ganado->alias : 'No especificado' }}</span>
+                <span>{{ $modelo->alias ? $modelo->alias : 'No especificado' }}</span>
             </div>
             <div class="contenido__campo">
                 <h3>Fecha de Nacimiento: </h3>
