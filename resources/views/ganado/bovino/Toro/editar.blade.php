@@ -6,7 +6,7 @@
 @section('contenido')
 <body class="bg-gradient-to-r from-cyan-500 to-amber-500">
     <div class="p-2">
-    <form action="{{route('toro.update', ['toro' => $modelo->id ])}})}}" method="POST">
+    <form action="{{ route('toro.update', ['toro' => $modelo->id ]) }}" method="POST">
         @csrf
         @method('PUT')
 

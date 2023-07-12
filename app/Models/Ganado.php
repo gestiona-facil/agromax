@@ -25,6 +25,16 @@ class Ganado extends Model
         return $this->hasMany(Madre::class);
     }
 
+    public function madre()
+    {
+        return $this->belongsTo(Madre::class);
+    }
+
+    public function padre()
+    {
+        return $this->belongsTo(Reproductor::class, 'padre_id');
+    }
+
     public function reproductor()
     {
         return $this->hasMany(Reproductor::class);

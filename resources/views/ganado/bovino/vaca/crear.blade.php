@@ -7,7 +7,7 @@
 <body class="bg-gradient-to-r from-cyan-500 to-amber-500">
 <div class="p-2">
     
-    <form action="{{route('vaca.store')}}" method="POST ">
+    <form action="{{route('vaca.store')}}" method="POST">
         @csrf
         {{-- Valores ocultos --}}
         <input type="hidden" name="tiempo_parto" value="270">{{--En DIAS--}}

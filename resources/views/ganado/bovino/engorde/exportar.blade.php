@@ -15,16 +15,23 @@
                 <span>{{ $modelo->ganado->fecha_nacimiento }}</span>
             </div>
             <div class="contenido__campo">
+                <h3>Padre: </h3>
+                <span>{{ $padre }}</span>
+            </div>
+            <div class="contenido__campo">
                 <h3>Peso Esperado: </h3>
                 <span>{{ $modelo->peso_final }}</span>
             </div>
         </div>
         <!-- Sección derecha -->
         <div class="contenido__der">
-            
             <div class="contenido__campo">
                 <h3>Raza: </h3>
                 <span>{{ $modelo->ganado->raza }}</span>
+            </div>
+            <div class="contenido__campo">
+                <h3>Madre: </h3>
+                <span>{{ $madre }}</span>
             </div>
             <div class="contenido__campo">
                 <h3>Peso Inicial: </h3>

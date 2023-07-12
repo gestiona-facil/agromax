@@ -25,8 +25,21 @@ class EngordeController extends Controller
 
     public function export(Engorde $engorde){
         
+        $madre_engorde = 'No especificado';
+        $padre_engorde = 'No especificado';
+
+        if($engorde->ganado->madre){
+            $madre_engorde = $engorde->ganado->madre->alias ? $engorde->ganado->madre->alias : $engorde->ganado->madre->ganado->identificacion;
+        }
+
+        if($engorde->ganado->padre){
+            $padre_engorde = $engorde->ganado->padre->ganado->identificacion;
+        }
+
         $pdf = Pdf::loadView('ganado.bovino.engorde.exportar', [
-            'modelo' => $engorde
+            'modelo' => $engorde,
+            'madre' => $madre_engorde,
+            'padre' => $padre_engorde
         ]);
 
         return $pdf->download('AGROMAX-'.Str::random(7).'.pdf');
@@ -113,8 +126,21 @@ class EngordeController extends Controller
     public function show(Engorde $engorde)
     {
         //
+        $madre_engorde = 'No especificado';
+        $padre_engorde = 'No especificado';
+
+        if($engorde->ganado->madre){
+            $madre_engorde = $engorde->ganado->madre->alias ? $engorde->ganado->madre->alias : $engorde->ganado->madre->ganado->identificacion;
+        }
+
+        if($engorde->ganado->padre){
+            $padre_engorde = $engorde->ganado->padre->ganado->identificacion;
+        }
+
         return view('ganado.bovino.engorde.mostrar', [
-            'modelo' => $engorde
+            'modelo' => $engorde,
+            'madre' => $madre_engorde,
+            'padre' => $padre_engorde
         ]);
     }
 

@@ -24,7 +24,7 @@ class GanadoController extends Controller
             $ganado->madre_id = $request->madre;
         }
 
-        if(!$request->has('padre')){
+        if($request->has('padre')){
             $ganado->padre_id = $request->padre;
         }
 

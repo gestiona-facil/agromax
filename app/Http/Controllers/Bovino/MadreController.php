@@ -23,9 +23,22 @@ class MadreController extends Controller
     }
 
     public function export(Madre $vaca){
+
+        $madre_vaca = 'No especificado';
+        $padre_vaca = 'No especificado';
+
+        if($vaca->ganado->madre){
+            $madre_vaca = $vaca->ganado->madre->alias ? $vaca->ganado->madre->alias : $vaca->ganado->madre->ganado->identificacion;
+        }
+
+        if($vaca->ganado->padre){
+            $padre_vaca = $vaca->ganado->padre->ganado->identificacion;
+        }
         
         $pdf = Pdf::loadView('ganado.bovino.vaca.exportar', [
-            'modelo' => $vaca
+            'modelo' => $vaca,
+            'madre' => $madre_vaca,
+            'padre' => $padre_vaca
         ]);
 
         return $pdf->download('AGROMAX-'.Str::random(7).'.pdf');
@@ -126,8 +139,21 @@ class MadreController extends Controller
     public function show(Madre $madre)
     {
         //
+        $madre_vaca = 'No especificado';
+        $padre_vaca = 'No especificado';
+
+        if($madre->ganado->madre){
+            $madre_vaca = $madre->ganado->madre->alias ? $madre->ganado->madre->alias : $madre->ganado->madre->ganado->identificacion;
+        }
+
+        if($madre->ganado->padre){
+            $padre_vaca = $madre->ganado->padre->ganado->identificacion;
+        }
+
         return view('ganado.bovino.vaca.mostrar', [
-            'modelo' => $madre
+            'modelo' => $madre,
+            'madre' => $madre_vaca,
+            'padre' => $padre_vaca
         ]);
     }
 
@@ -157,11 +183,11 @@ class MadreController extends Controller
             ->select('reproductors.*')
             ->get()->map(function ($item) use($madre){
                 return $madre->ganado->padre_id == $item->id ? [
-                    'label' => $item->ganado->dentificacion,
+                    'label' => $item->ganado->identificacion,
                     'value' => $item->id,
                     'selected' => true
                 ] : [
-                    'label' => $item->ganado->dentificacion,
+                    'label' => $item->ganado->identificacion,
                     'value' => $item->id
                 ];
             });

@@ -5,7 +5,6 @@
 @section('titulo-contenido', 'Datos de Vaca: '.$modelo->ganado->identificacion)
 
 @section('contenido')
-
 <div>
     <div class="p-b-2 pt-4 px-4 flex justify-between pt-6 pb-8">
         {{-- boton editar --}}
@@ -52,6 +51,18 @@
             </div>
             <h2 class="text-xl border-b border-t py-3 indent-3 border-gray-300 bg-cyan-700/10">Información Secundaria</h2>
             <div class="p-3">
+                <div class="flex flex-row items-center py-3 justify-between">
+                    <div class="w-full">
+                        <p class="flex flex-col text-xl">
+                            <span class="px-2">Madre:</span><span class="indent-6 italic text-2xl font-light">{{ $madre }}</span>
+                        </p>
+                    </div>
+                    <div class="w-full">
+                        <p class="flex flex-col text-xl">
+                            <span class="px-2">Padre:</span><span class="indent-6 italic text-2xl font-light">{{ $padre }}</span>
+                        </p>
+                    </div>
+                </div>
                 <div class="flex flex-row items-center py-3 justify-between">
                     <div class="w-full">
                         <p class="flex flex-col text-xl">

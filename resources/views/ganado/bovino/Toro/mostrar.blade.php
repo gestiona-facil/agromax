@@ -46,7 +46,19 @@
             </div>
             <h2 class="text-xl border-b border-t py-3 indent-3 border-gray-300 bg-cyan-700/10">Información Secundaria</h2>
             <div class="p-3">
-                <div>
+                <div class="flex flex-row items-center py-3 justify-between">
+                    <div class="w-full">
+                        <p class="flex flex-col text-xl">
+                            <span class="px-2">Madre:</span><span class="indent-6 italic text-2xl font-light">{{ $madre }}</span>
+                        </p>
+                    </div>
+                    <div class="w-full">
+                        <p class="flex flex-col text-xl">
+                            <span class="px-2">Padre:</span><span class="indent-6 italic text-2xl font-light">{{ $padre }}</span>
+                        </p>
+                    </div>
+                </div>
+                <div class="pt-6">
                     <x-bladewind.button
                         tag="a"
                         size="tiny"

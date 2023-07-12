@@ -23,9 +23,22 @@ class ReproductorController extends Controller
     }
 
     public function export(Reproductor $toro){
+
+        $madre_toro = 'No especificado';
+        $padre_toro = 'No especificado';
+
+        if($toro->ganado->madre){
+            $madre_toro = $toro->ganado->madre->alias ? $toro->ganado->madre->alias : $toro->ganado->madre->ganado->identificacion;
+        }
+
+        if($toro->ganado->padre){
+            $padre_toro = $toro->ganado->padre->ganado->identificacion;
+        }
         
         $pdf = Pdf::loadView('ganado.bovino.toro.exportar', [
-            'modelo' => $toro
+            'modelo' => $toro,
+            'madre' => $madre_toro,
+            'padre' => $padre_toro
         ]);
 
         return $pdf->download('AGROMAX-'.Str::random(7).'.pdf');
@@ -109,7 +122,24 @@ class ReproductorController extends Controller
     public function show(Reproductor $toro)
     {
         //
-        return view('ganado.bovino.toro.mostrar', ['modelo' => $toro]);
+        // dd($toro->ganado);
+
+        $madre_toro = 'No especificado';
+        $padre_toro = 'No especificado';
+
+        if($toro->ganado->madre){
+            $madre_toro = $toro->ganado->madre->alias ? $toro->ganado->madre->alias : $toro->ganado->madre->ganado->identificacion;
+        }
+
+        if($toro->ganado->padre){
+            $padre_toro = $toro->ganado->padre->ganado->identificacion;
+        }
+
+        return view('ganado.bovino.toro.mostrar', [
+            'modelo' => $toro,
+            'madre' => $madre_toro,
+            'padre' => $padre_toro
+        ]);
     }
 
     /**
@@ -119,11 +149,11 @@ class ReproductorController extends Controller
     {
         //
         $padres = Reproductor::join('ganados', 'reproductors.ganado_id', '=', 'ganados.id')
-        ->where('ganados.tipo', '=', 'bovino')
-        ->where('reproductors.id', '!=', $toro->id)
-        ->select('reproductors.*')
-        ->get()->map(function ($item) use($toro){
-            return $toro->madre_id == $item->id ? [
+            ->where('ganados.tipo', '=', 'bovino')
+            ->where('reproductors.id', '!=', $toro->id)
+            ->select('reproductors.*')
+            ->get()->map(function ($item) use($toro){
+            return $toro->ganado->padre_id == $item->id ? [
                 'label' => $item->alias ? $item->alias : $item->ganado->identificacion,
                 'value' => $item->id,
                 'selected' => true
@@ -137,7 +167,7 @@ class ReproductorController extends Controller
         ->where('ganados.tipo', '=', 'bovino')
         ->select('madres.*')
         ->get()->map(function ($item) use($toro){
-            return $toro->madre_id == $item->id ? [
+            return $toro->ganado->madre_id == $item->id ? [
                 'label' => $item->alias ? $item->alias : $item->ganado->dentificacion,
                 'value' => $item->id,
                 'selected' => true

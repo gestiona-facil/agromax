@@ -3110,12 +3110,6 @@ input:checked + .toggle-bg {
   --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
 }
 
-.from-cyan-600 {
-  --tw-gradient-from: #0891b2 var(--tw-gradient-from-position);
-  --tw-gradient-to: rgb(8 145 178 / 0) var(--tw-gradient-to-position);
-  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
-}
-
 .from-cyan-700 {
   --tw-gradient-from: #0e7490 var(--tw-gradient-from-position);
   --tw-gradient-to: rgb(14 116 144 / 0) var(--tw-gradient-to-position);

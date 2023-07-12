@@ -49,6 +49,18 @@
                 <div class="flex flex-row items-center py-3 justify-between">
                     <div class="w-full">
                         <p class="flex flex-col text-xl">
+                            <span class="px-2">Madre:</span><span class="indent-6 italic text-2xl font-light">{{ $madre }}</span>
+                        </p>
+                    </div>
+                    <div class="w-full">
+                        <p class="flex flex-col text-xl">
+                            <span class="px-2">Padre:</span><span class="indent-6 italic text-2xl font-light">{{ $padre }}</span>
+                        </p>
+                    </div>
+                </div> 
+                <div class="flex flex-row items-center py-3 justify-between">
+                    <div class="w-full">
+                        <p class="flex flex-col text-xl">
                             <span class="px-2">Peso inicial:</span><span class="italic indent-6 text-2xl font-light">{{$modelo->peso_inicial}} Kg</span>
                         </p>
                     </div>

@@ -15,6 +15,10 @@
                 <span>{{ $modelo->ganado->raza }}</span>
             </div>
             <div class="contenido__campo">
+                <h3>Madre: </h3>
+                <span>{{ $madre }}</span>
+            </div>
+            <div class="contenido__campo">
                 <h3>Lecheria: </h3>
                 <span>{{ $modelo->lecheria ? $modelo->lecheria->alias : 'No especificado' }}</span>
             </div>
@@ -28,6 +32,10 @@
             <div class="contenido__campo">
                 <h3>Fecha de Nacimiento: </h3>
                 <span>{{ $modelo->ganado->fecha_nacimiento }}</span>
+            </div>
+            <div class="contenido__campo">
+                <h3>Padre: </h3>
+                <span>{{ $padre }}</span>
             </div>
             <div class="contenido__campo">
                 <h3>Estado de gestación: </h3>
