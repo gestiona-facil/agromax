@@ -5,6 +5,7 @@
 @section('titulo-contenido', 'Listado de Lecherias')
 
 @section('contenido')
+<body class="bg-gradient-to-r from-cyan-500 to-amber-500">
 <div class="p-4">
     <x-bladewind.table
         divider="thin"
@@ -50,5 +51,6 @@
     <div class="p-2">
         {{ $datos->links() }}
     </div>
-</div>
+    </div>
+</body>
 @endsection

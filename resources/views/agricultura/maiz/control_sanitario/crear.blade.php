@@ -1,17 +1,15 @@
-@extends('ganado.bovino.main')
+@extends('agricultura.maiz.main')
 
-@section('titulo', 'Editar Control Sanitario')
+@section('titulo', 'Agregar Control Sanitario')
 
-@section('titulo-contenido', 'Editar Control Sanitario')
+@section('titulo-contenido', 'Agregar Control Sanitario')
 @section('contenido')
-<body class="bg-gradient-to-r from-cyan-500 to-amber-500">
-    <div class="p-2">
-    <form action="{{route('bovino.control-sanitario.update', ['controlSanitarioAnimal' => $modelo->id])}}" method="POST">
+<div class="p-2">
+    <form action="{{route('agricultura.control-sanitario.store')}}" method="POST">
         @csrf
-        @method('put')
         {{-- Valores ocultos --}}
         <input type="hidden" name="redirect" value="{{ back()->getTargetUrl() }}">
-        <input type="hidden" name="ganado" value="{{ $modelo->ganado->id }}">
+        <input type="hidden" name="ganado" value="{{ $ganado->id }}">
 
         <div class="flex flex-row justify-between items-center py-3">
 
@@ -19,7 +17,7 @@
                 <x-bladewind.input
                     label="Ganado:"
                     name="ignore"
-                    value="{{ $modelo->ganado->identificacion }}"
+                    value="{{ $ganado->identificacion }}"
                     disabled
                     class="bg-gray-100 cursor-not-allowed"
                 />
@@ -31,7 +29,7 @@
                     label="Fecha"
                     name="fecha"
                     required="true" 
-                    value="{{ $modelo->fecha }}"
+                    value="{{ date('Y-m-d') }}"
                     class="border-cyan-700"
                 />
             </div>
@@ -41,7 +39,7 @@
                     type="date"
                     label="Proximo control: "
                     name="fecha_control_proximo"
-                    value="{{ $modelo->fecha_control_proximo ? $modelo->fecha_control_proximo : ''}}"
+                    value="{{ date('Y-m-d') }}"
                     class="border-cyan-700"
                 />
             </div>
@@ -60,6 +58,7 @@
         <div class="flex flex-row justify-between items-center py-3">
             <x-bladewind.textarea
                 label="Observaciones: " 
+                name="observaciones"
                 value="{{ old('observaciones') }}"
                 class="border-cyan-700"
             />
@@ -71,6 +70,5 @@
                 class="bg-cyan-700">Agregar</x-bladewind.button>
         </div>
     </form>
-    </div>
-</body>
+</div>
 @endsection

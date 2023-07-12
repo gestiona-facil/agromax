@@ -4,6 +4,7 @@
 
 @section('titulo-contenido', 'Editar Vaca: '.$modelo->ganado->identificacion)
 @section('contenido')
+<body class="bg-gradient-to-r from-cyan-500 to-amber-500">
 <div class="p-2">
     <form action="{{route('vaca.update', ['vaca' => $modelo->id])}}" method="POST">
         @csrf
@@ -56,4 +57,5 @@
         </div>
     </form>
 </div>
+</body>
 @endsection

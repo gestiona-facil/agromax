@@ -4,6 +4,7 @@
 
 @section('titulo-contenido', 'Registrar Toro')
 @section('contenido')
+<body class="bg-gradient-to-r from-cyan-500 to-amber-500">
 <div class="p-2">
     <form action="{{route('toro.store')}}" method="POST">
         @csrf
@@ -31,4 +32,5 @@
         </div>
     </form>
 </div>
+</body>
 @endsection

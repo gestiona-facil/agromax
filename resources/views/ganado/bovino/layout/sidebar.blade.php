@@ -156,6 +156,32 @@
         <p class="text-base leading-4  ">Lista</p>
       </a>
     </div>
+    {{--dropdown para finanzas --}}
+  <div class="flex flex-col justify-start items-center   px-6 border-b border-gray-600 w-full  ">
+    <button id="finanza-btn" class="focus:outline-none focus:text-indigo-400 text-left  text-white font-bold flex justify-between items-center w-full py-5 space-x-14  ">
+      <p class="text-sm leading-5  uppercase">Finanzas</p>
+      <x-bladewind.icon 
+        name="chevron-down" 
+        attr='width="24" 
+        height="24" 
+        data-icon-toggleable
+        class="transform"'
+      />
+    </button>
+    <div data-menu="finanza-btn" class="hidden justify-start  flex-col w-full md:w-auto items-start pb-1 ">
+      <a href="{{ route('finanza.create') }}" class="flex justify-start items-center space-x-6 hover:text-white focus:bg-gray-700 focus:text-white hover:bg-gray-700 text-gray-400 rounded px-3 py-2  w-full md:w-52">
+        <x-bladewind.icon
+          name="plus"
+        />
+        <p class="text-base leading-4  ">Agregar</p>
+      </a>
+      <a href="{{ route('finanza.index') }}" class="flex justify-start items-center space-x-6 hover:text-white focus:bg-gray-700 focus:text-white hover:bg-gray-700 text-gray-400 rounded px-3 py-2  w-full md:w-52">
+        <x-bladewind.icon
+          name="list-bullet"
+        />
+        <p class="text-base leading-4  ">Lista</p>
+      </a>
+    </div>
   </div>
 
 
@@ -190,7 +216,8 @@ function mostrarMenu(id){
   'toro-btn',
   'engorde-btn',
   'levante-btn',
-  'lecheria-btn'
+  'lecheria-btn',
+  'finanza-btn'
 ].forEach((id) => {
   mostrarMenu(id)
 });

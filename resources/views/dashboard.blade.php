@@ -5,7 +5,7 @@
 <head>
 </head>
 <title>Bienvenido</title>
-<body class="bg-cover bg-no-repeat bg-center h-screen" style="background-image: url('../img/fondo8.jpg')">
+<body class="bg-cover bg-no-repeat bg-center full-screen" style="background-image: url('../img/fx.jpg')">
   <header class="bg-cyan-700 text-white p-4 flex justify-between items-center">
     <div class="flex items-center">
       <img src="{{ asset('img/logo.png')}}" class="h-14">
@@ -23,8 +23,8 @@
     
     <div class="md:w-2/3 p-4">
       <div class="bg-cyan-150 p-4">
-        <h2 class="text-2xl font-bold text-white">AGROMAX: Máxima Eficiencia en la Gestión de Granjas Integrales</h2>
-        <p class="text-lg text-white text-justify font-semibold bg-black opacity-50 ">
+        <h2 class="text-3xl font-bold text-white">AGROMAX: Máxima Eficiencia en la Gestión de Granjas Integrales</h2><br>
+        <p class="text-2xl text-black italic text-justify font-bold bg-white opacity-70">
           Agromax es un sistema innovador diseñado para automatizar y optimizar la agro-gestión en granjas integrales,
           permitiendo a los agricultores y ganaderos obtener el máximo provecho de sus actividades de siembra y cría de animales.
           Este sistema revolucionario combina tecnología avanzada con conocimientos agrícolas y pecuarios para ofrecer
@@ -40,9 +40,9 @@
       </div>
 
       <div>
-        <p class="text-lg text-black font-bold text-justify bg-white opacity-60 ">
+        <p class="text-2xl text-black font-bold text-justify bg-white opacity-70 ">
           Una de las características más destacadas de Agromax es su capacidad para gestionar diferentes tipos de animales,
-          incluyendo ganadería bovina, porcina y caprina. El sistema proporciona herramientas específicas para cada tipo de
+          incluyendo ganadería bovina, porcina, caprina, entre otros. El sistema proporciona herramientas específicas para cada tipo de
           animal, permitiendo un control exhaustivo sobre su alimentación, salud, reproducción y crecimiento.
           Esto garantiza que los animales reciban el cuidado adecuado en cada etapa de su desarrollo,
           lo que se traduce en una mejor calidad de vida y un aumento en la productividad.
@@ -52,15 +52,15 @@
 
     <div class="md:w-1/3 p-4">
       <div class="bg-blue-200 p-8 rounded-lg shadow-md">
-        <h2 class="text-2xl font-bold mb-4">Beneficios de una Granja Integral Autosustentable</h2>
+        <h2 class="text-2xl font-bold mb-4">Beneficios de una Granja Integral</h2>
 
         <ul class="list-disc font-bold ml-6">
-          <li class="mb-2">Sostenibilidad ambiental: Una granja integral autosustentable utiliza prácticas agrícolas y ganaderas que minimizan el impacto en el medio ambiente, como la conservación del suelo, el uso eficiente del agua y la reducción de emisiones de gases de efecto invernadero.</li>
+          <li class=" text-xl mb-2">Sostenibilidad ambiental: Una granja integral utiliza prácticas agrícolas y ganaderas que minimizan el impacto en el medio ambiente, como la conservación del suelo y el uso eficiente del agua .</li>
 
-          <li class="mb-2">Producción de alimentos saludables: Al cultivar alimentos de manera orgánica y sin el uso de pesticidas químicos, las granjas integrales autosustentables pueden ofrecer productos más saludables y nutritivos para los consumidores.</li>
+          <li class="text-xl mb-2">Producción de alimentos saludables: Al cultivar alimentos de manera orgánica y sin el uso de tantos pesticidas químicos, las granjas integrales pueden ofrecer productos más saludables y nutritivos para los consumidores.</li>
 
-          <li class="mb-2">Diversificación económica: Estas granjas suelen implementar sistemas agroforestales y criar diferentes tipos de animales, lo que les permite diversificar sus fuentes de ingresos y reducir la dependencia de un solo producto o mercado.</li>
-        </ul>
+          <li class="text-xl mb-2">Diversificación económica: Estas granjas suelen implementar sistemas agroforestales y criar diferentes tipos de animales, lo que les permite diversificar sus fuentes de ingresos y reducir la dependencia de un solo producto o mercado.</li>
+        </ul> <br> <br>
       </div>
     </div>
   </div>

@@ -4,6 +4,7 @@
 
 @section('titulo-contenido', 'Registrar Ganado de Ceba')
 @section('contenido')
+<body class="bg-gradient-to-r from-cyan-500 to-amber-500">
 <div class="p-2">
     <form action="{{route('engorde.store')}}" method="POST">
         @csrf
@@ -79,5 +80,6 @@
                 class="bg-cyan-700">Registrar</x-bladewind.button>
         </div>
     </form>
-</div>
+    </div>
+</body>
 @endsection

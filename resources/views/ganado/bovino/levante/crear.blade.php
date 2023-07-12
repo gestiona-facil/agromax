@@ -4,7 +4,8 @@
 
 @section('titulo-contenido', 'Registrar Levante')
 @section('contenido')
-<div class="p-2">
+<body class="bg-gradient-to-r from-cyan-500 to-amber-500">
+    <div class="p-2">
     <form action="{{route('cria.store')}}" method="POST">
         @csrf
         {{-- Valores ocultos --}}
@@ -50,5 +51,6 @@
                 class="bg-cyan-700">Registrar</x-bladewind.button>
         </div>
     </form>
-</div>
+    </div>
+</body>
 @endsection

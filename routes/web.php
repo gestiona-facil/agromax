@@ -53,6 +53,20 @@ Route::get('/paginap', function (){
     return view('paginap');
 });
 
+Route::get('/pagina2', function (){
+    return view('pagina2');
+});
+
+Route::get('/pagina3', function (){
+    return view('pagina3');
+});
+
+Route::get('/pagina4', function (){
+    return view('pagina4');
+});
+
+
+
 //---- Autenticación
 Route::controller(App\Http\Controllers\AuthController::class)->group(function (){
     //--- login

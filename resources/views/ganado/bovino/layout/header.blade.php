@@ -5,10 +5,11 @@
 
 
   <nav class="space-x-4">
-    <a href="ganados/bovinos/vaca/crear" class="text-gray-300 hover:text-white">Vaca</a>
-    <a href="ganados/bovinos/engorde/crear" class="text-gray-300 hover:text-white">engorde</a>
-    <a href="ganados/bovinos/cria/crear" class="text-gray-300 hover:text-white">Levante</a>
-    <a href="ganados/bovinos/lecheria/crear" class="text-gray-300 hover:text-white">Ordeño</a>
-   <a href="#" class="text-black-300 border:bg-cyan-100 hover:text-white font-bold text-xl"></a>
+    <a href="{{route('vaca.create')}}" class="text-gray-300 hover:text-white font-bold">Vaca</a>
+    <a href="{{ route('engorde.index')}}" class="text-gray-300 hover:text-white font-bold ">engorde</a>
+    <a href="{{ route('cria.create')}}" class="text-gray-300 hover:text-white font-bold">Levante</a>
+    <a href="{{ route('lecheria.create')}}" class="text-gray-300 hover:text-white font-bold">Ordeño</a>
   </nav>
+
+    <x-bladewind.button class="bg-gradient-to-r from-green-600 to-cyan-600 hover:bg-cyan-200 text-white px-4 py-2 rounded">Cerrar Sesión</x-bladewind.button>
 </header>

@@ -4,7 +4,8 @@
 
 @section('titulo-contenido', 'Editar registro de leche')
 @section('contenido')
-<div class="p-2">
+<body class="bg-gradient-to-r from-cyan-500 to-amber-500">
+    <div class="p-2">
     <form action="{{route('bovino.control-lecheria.update', ['controlLecheria' => $modelo->id])}}" method="POST">
         @csrf
         {{-- Valores ocultos --}}
@@ -60,5 +61,6 @@
                 class="bg-cyan-700">Guardar</x-bladewind.button>
         </div>
     </form>
-</div>
+    </div>
+</body>
 @endsection

@@ -4,8 +4,9 @@
 
 @section('titulo-contenido', 'Registrar Siembra')
 @section('contenido')
-<div class="p-2">
-    <form action="{{route('siembra.store')}}" method="POST">
+<body class="bg-cover bg-gradient-to-r from-green-400 to-amber-500 full-screen">
+    <div class="p-2">
+        <form action="{{route('siembra.store')}}" method="POST">
         @csrf
         {{-- Valores ocultos --}}
         <div class="flex flex-row justify-between py-3 items-center">
@@ -62,6 +63,10 @@
                 can_submit="true"
                 class="bg-green-700">Registrar</x-bladewind.button>
         </div>
-    </form>
-</div>
+        </form>
+
+    </div>
+
+    
+</body>
 @endsection
