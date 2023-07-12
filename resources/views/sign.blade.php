@@ -1,16 +1,25 @@
 @extends('main')
 
-@section('app')
-    <form action="{{ route('auth-guardar')}}"  method="post" class="flex justify-center items-center h-screen bg-gradient-to-r from-green-700 to-cyan-700">
+@section('app' ) 
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Registrate en Agromax</title>
+</head>
+<body class="bg-cover bg-no-repeat bg-center h-screen bg-opacity-90 " style="background-image: url('../img/f1.jpg') ">
+    <form action="{{ route('auth-guardar')}}"  method="post" class="flex justify-center items-center h-screen ">
         @csrf
-        <div class="w-2/3 bg-white rounded shadow p-8">
+        <div class="w-2/3 bg-gradient-to-r from-cyan-700 to-green-700 opacity-80 rounded shadow p-8">
             
             <img src="{{ asset('img/logo.png')}}" class="h-14">
             <h1 class="text-2xl font-bold mb-4 text-center">Registra Tus Credenciales</h1>
 
             <div>
-                <div class="flex items-center justify-between">
-                    <div class="px-2">
+                <div class="flex items-center justify-between font-semibold ">
+                    <div class="px-2 ">
                         <x-bladewind.input
                             name="nombre_empresa"
                             label="Nombre de la empresa:"
@@ -86,4 +95,7 @@
             </div>
         </div>
     </form>
+</body>
+</html>
 @endsection
+   

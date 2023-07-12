@@ -9,7 +9,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge"> 
     <title>Bienvenido, has crecer tu siembra con AGROMAX</title> 
 </head> 
-<body class="bg-cover bg-no-repeat bg-center full-screen" style="background-image: url('../img/fondo6.jpg')"> 
+<body class="bg-cover bg-no-repeat bg-center full-screen" style="background-image: url('../img/fondo8.jpg')"> 
     <header class="bg-gradient-to-r from-cyan-700 to-amber-700 text-white p-4 flex justify-between items-center"> 
         <div class="flex items-center"> 
             <img src="{{ asset('img/logo.png')}}" class="h-14"> 
@@ -26,12 +26,12 @@
         <x-bladewind.button class="bg-gradient-to-r from-green-600 to-cyan-600 hover:bg-cyan-200 text-white px-4 py-2 rounded">Cerrar Sesión</x-bladewind.button> 
     </header> 
  
-      <div class="bg-gradient-to-r from-green-800 to-amber-400 p-8 m-4 bg-opacity-50"> 
+      <div class="bg-gradient-to-r from-green-800 to-amber-400 p-8 m-4 "> 
         <p class="text-4xl text-white font-semibold uppercase">Bienvenido a Agromax Producción de Ganadería Bovina</p> 
       </div> 
 
       <div class="container px-8 py-8 flex flex-row justify-between mt-4 space-x-4"> 
-        <ul class="text-white w-full md:w-auto font-extrabold bg-blue-500 bg-opacity-50 p-4 rounded-lg shadow-md"> 
+        <ul class="text-white w-full md:w-auto font-extrabold bg-blue-500 bg-opacity-60 p-4 rounded-lg shadow-md"> 
           <li class="mb-2 font-semibold">Aquí tienes guías y manuales para sacar el máximo provecho a tu producción animal:</li> 
           <!-- Añade aquí más manuales con sus enlaces --> 
           <!-- Ejemplo: --> 
@@ -40,7 +40,7 @@
           <li><a href="<URL>" class="hover:underline text-blue-200">Manual 3</a></li> 
         </ul> 
 
-        <p class="text-white w-full md:w-auto text-right bg-yellow-800 bg-opacity-50 text-xl font-bold p-4 rounded-lg shadow-md">
+        <p class="text-white italic w-full md:w-auto text-right bg-gray-600 bg-opacity-50 text-2xl text-justify font-bold p-4 rounded-lg shadow-md">
           
           Entre las Ventajas que posee AGROMAX para el area de bovinos tenemos<br><br>1. Organización y seguimiento: El sistema permite llevar
            un registro detallado de cada animal, lo que facilita la organización y
@@ -66,7 +66,7 @@
           se pueden tomar decisiones más acertadas que optimicen el uso de recursos como alimento, medicamentos y mano de obra.<br><br>
     
         </p>
-      </div>
+      </div><br><br><br>
 
     <footer class="bg-gradient-to-r from-cyan-700 to-amber-700 text-white p-4 fixed bottom-0 w-full">
             <div class="container mx-auto mt-8">

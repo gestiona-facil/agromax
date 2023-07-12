@@ -5,9 +5,9 @@
   
     <nav class="space-x-4">
       <a href="{{ route('siembra.create')}}" class="text-gray-300 hover:text-white">Siembra</a>
-      <a href="#" class="text-gray-300 hover:text-white">Terreno</a>
-      <a href="#" class="text-gray-300 hover:text-white">Fertilizacion</a>
-      <a href="#" class="text-gray-300 hover:text-white">Semilla</a>
+      <a href="{{ route('terreno.create')}}" class="text-gray-300 hover:text-white">Terreno</a>
+      <a href="{{ route('fertilizacion.create')}}" class="text-gray-300 hover:text-white">Fertilizacion</a>
+      <a href="{{ route('semilla.create')}}" class="text-gray-300 hover:text-white">Semilla</a>
      <a href="#" class="text-black-300 border:bg-cyan-100 hover:text-white font-bold text-xl"></a>
     </nav>
   
