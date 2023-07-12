@@ -11,5 +11,8 @@
     <a href="{{ route('lecheria.create')}}" class="text-gray-300 hover:text-white font-bold">Ordeño</a>
   </nav>
 
-    <x-bladewind.button class="bg-gradient-to-r from-green-600 to-cyan-600 hover:bg-cyan-200 text-white px-4 py-2 rounded">Cerrar Sesión</x-bladewind.button>
+    <x-bladewind.button
+      tag="a"
+      href="{{ route('logout') }}" 
+      class="bg-gradient-to-r from-green-600 to-cyan-600 hover:bg-cyan-200 text-white px-4 py-2 rounded">Cerrar Sesión</x-bladewind.button>
 </header>

@@ -11,5 +11,8 @@
      <a href="#" class="text-black-300 border:bg-cyan-100 hover:text-white  font-bold text-xl"></a>
     </nav>
   
-    <x-bladewind.button class="bg-gradient-to-r from-green-600 to-cyan-600 hover:bg-cyan-200 text-white px-4 py-2 rounded">Cerrar Sesión</x-bladewind.button>
+    <x-bladewind.button
+      tag="a"
+      href="{{ route('logout') }}" 
+      class="bg-gradient-to-r from-green-600 to-cyan-600 hover:bg-cyan-200 text-white px-4 py-2 rounded">Cerrar Sesión</x-bladewind.button>
 </header>

@@ -2,15 +2,20 @@
 
 @section('app') 
 
-<html lang="en"> 
-<head> 
+{{-- <html lang="en"> 
+<head>  --}}
+@section('pre-links')
     <meta charset="UTF-8"> 
     <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
     <meta http-equiv="X-UA-Compatible" content="ie=edge"> 
-    <title>Bienvenido, has crecer tu siembra con AGROMAX</title> 
-</head> 
-<body> 
-    <header class="bg-gradient-to-r from-green-700 to-amber-700 text-white p-4 flex justify-between items-center"> 
+@endsection
+    {{-- <title>Bienvenido, has crecer tu siembra con AGROMAX</title>  --}}
+@section('titulo', 'Bienvenido, has crecer tu siembra con AGROMAX')
+{{-- </head> 
+<body>  --}}
+@section('app')
+<div class="bg-cover bg-no-repeat bg-center full-screen" style="background-image: url('{{ asset('img/fondo1.jpg') }}'">
+    {{-- <header class="bg-gradient-to-r from-green-700 to-amber-700 text-white p-4 flex justify-between items-center"> 
         <div class="flex items-center"> 
           <img src="{{ asset('img/logo.png')}}" class="h-14"> 
         </div> 
@@ -24,8 +29,9 @@
         </nav> 
        
         <x-bladewind.button class="bg-gradient-to-r from-green-600 to-cyan-600 hover:bg-cyan-200 text-white px-4 py-4 rounded">Cerrar Sesión</x-bladewind.button> 
-      </header> 
-      <body class="bg-cover bg-no-repeat bg-center full-screen" style="background-image: url('../img/fondo1.jpg')"> 
+      </header>  --}}
+      @include('agricultura.maiz.layout.header')
+      {{-- <body class="bg-cover bg-no-repeat bg-center full-screen" style="background-image: url('../img/fondo1.jpg')">  --}}
  
         <main class="flex-1 overflow-y-auto p-4 bg-cover bg-center" style="background-image: url('..img/fondo10.jpg')">  
           <div class="max-w-7xl mx-auto bg-white bg-opacity-75 rounded p-4 shadow">  
@@ -80,5 +86,7 @@
       
       </footer> 
      
-</body> 
-</html>
+{{-- </body> 
+</html> --}}
+</div>
+@endsection

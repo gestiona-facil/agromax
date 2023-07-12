@@ -2,17 +2,21 @@
 
 @section('titulo', 'Agromax Bovinos')
 
-@section('app') 
 
-<html lang="en"> 
-<head> 
+{{-- <html lang="en">  --}}
+{{-- <head>  --}}
+@section('pre-links')
     <meta charset="UTF-8"> 
     <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
     <meta http-equiv="X-UA-Compatible" content="ie=edge"> 
-    <title></title> 
-</head> 
-<body class="bg-cover bg-no-repeat bg-center full-screen" style="background-image: url('../img/fondo8.jpg')"> 
-    <header class="bg-gradient-to-r from-cyan-700 to-amber-700 text-white p-4 flex justify-between items-center"> 
+@endsection
+    {{-- <title></title>  --}}
+{{-- </head>  --}}
+
+@section('app') 
+{{-- <body class="bg-cover bg-no-repeat bg-center full-screen" style="background-image: url('../img/fondo8.jpg')">  --}}
+<div class="bg-cover bg-no-repeat bg-center full-screen" style="background-image: url('{{ asset('img/fondo8.jpg') }}')"> 
+    {{-- <header class="bg-gradient-to-r from-cyan-700 to-amber-700 text-white p-4 flex justify-between items-center"> 
         <div class="flex items-center"> 
             <img src="{{ asset('img/logo.png')}}" class="h-14"> 
         </div> 
@@ -26,7 +30,8 @@
         </nav> 
 
         <x-bladewind.button class="bg-gradient-to-r from-green-600 to-cyan-600 hover:bg-cyan-200 text-white px-4 py-2 rounded">Cerrar Sesión</x-bladewind.button> 
-    </header> 
+    </header>  --}}
+    @include('ganado.bovino.layout.header')
  
       <div class="bg-gradient-to-r from-green-800 to-amber-400 p-8 m-4 "> 
         <p class="text-4xl text-white font-semibold uppercase">Bienvenido a Agromax Producción de Ganadería Bovina</p> 
@@ -76,8 +81,8 @@
             <p class="text-center text-white">© Agromax 2023. Todos los derechos reservados.</p>
         </div>
     </footer>
+</div>
+{{-- </body>
 
-</body>
-
-</html>
+</html> --}}
 @endsection

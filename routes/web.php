@@ -31,11 +31,10 @@ Route::get('/dashboard', function (){
     
 });
 
-Route::get('/seleccion', function (){
-    return view('seleccion');
+// Route::get('/seleccion', function (){
+//     return view('seleccion');
+// });
 
-    
-});
 Route::get('/inicio', function (){
     return view('agricultura.maiz.dashboard');
 });
@@ -84,12 +83,20 @@ Route::controller(App\Http\Controllers\AuthController::class)->group(function ()
 //---- Solo Usuario Autenticados
 
 // Route::middleware()->group(function (){
-    
+    //---- Rutas generales
+    Route::get('/seleccion', function (){
+        return view('seleccion');
+    })->name('seleccion');
+
     //---- Rutas para Ganando
     Route::prefix('/ganados')->group(function (){
 
         //---- Rutas especificas para Bovinos
         Route::prefix('bovinos')->group(function(){
+
+            Route::get('/inicio', function (){
+                return view('ganado.bovino.dashboard');
+            })->name('ganado.bovino.inicio');
 
             Route::prefix('control-lecheria')->group(function (){
 
@@ -150,6 +157,10 @@ Route::controller(App\Http\Controllers\AuthController::class)->group(function ()
         
         //---- Rutas especificas para Maiz
         Route::prefix('maiz')->group(function (){
+
+            Route::get('inicio', function (){
+                return view('agricultura.maiz.dashboard');
+            })->name('agricultura.maiz.inicio');
             
             Route::get('terreno/{terreno}/exportar', [App\Http\Controllers\Agricultura\TerrenoController::class, 'export'])->name('agricultura.terreno.exportar');
             Route::get('semilla/{semilla}/exportar', [App\Http\Controllers\Agricultura\SemillaController::class, 'export'])->name('agricultura.semilla.exportar');
