@@ -38,7 +38,7 @@
                     prefix_is_icon="true"
                     class="border-cyan-700"
                 />
-                <a href="#" class="underline text-sm text-gray-300">Recuperar contraseña</a>
+                <a href="recuperar" class="underline text-sm text-gray-300">Recuperar contraseña</a>
             </div>
     
             <div>
