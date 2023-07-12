@@ -16,7 +16,7 @@
         {{-- boton exportar --}}
         <x-bladewind.button
             tag="a" 
-            size="tiny" href="{{ route('bovino.cria.exportar', ['crium' => $modelo->id]) }}}"
+            size="tiny" href="{{ route('bovino.cria.exportar', ['crium' => $modelo->id])}}"
             class="!bg-amber-700"
         >Exportar</x-bladewind.button>
     </div>
@@ -25,21 +25,26 @@
             <h2 class="text-2xl text-white border-b border-t py-3 indent-3 border-cyan-700 bg-cyan-700">Información Principal</h2>
             <div class="p-3">
                 <div class="flex flex-row items-center py-3 justify-between">
-                    <div>
-                        <p class="flex text-xl">
-                            <span class="px-2">Identificación: </span><span class="italic text-2xl font-light">{{$modelo->ganado->identificacion}}</span>
+                    <div class="w-full">
+                        <p class="flex flex-col text-xl">
+                            <span class="px-2">Identificación: </span><span class="italic indent-6 text-2xl font-light">{{$modelo->ganado->identificacion}}</span>
                         </p>
                     </div>
-                    <div>
-                        <p class="flex text-xl">
-                            <span class="px-2">Alias: </span><span class="italic text-2xl font-light">{{$modelo->alias}}</span>
+                    <div class="w-full">
+                        <p class="flex flex-col text-xl">
+                            <span class="px-2">Alias: </span><span class="italic indent-6 text-2xl font-light">{{$modelo->alias}}</span>
                         </p>
                     </div>
                 </div>
                 <div class="flex flex-row items-center py-3 justify-between">
-                    <div>
-                        <p class="flex text-xl">
-                            <span class="px-2">Fecha de nacimiento:</span><span class="italic text-2xl font-light">{{$modelo->ganado->fecha_nacimiento}}</span>
+                    <div class="w-full">
+                        <p class="flex flex-col text-xl">
+                            <span class="px-2">Fecha de nacimiento:</span><span class="italic indent-6 text-2xl font-light">{{$modelo->ganado->fecha_nacimiento}}</span>
+                        </p>
+                    </div>
+                    <div class="w-full">
+                        <p class="flex flex-col text-xl">
+                            <span class="px-2">Sexo:</span><span class="italic indent-6 text-2xl font-light">{{$modelo->ganado->sexo ? 'Macho' : 'Hembra'}}</span>
                         </p>
                     </div>
                 </div>
@@ -57,6 +62,12 @@
         </div>
         <div  class="border-l-2 border-amber-700 border-dashed px-1">
             <h2 class="text-lg text-white border-b border-t py-3 px-1 border-amber-700 bg-gradient-to-r from-cyan-700 to-amber-700">Información Adicional</h2>
+            <div class="p-3">
+                <x-bladewind.tag
+                    :label="$modelo->destetado ? 'Esta destetado' : 'No esta destetado'" 
+                    color="cyan"
+                />
+            </div>
         </div>
     </div>
 </div>

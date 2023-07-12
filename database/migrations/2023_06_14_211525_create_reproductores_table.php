@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('ganado_id');
             $table->string('alias')->nullable();
-            $table->string('tipo_alimentacion');
+            $table->string('tipo_alimentacion')->nullable();
             $table->float('tiempo_madurez');
             $table->timestamps();
         });

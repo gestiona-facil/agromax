@@ -25,13 +25,15 @@
             <h2 class="text-2xl text-white border-b border-t py-3 indent-3 border-cyan-700 bg-cyan-700">Información Principal</h2>
             <div class="p-3">
                 <div class="flex flex-row items-center py-3 justify-between">
-                    <div>
-                        <p class="flex text-xl">
-                            <span class="px-2">Alias: </span><span class="italic text-2xl font-light">{{$modelo->alias}}</span>
+                    <div class="w-full">
+                        <p class="flex flex-col text-xl">
+                            <span class="px-2">Alias: </span><span class="italic indent-6 text-2xl font-light">{{$modelo->alias}}</span>
                         </p>
+                    </div>
+                    <div class="w-full">
                         <div>
-                            <p class="flex text-xl">
-                                <span class="px-2">Meta de producción: </span><span class="italic text-2xl font-light">{{$modelo->cant_meta}} Litros</span>
+                            <p class="flex flex-col text-xl">
+                                <span class="px-2">Meta de producción: </span><span class="italic indent-6 text-2xl font-light">{{$modelo->cant_meta}} Litros</span>
                             </p>
                         </div>
                     </div>
@@ -39,7 +41,7 @@
                 <div class="flex flex-row items-center py-3 justify-between">
                     <p class="flex flex-col text-xl">
                         <span class="px-2">Observaciones: </span>
-                        <p class="italic font-light">{{$modelo->observaciones}}</p>
+                        <span class="italic indent-3 font-light">{{$modelo->observaciones}}</span>
                     </p>
                 </div>
             </div>

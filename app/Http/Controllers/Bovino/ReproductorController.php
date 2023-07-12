@@ -61,9 +61,9 @@ class ReproductorController extends Controller
                 ];
             });
 
-        $padres = Reproductor::join('ganados', 'toros.ganado_id', '=', 'ganados.id')
+        $padres = Reproductor::join('ganados', 'reproductors.ganado_id', '=', 'ganados.id')
             ->where('ganados.tipo', '=', 'bovino')
-            ->select('toros.*')
+            ->select('reproductors.*')
             ->get()->map(function ($item){
                 return [
                     'label' => $item->ganado->identificacion,

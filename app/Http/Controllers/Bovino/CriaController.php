@@ -22,10 +22,10 @@ class CriaController extends Controller
         $this->base = $ganado;
     }
 
-    public function export(Cria $levante){
+    public function export(Cria $crium){
         
-        $pdf = Pdf::loadView('ganado.bovino.cria.exportar', [
-            'modelo' => $levante
+        $pdf = Pdf::loadView('ganado.bovino.levante.exportar', [
+            'modelo' => $crium
         ]);
 
         return $pdf->download('AGROMAX-'.Str::random(7).'.pdf');

@@ -1,4 +1,4 @@
-@extends('ganado.bovino.exportar.main')
+@extends('agricultura.maiz.exportar.main')
 
 @section('contenido')
 <div class="cuerpo">
@@ -14,16 +14,24 @@
                 <h3>Raza: </h3>
                 <span>{{ $modelo->ganado->raza }}</span>
             </div>
+            <div class="contenido__campo">
+                <h3>Lecheria: </h3>
+                <span>{{ $modelo->lecheria ? $modelo->lecheria->alias : 'No especificado' }}</span>
+            </div>
         </div>
         <!-- Sección derecha -->
         <div class="contenido__der">
             <div class="contenido__campo">
                 <h3>Alias: </h3>
-                <span>{{ $modelo->ganado->alias ? $modelo->ganado->alias : 'No tiene alias' }}</span>
+                <span>{{ $modelo->ganado->alias ? $modelo->ganado->alias : 'No especificado' }}</span>
             </div>
             <div class="contenido__campo">
                 <h3>Fecha de Nacimiento: </h3>
                 <span>{{ $modelo->ganado->fecha_nacimiento }}</span>
+            </div>
+            <div class="contenido__campo">
+                <h3>Estado de gestación: </h3>
+                <span>{{ $modelo->gestando ? 'Esta preñada' : 'No esta preñada' }}</span>
             </div>
         <div>
     </div>

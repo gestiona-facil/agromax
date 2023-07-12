@@ -1,5 +1,5 @@
 <!-- component -->
-<div id="Main" class="xl:rounded-r transform  xl:translate-x-0  ease-in-out transition duration-500 flex justify-start items-start h-full  w-full sm:w-64bg-gradient-to-r from-green-700 to-amber-700 border border-gray-700 flex-col">
+<div id="Main" class="xl:rounded-r transform  xl:translate-x-0  ease-in-out transition duration-500 flex justify-start items-start h-full  w-full sm:w-64 bg-gradient-to-r from-green-700 to-amber-700 border border-gray-700 flex-col">
 
     <div class="mt-6 flex flex-col justify-start items-center  pl-4 w-full border-gray-600 border-b space-y-3 pb-5 ">
       <button class="flex jusitfy-start items-center space-x-6 w-full  focus:outline-none  focus:text-indigo-400  text-white rounded ">

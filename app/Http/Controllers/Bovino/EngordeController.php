@@ -124,12 +124,40 @@ class EngordeController extends Controller
     public function edit(Engorde $engorde)
     {
         //
-        return view('ganado.bovino.engorde.editar', [
-            'madres' => Madre::join('ganados', 'madres.ganado_id', '=', 'ganados.id')
+        $madres =  Madre::join('ganados', 'madres.ganado_id', '=', 'ganados.id')
                 ->where('ganados.tipo', '=', 'bovino')
                 ->select('madres.*')
-                ->get(),
-            'padres' => collect([]),
+                ->get()->map(function($item) use($engorde) {
+
+                    return ($engorde->madre && $engorde->madre->id == $item->id) ? [
+                        'label' => $item->alias ? $item->alias : $item->ganado->identificacion,
+                        'value' => $item->id,
+                        'selected' => true
+                    ] : [
+                        'label' => $item->alias ? $item->alias : $item->ganado->identificacion,
+                        'value' => $item->id
+                    ];
+
+                });
+
+        $padres = Reproductor::join('ganados', 'reproductors.ganado_id', '=', 'ganados.id')
+            ->where('ganados.tipo', '=', 'bovino')
+            ->select('reproductors.*')
+            ->get()->map(function($item) use($engorde) {
+
+                return ($engorde->padre && $engorde->padre->id == $item->id) ? [
+                    'label' => $item->alias ? $item->alias : $item->ganado->identificacion,
+                    'value' => $item->id,
+                    'selected' => true
+                ] : [
+                    'label' => $item->alias ? $item->alias : $item->ganado->identificacion,
+                    'value' => $item->id
+                ];
+            });
+
+        return view('ganado.bovino.engorde.editar', [
+            'madres' => $madres,
+            'padres' => $padres,
             'modelo' => $engorde
         ]);
     }

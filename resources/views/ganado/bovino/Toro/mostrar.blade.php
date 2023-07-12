@@ -25,16 +25,21 @@
             <h2 class="text-2xl text-white border-b border-t py-3 indent-3 border-cyan-700 bg-cyan-700">Información Principal</h2>
             <div class="p-3">
                 <div class="flex flex-row items-center py-3 justify-between">
-                    <div>
-                        <p class="flex text-xl">
-                            <span class="px-2">Identificación: </span><span class="italic text-2xl font-light">{{$modelo->ganado->identificacion}}</span>
+                    <div class="w-full">
+                        <p class="flex flex-col text-xl">
+                            <span class="px-2">Identificación: </span><span class="italic indent-6 text-2xl font-light">{{$modelo->ganado->identificacion}}</span>
+                        </p>
+                    </div>
+                    <div class="w-full">
+                        <p class="flex flex-col text-xl">
+                            <span class="px-2">Raza: </span><span class="italic indent-6 text-2xl font-light">{{$modelo->ganado->raza}}</span>
                         </p>
                     </div>
                 </div>
                 <div class="flex flex-row items-center py-3 justify-between">
-                    <div>
-                        <p class="flex text-xl">
-                            <span class="px-2">Fecha de nacimiento:</span><span class="italic text-2xl font-light">{{$modelo->ganado->fecha_nacimiento}}</span>
+                    <div class="w-full">
+                        <p class="flex flex-col text-xl">
+                            <span class="px-2">Fecha de nacimiento:</span><span class="italic indent-6 text-2xl font-light">{{$modelo->ganado->fecha_nacimiento}}</span>
                         </p>
                     </div>
                 </div>

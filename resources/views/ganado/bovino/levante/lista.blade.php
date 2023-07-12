@@ -19,8 +19,14 @@
             @foreach($datos->items() as $dato)
                 <tr>
                     <td class="font-bold">{{ $loop->iteration }}</td>
-                    <td><a class="text-amber-700 underline hover:text-cyan-700" href="{{ route('cria.show', ['crium' => $dato->id])}}">{{ $dato->ganado->identificacion}}</a></td>
-                    <td>{{ $dato->alias}}</td>
+                    <td><a class="text-amber-700 underline hover:text-cyan-700" href="{{ route('cria.show', ['crium' => $dato->id])}}">{{ $dato->ganado->alias ? $dato->ganado->alias : $dato->ganado->identificacion}}</a></td>
+                    <td>
+                        @if($dato->destetado)
+                            <span class="font-bold">Destetado</span>
+                        @else
+                            <span class="font-bold">No destetado</span>
+                        @endif
+                    </td>
                     <td class="flex justify-start">
                         <x-bladewind.button
                             class="bg-cyan-700" 

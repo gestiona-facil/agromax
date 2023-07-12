@@ -42,7 +42,7 @@
             @endforeach
         @else 
             <tr>
-                <td colspan="4">Aún no existen registros de Toros</td>
+                <td colspan="4" class="text-center">Aún no existen registros de Toros</td>
             </tr>
         @endif
     </x-bladewind.table>
