@@ -64,6 +64,9 @@ Route::get('/pagina3', function (){
 Route::get('/pagina4', function (){
     return view('pagina4');
 });
+Route::get('/recuperar', function (){
+    return view('recuperar');
+});
 
 
 
